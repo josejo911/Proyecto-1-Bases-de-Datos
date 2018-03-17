@@ -12,7 +12,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("SQLPane.fxml"));
         primaryStage.setTitle("MiSICUEL");
-        primaryStage.setScene(new Scene(root, 750, 700));
+        primaryStage.setScene(new Scene(root, 740, 600));
         primaryStage.show();
     }
 
