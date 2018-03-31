@@ -55,8 +55,9 @@ SET: 'SET'|'set';
 WHERE: 'WHERE' | 'where';
 DELETE: 'DELETE'|'delete';
 SEMICOLON: ';';
-WHITESPACE: (' '|'\n'|'\t'|'\f'|'\r\n'|'\r'){skip();};
-COMMENTS: '//'(~('\r'|'\n'))*{skip();};
+WS :
+    [ \t\r\n]+ -> skip
+    ;
 
 fragment LETTER: ('a'..'z'|'A'..'Z');
 fragment DIGIT: '0'..'9';

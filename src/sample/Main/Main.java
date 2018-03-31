@@ -1,5 +1,10 @@
 package sample.Main;
-
+/*
+* Universidad del Valle de Guatemala
+* Nombres:
+* Marlon Fuentes
+* Jose Jo
+* Diego */
 import com.jfoenix.controls.JFXTabPane;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("SQLPane.fxml"));
-        primaryStage.setTitle("MiSICUEL");
+        primaryStage.setTitle("Data base manager");
         primaryStage.setScene(new Scene(root, 740, 600));
         primaryStage.show();
     }
