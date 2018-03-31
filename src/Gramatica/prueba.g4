@@ -58,7 +58,9 @@ SEMICOLON: ';';
 WS :
     [ \t\r\n]+ -> skip
     ;
-
+COMMENTS:
+    ['//']*->skip
+    ;
 fragment LETTER: ('a'..'z'|'A'..'Z');
 fragment DIGIT: '0'..'9';
 
