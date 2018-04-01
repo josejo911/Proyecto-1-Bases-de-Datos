@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 /**
  * Universidad del Valle de Guatemala
- * Nombres: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Nombres: Marlon Fuentes, Jose Jo, Diego Alvares
  * Clase controladora de la interfaz grafica. */
 
 public class Controller implements Initializable {
@@ -44,6 +44,7 @@ public class Controller implements Initializable {
             dbTextArea.setText(String.valueOf(sb));
 
         }else{
+            AlertWindow.theAlertWindow("File Error", "Chosen File has no Content");
 
 
         }

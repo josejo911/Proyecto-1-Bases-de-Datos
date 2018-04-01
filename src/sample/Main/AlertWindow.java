@@ -1,7 +1,10 @@
 package sample.Main;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -20,8 +23,17 @@ public class AlertWindow {
         label.setText(alert);
         //Boton de salida
         JFXButton button = new JFXButton("SALIR");
-        //funcionabilidad para salir. 
+        //funcionabilidad para salir.
         button.setOnAction(e->window.close());
+        //layout
+        VBox layout = new VBox(10);
+        //AGREGAR elementos y centrarlos
+        layout.getChildren().addAll(label,button);
+        layout.setAlignment(Pos.CENTER);
+        //genera la escena
+        Scene scene = new Scene(layout);
+        window.setScene(scene);
+        window.showAndWait();
 
     }
 
