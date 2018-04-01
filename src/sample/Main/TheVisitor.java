@@ -5,7 +5,12 @@ import Gramatica.pruebaParser;
 
 public class TheVisitor extends pruebaBaseVisitor<String> {
 
-    @Override public String visitSqlScript(pruebaParser.SqlScriptContext ctx) { return visitChildren(ctx); }
+    @Override public String visitSqlScript(pruebaParser.SqlScriptContext ctx) {
+
+
+
+
+        return visitChildren(ctx); }
 
     @Override
     public String visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {
