@@ -2,8 +2,13 @@ package sample.Main;
 
 import Gramatica.pruebaBaseVisitor;
 import Gramatica.pruebaParser;
+import org.antlr.runtime.tree.TreeVisitor;
+import org.codehaus.jettison.json.JSONException;
 
-public class TheVisitor extends pruebaBaseVisitor<String> {
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     private String texto; // Variable para almacenar texto de errores y resultados.
     private DatabaseManager dbManager; // Objeto para acceder a metodos de manejo de la BD
@@ -14,298 +19,325 @@ public class TheVisitor extends pruebaBaseVisitor<String> {
     }
 
 
-    @Override public String visitSqlScript(pruebaParser.SqlScriptContext ctx) {
+    @Override public Tipo visitSqlScript(pruebaParser.SqlScriptContext ctx) {
 
-
-        return visitChildren(ctx); }
-
-    @Override
-    public String visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {
-        return super.visitSqlCreateDB(ctx);
+        Tipo tipo = visitChildren(ctx);
+        if (tipo != null) {
+            if (!dbManager.getInserts().isEmpty()) {
+                try {
+                    dbManager.insert(dbManager.getInserts()); // Se llama al metodo de los inserts
+                } catch (JSONException ex) {
+                    Tipo error = new Error("Error en Insert");
+                    texto = texto + error.getName() + "\n";
+                    Logger.getLogger(TreeVisitor.class.getName()).log(Level.SEVERE, null, ex);
+                    return error;
+                }
+            }
+            return tipo;
+        } else {
+            texto = "Codigo incorrecto o vacio";
+            return tipo;
+        }
     }
 
     @Override
-    public String visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx) {
+    public Tipo visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {
+        String databaseName= ctx.getText();
+
+        if(dbManager.createDatabase(databaseName)){
+            Tipo tipo = new Valido("Base de datos: " + databaseName + " creada");
+            texto = texto + tipo.getName() + "\n";
+            return tipo;
+        }
+        else{
+            Tipo tipo = new Error("Error: Creacion de base de datos :" + databaseName);
+            texto = texto + tipo.getName()+ "\n";
+            return tipo;
+        }
+    }
+
+    @Override
+    public Tipo visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx) {
         return super.visitSqlAlterDB(ctx);
     }
 
     @Override
-    public String visitSqlDropDB(pruebaParser.SqlDropDBContext ctx) {
+    public Tipo visitSqlDropDB(pruebaParser.SqlDropDBContext ctx) {
         return super.visitSqlDropDB(ctx);
     }
 
     @Override
-    public String visitSqlShowDB(pruebaParser.SqlShowDBContext ctx) {
+    public Tipo visitSqlShowDB(pruebaParser.SqlShowDBContext ctx) {
         return super.visitSqlShowDB(ctx);
     }
 
     @Override
-    public String visitSqlUseDB(pruebaParser.SqlUseDBContext ctx) {
+    public Tipo visitSqlUseDB(pruebaParser.SqlUseDBContext ctx) {
         return super.visitSqlUseDB(ctx);
     }
 
     @Override
-    public String visitSqlCreateTB(pruebaParser.SqlCreateTBContext ctx) {
+    public Tipo visitSqlCreateTB(pruebaParser.SqlCreateTBContext ctx) {
         return super.visitSqlCreateTB(ctx);
     }
 
     @Override
-    public String visitSqlAlterTB(pruebaParser.SqlAlterTBContext ctx) {
+    public Tipo visitSqlAlterTB(pruebaParser.SqlAlterTBContext ctx) {
         return super.visitSqlAlterTB(ctx);
     }
 
     @Override
-    public String visitSqlDropTB(pruebaParser.SqlDropTBContext ctx) {
+    public Tipo visitSqlDropTB(pruebaParser.SqlDropTBContext ctx) {
         return super.visitSqlDropTB(ctx);
     }
 
     @Override
-    public String visitSqlShowTB(pruebaParser.SqlShowTBContext ctx) {
+    public Tipo visitSqlShowTB(pruebaParser.SqlShowTBContext ctx) {
         return super.visitSqlShowTB(ctx);
     }
 
     @Override
-    public String visitSqlShowColumns(pruebaParser.SqlShowColumnsContext ctx) {
+    public Tipo visitSqlShowColumns(pruebaParser.SqlShowColumnsContext ctx) {
         return super.visitSqlShowColumns(ctx);
     }
 
     @Override
-    public String visitSqlInsertTB(pruebaParser.SqlInsertTBContext ctx) {
+    public Tipo visitSqlInsertTB(pruebaParser.SqlInsertTBContext ctx) {
         return super.visitSqlInsertTB(ctx);
     }
 
     @Override
-    public String visitSqlUpdateTB(pruebaParser.SqlUpdateTBContext ctx) {
+    public Tipo visitSqlUpdateTB(pruebaParser.SqlUpdateTBContext ctx) {
         return super.visitSqlUpdateTB(ctx);
     }
 
     @Override
-    public String visitSqlDeleteTB(pruebaParser.SqlDeleteTBContext ctx) {
+    public Tipo visitSqlDeleteTB(pruebaParser.SqlDeleteTBContext ctx) {
         return super.visitSqlDeleteTB(ctx);
     }
 
     @Override
-    public String visitSqlSelectTB(pruebaParser.SqlSelectTBContext ctx) {
+    public Tipo visitSqlSelectTB(pruebaParser.SqlSelectTBContext ctx) {
         return super.visitSqlSelectTB(ctx);
     }
 
     @Override
-    public String visitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx) {
+    public Tipo visitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx) {
         return super.visitCreateDatabaseRule(ctx);
     }
 
     @Override
-    public String visitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx) {
+    public Tipo visitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx) {
         return super.visitAlterDatabaseRule(ctx);
     }
 
     @Override
-    public String visitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx) {
+    public Tipo visitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx) {
         return super.visitDropDatabaseRule(ctx);
     }
 
     @Override
-    public String visitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx) {
+    public Tipo visitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx) {
         return super.visitShowDatabaseRule(ctx);
     }
 
     @Override
-    public String visitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx) {
+    public Tipo visitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx) {
         return super.visitUseDatabaseRule(ctx);
     }
 
     @Override
-    public String visitCreateTableRule(pruebaParser.CreateTableRuleContext ctx) {
+    public Tipo visitCreateTableRule(pruebaParser.CreateTableRuleContext ctx) {
         return super.visitCreateTableRule(ctx);
     }
 
     @Override
-    public String visitInt(pruebaParser.IntContext ctx) {
+    public Tipo visitInt(pruebaParser.IntContext ctx) {
         return super.visitInt(ctx);
     }
 
     @Override
-    public String visitFloat(pruebaParser.FloatContext ctx) {
+    public Tipo visitFloat(pruebaParser.FloatContext ctx) {
         return super.visitFloat(ctx);
     }
 
     @Override
-    public String visitDate(pruebaParser.DateContext ctx) {
+    public Tipo visitDate(pruebaParser.DateContext ctx) {
         return super.visitDate(ctx);
     }
 
     @Override
-    public String visitChar(pruebaParser.CharContext ctx) {
+    public Tipo visitChar(pruebaParser.CharContext ctx) {
         return super.visitChar(ctx);
     }
 
     @Override
-    public String visitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx) {
+    public Tipo visitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx) {
         return super.visitPrimaryKeyConstraintRule(ctx);
     }
 
     @Override
-    public String visitForeignKeyConstraintRule(pruebaParser.ForeignKeyConstraintRuleContext ctx) {
+    public Tipo visitForeignKeyConstraintRule(pruebaParser.ForeignKeyConstraintRuleContext ctx) {
         return super.visitForeignKeyConstraintRule(ctx);
     }
 
     @Override
-    public String visitCheckConstraintRule(pruebaParser.CheckConstraintRuleContext ctx) {
+    public Tipo visitCheckConstraintRule(pruebaParser.CheckConstraintRuleContext ctx) {
         return super.visitCheckConstraintRule(ctx);
     }
 
     @Override
-    public String visitPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx) {
+    public Tipo visitPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx) {
         return super.visitPrimaryKeyRule(ctx);
     }
 
     @Override
-    public String visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx) {
+    public Tipo visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx) {
         return super.visitForeignKeyRule(ctx);
     }
 
     @Override
-    public String visitCheckRule(pruebaParser.CheckRuleContext ctx) {
+    public Tipo visitCheckRule(pruebaParser.CheckRuleContext ctx) {
         return super.visitCheckRule(ctx);
     }
 
     @Override
-    public String visitAndLogicRule(pruebaParser.AndLogicRuleContext ctx) {
+    public Tipo visitAndLogicRule(pruebaParser.AndLogicRuleContext ctx) {
         return super.visitAndLogicRule(ctx);
     }
 
     @Override
-    public String visitOrLogicRule(pruebaParser.OrLogicRuleContext ctx) {
+    public Tipo visitOrLogicRule(pruebaParser.OrLogicRuleContext ctx) {
         return super.visitOrLogicRule(ctx);
     }
 
     @Override
-    public String visitIdValueFormatRule(pruebaParser.IdValueFormatRuleContext ctx) {
+    public Tipo visitIdValueFormatRule(pruebaParser.IdValueFormatRuleContext ctx) {
         return super.visitIdValueFormatRule(ctx);
     }
 
     @Override
-    public String visitNumValueFormatRule(pruebaParser.NumValueFormatRuleContext ctx) {
+    public Tipo visitNumValueFormatRule(pruebaParser.NumValueFormatRuleContext ctx) {
         return super.visitNumValueFormatRule(ctx);
     }
 
     @Override
-    public String visitDateFormatRule(pruebaParser.DateFormatRuleContext ctx) {
+    public Tipo visitDateFormatRule(pruebaParser.DateFormatRuleContext ctx) {
         return super.visitDateFormatRule(ctx);
     }
 
     @Override
-    public String visitCharFormatRule(pruebaParser.CharFormatRuleContext ctx) {
+    public Tipo visitCharFormatRule(pruebaParser.CharFormatRuleContext ctx) {
         return super.visitCharFormatRule(ctx);
     }
 
     @Override
-    public String visitAllSelectFormatRule(pruebaParser.AllSelectFormatRuleContext ctx) {
+    public Tipo visitAllSelectFormatRule(pruebaParser.AllSelectFormatRuleContext ctx) {
         return super.visitAllSelectFormatRule(ctx);
     }
 
     @Override
-    public String visitIdSelectFormatRule(pruebaParser.IdSelectFormatRuleContext ctx) {
+    public Tipo visitIdSelectFormatRule(pruebaParser.IdSelectFormatRuleContext ctx) {
         return super.visitIdSelectFormatRule(ctx);
     }
 
     @Override
-    public String visitAscOrderFormatRule(pruebaParser.AscOrderFormatRuleContext ctx) {
+    public Tipo visitAscOrderFormatRule(pruebaParser.AscOrderFormatRuleContext ctx) {
         return super.visitAscOrderFormatRule(ctx);
     }
 
     @Override
-    public String visitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx) {
+    public Tipo visitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx) {
         return super.visitDescOrderFormatRule(ctx);
     }
 
     @Override
-    public String visitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx) {
+    public Tipo visitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx) {
         return super.visitNotExpressionRule(ctx);
     }
 
     @Override
-    public String visitLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx) {
+    public Tipo visitLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx) {
         return super.visitLogicExpressionRule(ctx);
     }
 
     @Override
-    public String visitRelationalExpressionRule(pruebaParser.RelationalExpressionRuleContext ctx) {
+    public Tipo visitRelationalExpressionRule(pruebaParser.RelationalExpressionRuleContext ctx) {
         return super.visitRelationalExpressionRule(ctx);
     }
 
     @Override
-    public String visitNumExpressionRule(pruebaParser.NumExpressionRuleContext ctx) {
+    public Tipo visitNumExpressionRule(pruebaParser.NumExpressionRuleContext ctx) {
         return super.visitNumExpressionRule(ctx);
     }
 
     @Override
-    public String visitIdExpressionRule(pruebaParser.IdExpressionRuleContext ctx) {
+    public Tipo visitIdExpressionRule(pruebaParser.IdExpressionRuleContext ctx) {
         return super.visitIdExpressionRule(ctx);
     }
 
     @Override
-    public String visitAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx) {
+    public Tipo visitAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx) {
         return super.visitAlterTableIdRule(ctx);
     }
 
     @Override
-    public String visitAlterTableActionRule(pruebaParser.AlterTableActionRuleContext ctx) {
+    public Tipo visitAlterTableActionRule(pruebaParser.AlterTableActionRuleContext ctx) {
         return super.visitAlterTableActionRule(ctx);
     }
 
     @Override
-    public String visitActionAddColumnRule(pruebaParser.ActionAddColumnRuleContext ctx) {
+    public Tipo visitActionAddColumnRule(pruebaParser.ActionAddColumnRuleContext ctx) {
         return super.visitActionAddColumnRule(ctx);
     }
 
     @Override
-    public String visitActionAddConstraintRule(pruebaParser.ActionAddConstraintRuleContext ctx) {
+    public Tipo visitActionAddConstraintRule(pruebaParser.ActionAddConstraintRuleContext ctx) {
         return super.visitActionAddConstraintRule(ctx);
     }
 
     @Override
-    public String visitActionDropColumnRule(pruebaParser.ActionDropColumnRuleContext ctx) {
+    public Tipo visitActionDropColumnRule(pruebaParser.ActionDropColumnRuleContext ctx) {
         return super.visitActionDropColumnRule(ctx);
     }
 
     @Override
-    public String visitActionDropConstraintRule(pruebaParser.ActionDropConstraintRuleContext ctx) {
+    public Tipo visitActionDropConstraintRule(pruebaParser.ActionDropConstraintRuleContext ctx) {
         return super.visitActionDropConstraintRule(ctx);
     }
 
     @Override
-    public String visitDropTableRule(pruebaParser.DropTableRuleContext ctx) {
+    public Tipo visitDropTableRule(pruebaParser.DropTableRuleContext ctx) {
         return super.visitDropTableRule(ctx);
     }
 
     @Override
-    public String visitShowTablesRule(pruebaParser.ShowTablesRuleContext ctx) {
+    public Tipo visitShowTablesRule(pruebaParser.ShowTablesRuleContext ctx) {
         return super.visitShowTablesRule(ctx);
     }
 
     @Override
-    public String visitShowColumnsRule(pruebaParser.ShowColumnsRuleContext ctx) {
+    public Tipo visitShowColumnsRule(pruebaParser.ShowColumnsRuleContext ctx) {
         return super.visitShowColumnsRule(ctx);
     }
 
     @Override
-    public String visitInsertIntoRule(pruebaParser.InsertIntoRuleContext ctx) {
+    public Tipo visitInsertIntoRule(pruebaParser.InsertIntoRuleContext ctx) {
         return super.visitInsertIntoRule(ctx);
     }
 
     @Override
-    public String visitUpdateRule(pruebaParser.UpdateRuleContext ctx) {
+    public Tipo visitUpdateRule(pruebaParser.UpdateRuleContext ctx) {
         return super.visitUpdateRule(ctx);
     }
 
     @Override
-    public String visitDeleteFromRule(pruebaParser.DeleteFromRuleContext ctx) {
+    public Tipo visitDeleteFromRule(pruebaParser.DeleteFromRuleContext ctx) {
         return super.visitDeleteFromRule(ctx);
     }
 
     @Override
-    public String visitSelectRule(pruebaParser.SelectRuleContext ctx) {
+    public Tipo visitSelectRule(pruebaParser.SelectRuleContext ctx) {
         return super.visitSelectRule(ctx);
     }
 
