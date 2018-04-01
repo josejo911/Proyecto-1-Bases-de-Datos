@@ -1,6 +1,4 @@
 
-
-package org.proyecto.logica;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,7 +13,7 @@ import org.codehaus.jettison.json.JSONObject;
 public class DatabaseManager {
 
         // objeto Filemanager para usar metodos de creacion de archivos y directorios
-	FileManager fm = new FileManager();
+	TypeWritter TW = new TypeWritter();
 	String dbName;
         ArrayList<InsertStructure> inserts; // estructura para almacenar todos los inserts si hay
         private boolean verboseActivated;
@@ -31,21 +29,21 @@ public class DatabaseManager {
        
 	public boolean createDatabase(String dbName){
                 if(verboseActivated) System.out.println("Verbose: Creando Base de Datos");
-		return fm.crearCarpeta(dbName);
+		return TW.crearCarpeta(dbName);
 	}
 	
 	public boolean alterDatabase(String oldDbName, String newDbName){
                 if(verboseActivated) System.out.println("Verbose: Modificando Base de Datos");
-		return fm.renombrarCarpeta(oldDbName, newDbName);
+		return TW.renombrarCarpeta(oldDbName, newDbName);
 	}
 	
 	public boolean deleteDatabase(String dbName){
                 if(verboseActivated) System.out.println("Verbose: Eliminando Base de Datos");
-		return fm.borrarCarpeta(dbName);
+		return TW.borrarCarpeta(dbName);
 	}
 	
 	public ArrayList<String> showAllDatabases(){
-		return fm.getAllFolders();
+		return TW.getAllFolders();
 	}
 	
 	public boolean useDatabase(String dbName){
@@ -62,7 +60,7 @@ public class DatabaseManager {
 	}
 	
 	public ArrayList<String> showAllTables(){
-            ArrayList<String> files = fm.getAllFiles(dbName);
+            ArrayList<String> files = TW.getAllFiles(dbName);
             ArrayList<String> tables = new ArrayList<>();
             for (String file : files) {
                 String fileName = file.substring(0, file.indexOf("."));
@@ -77,7 +75,7 @@ public class DatabaseManager {
             ArrayList<String> tables = showAllTables();
             for (String table : tables) {
                 String tableName = table + ".rels";
-                String fileContent = fm.leerArchivo(tableName, dbName);
+                String fileContent = TW.leerArchivo(tableName, dbName);
                 JSONArray currentForeigns = new JSONArray(fileContent);
                 for(int i = 0; i < currentForeigns.length(); i++){
                     if(currentForeigns.getJSONObject(i).getString("type").equals("foreign")){
@@ -159,7 +157,7 @@ public class DatabaseManager {
         
         public JSONArray getAllColumns(String table){
             
-            String fileContent = fm.leerArchivo(table + ".cols", dbName);
+            String fileContent = TW.leerArchivo(table + ".cols", dbName);
             JSONArray jsonArray=null;
             try {
                 jsonArray = new JSONArray(fileContent);
@@ -171,7 +169,7 @@ public class DatabaseManager {
         }
         
         public JSONArray getAllConstraints(String table){
-            String fileContent = fm.leerArchivo(table + ".rels", dbName);
+            String fileContent = TW.leerArchivo(table + ".rels", dbName);
             JSONArray jsonArray= new JSONArray();
             try {
                 jsonArray = new JSONArray(fileContent);
@@ -185,7 +183,7 @@ public class DatabaseManager {
                                    String conditionValue,String constraintName){
             boolean success = false;
             String tableName = table + ".rels";
-            String fileContent = fm.leerArchivo(tableName, dbName);
+            String fileContent = TW.leerArchivo(tableName, dbName);
             if(columnExist(table, column)){
                 JSONArray jsonArray;
                 try {
@@ -197,7 +195,7 @@ public class DatabaseManager {
                     jsonObject.put("conditionValue", conditionValue);
                     jsonObject.put("name", constraintName);
                     jsonArray.put(jsonObject);
-                    fm.escribirArchivo(tableName, dbName, jsonArray.toString());
+                    TW.escribirArchivo(tableName, dbName, jsonArray.toString());
                     success = true;
                 } catch (JSONException ex) {
 
@@ -211,7 +209,7 @@ public class DatabaseManager {
             boolean success = false;
             
             String tableName = table + ".rels";
-            String fileContent = fm.leerArchivo(tableName, dbName);
+            String fileContent = TW.leerArchivo(tableName, dbName);
             if(columnExist(table, column)){
                 JSONArray jsonArray;
                 try {
@@ -223,7 +221,7 @@ public class DatabaseManager {
                     jsonObject.put("referenceColumn", referenceColumn);
                     jsonObject.put("referenceTable", referenceTable);
                     jsonArray.put(jsonObject);
-                    fm.escribirArchivo(tableName, dbName, jsonArray.toString());
+                    TW.escribirArchivo(tableName, dbName, jsonArray.toString());
                     success = true;
                 } catch (JSONException ex) {
 
@@ -239,7 +237,7 @@ public class DatabaseManager {
         public boolean createPrimaryKey(String table, String column, String constraint){
             boolean success = false;
             String tableName = table + ".rels";
-            String fileContent = fm.leerArchivo(tableName, dbName);
+            String fileContent = TW.leerArchivo(tableName, dbName);
             if(columnExist(table, column)){
                 JSONArray jsonArray;
                 try {
@@ -249,7 +247,7 @@ public class DatabaseManager {
                     jsonObject.put("column", column);
                     jsonObject.put("name", constraint);
                     jsonArray.put(jsonObject);
-                    fm.escribirArchivo(tableName, dbName, jsonArray.toString());
+                    TW.escribirArchivo(tableName, dbName, jsonArray.toString());
                     success = true;
                 } catch (JSONException ex) {
 
@@ -263,9 +261,9 @@ public class DatabaseManager {
             if(this.dbName!=null){
 		try{
 			String text = "";
-			fm.crearArchivo(s + ".json", dbName);
-			fm.crearArchivo(s + ".cols", dbName);
-			fm.crearArchivo(s + ".rels", dbName);
+			TW.crearArchivo(s + ".json", dbName);
+			TW.crearArchivo(s + ".cols", dbName);
+			TW.crearArchivo(s + ".rels", dbName);
 			
                         JSONArray array = new JSONArray();
                         JSONObject object;
@@ -281,14 +279,14 @@ public class DatabaseManager {
 			}
 
 			//text = text.substring(0, text.length()-1);
-			fm.escribirArchivo(s + ".cols", dbName, array.toString());
-			fm.escribirArchivo(s + ".rels", dbName, "[]");
-                        fm.escribirArchivo(s + ".json", dbName, "[]");
+			TW.escribirArchivo(s + ".cols", dbName, array.toString());
+			TW.escribirArchivo(s + ".rels", dbName, "[]");
+                        TW.escribirArchivo(s + ".json", dbName, "[]");
 			return 1;
 		}catch(Exception e){
-			fm.borrarArchivo(s + ".json", dbName);
-			fm.borrarArchivo(s + ".cols", dbName);
-			fm.borrarArchivo(s + ".rels", dbName);
+			TW.borrarArchivo(s + ".json", dbName);
+			TW.borrarArchivo(s + ".cols", dbName);
+			TW.borrarArchivo(s + ".rels", dbName);
 			return 0;
 		}
             }
@@ -299,17 +297,17 @@ public class DatabaseManager {
 	
 	public boolean alterTableName(String tNameOld, String tNameNew){
                 if(verboseActivated) System.out.println("Verbose: Modificando tabla...");
-		fm.renombrarArchivo(tNameOld + ".json", tNameNew + ".json", dbName);
-		fm.renombrarArchivo(tNameOld + ".cols", tNameNew + ".cols", dbName);
-		return fm.renombrarArchivo(tNameOld + ".rels", tNameNew + ".rels", dbName);
+		TW.renombrarArchivo(tNameOld + ".json", tNameNew + ".json", dbName);
+		TW.renombrarArchivo(tNameOld + ".cols", tNameNew + ".cols", dbName);
+		return TW.renombrarArchivo(tNameOld + ".rels", tNameNew + ".rels", dbName);
 	}
 	
 	public boolean dropTable(String tableName){
                 if(verboseActivated) System.out.println("Verbose: Eliminando tabla...");
 		//Verificar las llaves foráneas
-		fm.borrarArchivo(tableName + ".json", dbName);
-                fm.borrarArchivo(tableName + ".cols", dbName);
-                return fm.borrarArchivo(tableName + ".rels", dbName);
+		TW.borrarArchivo(tableName + ".json", dbName);
+                TW.borrarArchivo(tableName + ".cols", dbName);
+                return TW.borrarArchivo(tableName + ".rels", dbName);
 	}
 	
 	public boolean addColumn(String table, Pareja column){
@@ -322,7 +320,7 @@ public class DatabaseManager {
                 object.put("type", column.getTipo().getName());
                 try{
                     array.put(object);
-                    fm.escribirArchivo(table + ".cols", dbName, array.toString());
+                    TW.escribirArchivo(table + ".cols", dbName, array.toString());
                     success = true;
                 }
                 catch(Exception e){
@@ -346,7 +344,7 @@ public class DatabaseManager {
                         array.remove(array.getJSONObject(i));
                     }
                 }
-                fm.escribirArchivo(table + ".rels", dbName, array.toString());
+                TW.escribirArchivo(table + ".rels", dbName, array.toString());
                 success = true;
             } catch (JSONException ex) {
                 Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -364,7 +362,7 @@ public class DatabaseManager {
                         array.remove(array.getJSONObject(i));
                     }
                 }
-                fm.escribirArchivo(table + ".cols", dbName, array.toString());
+                TW.escribirArchivo(table + ".cols", dbName, array.toString());
                 success = true;
             } catch (JSONException ex) {
                 Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -383,7 +381,7 @@ public class DatabaseManager {
                         array.getJSONObject(i).put("name", newColumnName);
                     }
                 }
-                fm.escribirArchivo(table + ".cols", dbName, array.toString());
+                TW.escribirArchivo(table + ".cols", dbName, array.toString());
                 success = true;
             } catch (JSONException ex) {
                 Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -401,7 +399,7 @@ public class DatabaseManager {
                         array.getJSONObject(i).put("type", newColumnType);
                     }
                 }
-                fm.escribirArchivo(table + ".cols", dbName, array.toString());
+                TW.escribirArchivo(table + ".cols", dbName, array.toString());
                 success = true;
             } catch (JSONException ex) {
                 Logger.getLogger(DatabaseManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -411,7 +409,7 @@ public class DatabaseManager {
 
         public boolean insert(ArrayList<InsertStructure> structure) throws JSONException{
             String tableName = structure.get(0).getTable() + ".json";
-            String fileContent = fm.leerArchivo(tableName, dbName);
+            String fileContent = TW.leerArchivo(tableName, dbName);
             JSONArray allInserts = new JSONArray(fileContent);
             for(InsertStructure item : structure){
                 //Obtenemos todas las columnas porque siempre sirven
@@ -437,13 +435,13 @@ public class DatabaseManager {
                 allInserts.put(newRow);
                 
             }
-            fm.escribirArchivo(tableName, dbName, allInserts.toString());
+            TW.escribirArchivo(tableName, dbName, allInserts.toString());
             return true;
         }
         
        public JSONArray select(String table, ArrayList<String> columns, WhereStructure where1, WhereStructure where2, String whereOperator) throws JSONException{
             //Hacemos el select de la tabla completa
-            String fileContent = fm.leerArchivo(table + ".json", dbName);
+            String fileContent = TW.leerArchivo(table + ".json", dbName);
             JSONArray currentSelect = new JSONArray(fileContent);
             
             if(columns != null){
@@ -495,8 +493,8 @@ public class DatabaseManager {
         }
         
         public JSONArray selectCartessian(String table1, String table2) throws JSONException{
-            String fileContent1 = fm.leerArchivo(table1 + ".json", dbName);
-            String fileContent2 = fm.leerArchivo(table2 + ".json", dbName);
+            String fileContent1 = TW.leerArchivo(table1 + ".json", dbName);
+            String fileContent2 = TW.leerArchivo(table2 + ".json", dbName);
             JSONArray select1 = new JSONArray(fileContent1);
             JSONArray select2 = new JSONArray(fileContent2);
             JSONArray resultSelect = new JSONArray();
@@ -520,10 +518,10 @@ public class DatabaseManager {
             JSONArray result = new JSONArray();
             if(where == null){
                 //Borramos todo
-                fm.escribirArchivo(tableName, dbName, result.toString());
+                TW.escribirArchivo(tableName, dbName, result.toString());
                 return true;
             }else{
-                String fileContent = fm.leerArchivo(tableName, dbName);
+                String fileContent = TW.leerArchivo(tableName, dbName);
                 JSONArray actual = new JSONArray(fileContent);
                 ArrayList<String> allTables = showAllTables();
                 
@@ -542,7 +540,7 @@ public class DatabaseManager {
                         }
                     }
                 }
-                fm.escribirArchivo(tableName, dbName, result.toString());
+                TW.escribirArchivo(tableName, dbName, result.toString());
                 return true;
             }
         }
@@ -584,7 +582,7 @@ public class DatabaseManager {
         
         public boolean checkForeignRow(String checkTable, JSONObject checkValue, String origenTable) throws JSONException{
             String tableName = checkTable + ".rels";
-            String fileContent = fm.leerArchivo(tableName, dbName);
+            String fileContent = TW.leerArchivo(tableName, dbName);
             JSONArray currentForeigns = new JSONArray(fileContent);
             for(int i = 0; i < currentForeigns.length(); i++){
                 if(currentForeigns.getJSONObject(i).getString("type").equals("foreign")){
@@ -606,7 +604,7 @@ public class DatabaseManager {
         
         public boolean checkForeignRow2(String checkTable, JSONObject checkValue, String origenTable) throws JSONException{
             String tableName = checkTable + ".rels";
-            String fileContent = fm.leerArchivo(tableName, dbName);
+            String fileContent = TW.leerArchivo(tableName, dbName);
             JSONArray currentForeigns = new JSONArray(fileContent);
             for(int i = 0; i < currentForeigns.length(); i++){
                 if(currentForeigns.getJSONObject(i).getString("type").equals("foreign")){
@@ -628,7 +626,7 @@ public class DatabaseManager {
         
 //        public boolean update(String table, String key, String value, WhereStructure where) throws JSONException{
 //            String tableName = table + ".json";
-//            String fileContent = fm.leerArchivo(tableName, dbName);
+//            String fileContent = TW.leerArchivo(tableName, dbName);
 //            JSONArray currentSelect = new JSONArray(fileContent);
 //            if(where == null){
 //                //No hay condición
@@ -645,7 +643,7 @@ public class DatabaseManager {
 //                    }
 //                }
 //            }
-//            fm.escribirArchivo(tableName, dbName, currentSelect.toString());
+//            TW.escribirArchivo(tableName, dbName, currentSelect.toString());
 //            return true;
 //        }
         
@@ -655,7 +653,7 @@ public class DatabaseManager {
             boolean resultado = true;
             if(where == null){
                 //Actualizamos todo
-                String fileContent = fm.leerArchivo(tableName, dbName);
+                String fileContent = TW.leerArchivo(tableName, dbName);
                 JSONArray actual = new JSONArray(fileContent);
                 
                 for(int i=0; i<actual.length(); i++){
@@ -665,9 +663,9 @@ public class DatabaseManager {
                     result.put(actual.getJSONObject(i));
                 }
                 
-                fm.escribirArchivo(tableName, dbName, result.toString());
+                TW.escribirArchivo(tableName, dbName, result.toString());
             }else{
-                String fileContent = fm.leerArchivo(tableName, dbName);
+                String fileContent = TW.leerArchivo(tableName, dbName);
                 JSONArray actual = new JSONArray(fileContent);
                 ArrayList<String> allTables = showAllTables();
                 
@@ -701,7 +699,7 @@ public class DatabaseManager {
                 
                 
                 if(resultado){
-                    fm.escribirArchivo(tableName, dbName, result.toString());
+                    TW.escribirArchivo(tableName, dbName, result.toString());
                 }
             }
             return resultado;
