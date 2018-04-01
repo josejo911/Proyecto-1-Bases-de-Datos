@@ -1,4 +1,0 @@
-METADATA
-Nombre:marlon
-Tablas:2
-salu2
