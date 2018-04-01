@@ -15,9 +15,11 @@ import Gramatica.*;
  * Clase encargada de la implementacion del visitor.*/
 public class TheCompiler {
 
+    public TheCompiler(){
 
+    }
 
-    public static String compiling(String programa){
+    public static String compiling(String programa, boolean verbose){
         CharStream stream = CharStreams.fromString(programa);
         pruebaLexer pruebaLexer = new pruebaLexer(stream);
         CommonTokenStream tokens = new CommonTokenStream(pruebaLexer);
@@ -26,11 +28,10 @@ public class TheCompiler {
         TestE_Listener listener=new TestE_Listener();
         parser.addErrorListener(listener);
         ParseTree tree = parser.program();
-
-
-
-
-        return;
+        TheVisitor visitor = new TheVisitor(verbose);
+        visitor.visit(tree);
+        String t = visitor.getTexto();
+        return t;
     }
 
 

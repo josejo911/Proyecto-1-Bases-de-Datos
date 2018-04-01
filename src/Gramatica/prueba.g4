@@ -107,7 +107,7 @@ showDatabase
     : SHOW DATABASES    #showDatabaseRule
     ;
 useDatabase
-    : USE DATABASE      #useDatabaseRule
+    : USE DATABASE ID    #useDatabaseRule
     ;
 createTable
     : CREATE TABLE ID '('ID dataType (',' ID dataType)* (CONSTRAINT cConstraint ) ')'  #createTableRule

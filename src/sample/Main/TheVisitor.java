@@ -2,9 +2,15 @@ package sample.Main;
 
 import Gramatica.pruebaBaseVisitor;
 import Gramatica.pruebaParser;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import org.antlr.runtime.tree.ParseTree;
 import org.antlr.runtime.tree.TreeVisitor;
 import org.codehaus.jettison.json.JSONException;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,25 +47,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    public Tipo visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {
-        String databaseName= ctx.getText();
-
-        if(dbManager.createDatabase(databaseName)){
-            Tipo tipo = new Valido("Base de datos: " + databaseName + " creada");
-            texto = texto + tipo.getName() + "\n";
-            return tipo;
-        }
-        else{
-            Tipo tipo = new Error("Error: Creacion de base de datos :" + databaseName);
-            texto = texto + tipo.getName()+ "\n";
-            return tipo;
-        }
-    }
+    public Tipo visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {return super.visitSqlCreateDB(ctx);}
 
     @Override
-    public Tipo visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx) {
-        return super.visitSqlAlterDB(ctx);
-    }
+    public Tipo visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx) { return super.visitSqlAlterDB(ctx);   }
 
     @Override
     public Tipo visitSqlDropDB(pruebaParser.SqlDropDBContext ctx) {
@@ -123,27 +114,104 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx) {
-        return super.visitCreateDatabaseRule(ctx);
+        String databaseName= ctx.getText();
+
+        if(dbManager.createDatabase(databaseName)){
+            Tipo tipo = new Valido("Base de datos: " + databaseName + " creada");
+            texto = texto + tipo.getName() + "\n";
+            return tipo;
+        }
+        else{
+            Tipo tipo = new Error("Error: Creacion de base de datos :" + databaseName);
+            texto = texto + tipo.getName()+ "\n";
+            return tipo;
+        }
     }
 
     @Override
     public Tipo visitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx) {
-        return super.visitAlterDatabaseRule(ctx);
+        String databaseName =ctx.ID(0).getText();//obtenes el nombre viejo
+        String databaseNameNew = ctx.ID(1).getText();//obtenemos el nombre nuevo
+        if(dbManager.alterDatabase(databaseName, databaseNameNew)){
+            Tipo tipo = new Valido("Nombre de Base de datos: " + databaseName + " modificada a:"+databaseNameNew); //llamamos a validar
+            texto = texto + tipo.getName() + "\n";//alamacenamos el tipo de funcion exitosa
+            return tipo;
+        }
+        else{
+            Tipo error = new Error("Error: No fue posible realizar la modificacion"+databaseNameNew+"No existe:"+databaseName); //armamos el error
+            texto = texto + error.getName()+"\n"; //alamacenamos el error
+            return error;
+        }
     }
 
     @Override
     public Tipo visitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx) {
-        return super.visitDropDatabaseRule(ctx);
+        String databaseName = ctx.ID().getText();
+        //crear el alert box
+        Alert al = new Alert(Alert.AlertType.CONFIRMATION);
+        al.setTitle("Confirme Accion");
+        al.setContentText("¿Seguro que desea borrar la base de datos"+databaseName+"?");
+        Optional<ButtonType> result = al.showAndWait();
+        int resultado;
+        //asignar valor al boton presionado
+        if(result.get()==ButtonType.OK){
+            resultado = 1;
+        }else{
+            resultado = 2;
+        }
+        if(resultado==1){
+
+            if(dbManager.deleteDatabase(databaseName)){
+                Tipo tipo = new Valido("Se elimino exitosamente la base de datos"+databaseName);
+                texto = texto+ tipo.getName()+"\n";
+                return tipo;
+            }else{
+                Tipo tipo = new Error("Error al eliminar la base de datos: "+databaseName);
+                texto = texto+tipo.getName()+"\n";
+                return tipo;
+            }
+        }
+        else{
+            Tipo tipo = new Valido("No se elimino la base de datos"+databaseName);
+            texto = texto+tipo.getName()+"\n";
+            return tipo;
+        }
     }
 
     @Override
     public Tipo visitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx) {
-        return super.visitShowDatabaseRule(ctx);
+        String total="";
+        ArrayList<String> lista = dbManager.showAllDatabases();
+        if(lista!=null){
+            Tipo tipo = new Valido("Bases de Datos encontradas:"+"\n");
+            for (String tabla:lista){
+                total+="• "+tabla+"\n";
+            }
+            texto =texto +tipo.getName()+total+"\n";
+            return tipo;
+        }
+        else{
+            Tipo tipo = new Error("No ha creado ninguna base de datos");
+            texto = texto +tipo.getName()+"\n";
+            return tipo;
+        }
+
     }
 
     @Override
     public Tipo visitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx) {
-        return super.visitUseDatabaseRule(ctx);
+        String basedeDatosName =ctx.ID().getText();
+        if(dbManager.useDatabase(basedeDatosName)){
+            Tipo tipo =new Valido("Usando base de datos"+basedeDatosName);
+            texto = texto +tipo.getName()+"\n";
+            return tipo;
+
+        }else{
+            Tipo tipo = new Error("No existe la base de datos pedida"+basedeDatosName);
+            texto = texto+tipo.getName()+"\n";
+            return tipo;
+
+        }
     }
 
     @Override
@@ -340,6 +408,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     public Tipo visitSelectRule(pruebaParser.SelectRuleContext ctx) {
         return super.visitSelectRule(ctx);
     }
+    public String getTexto() {
+        return texto;
+    }
 
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
 
 }
