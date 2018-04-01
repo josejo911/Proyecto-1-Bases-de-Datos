@@ -5,9 +5,16 @@ import Gramatica.pruebaParser;
 
 public class TheVisitor extends pruebaBaseVisitor<String> {
 
+    private String texto; // Variable para almacenar texto de errores y resultados.
+    private DatabaseManager dbManager; // Objeto para acceder a metodos de manejo de la BD
+
+    public TheVisitor(boolean verbose) {
+        this.dbManager = new DatabaseManager(verbose);
+        this.texto="";
+    }
+
+
     @Override public String visitSqlScript(pruebaParser.SqlScriptContext ctx) {
-
-
 
 
         return visitChildren(ctx); }

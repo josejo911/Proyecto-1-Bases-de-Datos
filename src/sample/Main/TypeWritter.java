@@ -1,6 +1,7 @@
 package sample.Main;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class TypeWritter {
 
