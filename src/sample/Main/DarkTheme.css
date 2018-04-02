@@ -40,12 +40,22 @@
     -jfx-focus-color: -fx-secondary;
     -fx-text-fill: derive(-fx-secondary, 20%);
 }
+.check-box
+{
+    -fx-text-fill: -fx-white;
+    -fx-font-size: 12pt;
+}
 
 .text-area
 {
     -fx-text-fill: -fx-black;
     -fx-font-size: 15 pt;
 
+}
+.jfx-text-area
+{
+    -fx-text-fill: -fx-white;
+    -fx-font-size:12;
 }
 .label{
     -fx-text-fill:-fx-white;

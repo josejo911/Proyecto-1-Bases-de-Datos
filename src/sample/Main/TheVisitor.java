@@ -514,6 +514,8 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx) {
+
+
             return super.visitPrimaryKeyConstraintRule(ctx);
     }
 
@@ -550,7 +552,7 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    public Tipo visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx) {
+        public Tipo visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx) {
         String primerId= ctx.ID(0).getText();
         String id = ctx.ID(1).getText();
         ArrayList<Object> obs = new ArrayList();
@@ -566,15 +568,15 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitCheckRule(pruebaParser.CheckRuleContext ctx) {
-        // se obtiene el nombre de la constraint
         String nombreConstraint = ctx.ID().getText();
-        Tipo tipo=visit(ctx.expression());
+        Tipo tipo=visit(ctx.exp());
         tipo.setName("check");
         ArrayList<String> lista = (ArrayList)tipo.getObjeto();
         lista.add(nombreConstraint);
         tipo.setObjeto(lista);
         return tipo;
     }
+
 
     @Override
     public Tipo visitAndLogicRule(pruebaParser.AndLogicRuleContext ctx) {
@@ -627,41 +629,70 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
+    public Tipo visitExpRule(pruebaParser.ExpRuleContext ctx) {
+        return super.visitExpRule(ctx);
+    }
+
+    @Override
+    public Tipo visitEmptyExpression(pruebaParser.EmptyExpressionContext ctx) {
+        return super.visitEmptyExpression(ctx);
+    }
+
+    @Override
+    public Tipo visitAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx) {
+        return super.visitAndExpressionRule(ctx);
+    }
+
+    @Override
+    public Tipo visitOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx) {
+        return super.visitOrExpressionRule(ctx);
+    }
+
+    @Override
+    public Tipo visitAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx) {
+        return super.visitAndExpressioRule(ctx);
+    }
+
+    @Override
+    public Tipo visitEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx) {
+        return super.visitEqExpressionRule(ctx);
+    }
+
+    @Override
+    public Tipo visitRelationExprRule(pruebaParser.RelationExprRuleContext ctx) {
+        return super.visitRelationExprRule(ctx);
+    }
+
+    @Override
+    public Tipo visitEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx) {
+        return super.visitEqualityExpressionRule(ctx);
+    }
+
+    @Override
+    public Tipo visitUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx) {
+        return super.visitUnaryExpressionRule(ctx);
+    }
+
+    @Override
+    public Tipo visitRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx) {
+        return super.visitRelationExpressionRule(ctx);
+    }
+
+    @Override
     public Tipo visitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx) {
         return super.visitNotExpressionRule(ctx);
     }
 
     @Override
-    public Tipo visitLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx) {
-        if(ctx.children.size()>1){
-            ArrayList<String> total= new ArrayList<>();
-            Tipo t1= visit(ctx.getChild(0));
-            Tipo t2= visit(ctx.getChild(1));
-            Tipo nuevo = new Tipo("relation");
-            ArrayList<String> parte1=(ArrayList)t1.getObjeto();
-            parte1.add("OR");
-            ArrayList<String> parte2=(ArrayList)t2.getObjeto();
-            parte1.addAll(parte2);
-            nuevo.setObjeto(parte1);
-            return nuevo;
-        }
-        return visitChildren(ctx);
+    public Tipo visitEq_op(pruebaParser.Eq_opContext ctx) {
+        return super.visitEq_op(ctx);
     }
 
     @Override
-    public Tipo visitRelationalExpressionRule(pruebaParser.RelationalExpressionRuleContext ctx) {
-        return super.visitRelationalExpressionRule(ctx);
+    public Tipo visitRel_op(pruebaParser.Rel_opContext ctx) {
+        return super.visitRel_op(ctx);
     }
 
-    @Override
-    public Tipo visitNumExpressionRule(pruebaParser.NumExpressionRuleContext ctx) {
-        return super.visitNumExpressionRule(ctx);
-    }
-
-    @Override
-    public Tipo visitIdExpressionRule(pruebaParser.IdExpressionRuleContext ctx) {
-        return super.visitIdExpressionRule(ctx);
-    }
 
     @Override
     public Tipo visitAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx) {

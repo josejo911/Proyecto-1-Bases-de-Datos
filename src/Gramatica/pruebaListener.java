@@ -500,65 +500,157 @@ public interface pruebaListener extends ParseTreeListener {
 	 */
 	void exitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code notExpressionRule}
+	 * Enter a parse tree produced by the {@code expRule}
+	 * labeled alternative in {@link pruebaParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpRule(pruebaParser.ExpRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code expRule}
+	 * labeled alternative in {@link pruebaParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpRule(pruebaParser.ExpRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code emptyExpression}
+	 * labeled alternative in {@link pruebaParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void enterEmptyExpression(pruebaParser.EmptyExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code emptyExpression}
+	 * labeled alternative in {@link pruebaParser#exp}.
+	 * @param ctx the parse tree
+	 */
+	void exitEmptyExpression(pruebaParser.EmptyExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code andExpressionRule}
 	 * labeled alternative in {@link pruebaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code andExpressionRule}
+	 * labeled alternative in {@link pruebaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code orExpressionRule}
+	 * labeled alternative in {@link pruebaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void enterOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code orExpressionRule}
+	 * labeled alternative in {@link pruebaParser#expression}.
+	 * @param ctx the parse tree
+	 */
+	void exitOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code andExpressioRule}
+	 * labeled alternative in {@link pruebaParser#andExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code andExpressioRule}
+	 * labeled alternative in {@link pruebaParser#andExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code eqExpressionRule}
+	 * labeled alternative in {@link pruebaParser#andExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code eqExpressionRule}
+	 * labeled alternative in {@link pruebaParser#andExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code relationExprRule}
+	 * labeled alternative in {@link pruebaParser#eqExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelationExprRule(pruebaParser.RelationExprRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code relationExprRule}
+	 * labeled alternative in {@link pruebaParser#eqExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelationExprRule(pruebaParser.RelationExprRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code equalityExpressionRule}
+	 * labeled alternative in {@link pruebaParser#eqExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code equalityExpressionRule}
+	 * labeled alternative in {@link pruebaParser#eqExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code unaryExpressionRule}
+	 * labeled alternative in {@link pruebaParser#relationExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code unaryExpressionRule}
+	 * labeled alternative in {@link pruebaParser#relationExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code relationExpressionRule}
+	 * labeled alternative in {@link pruebaParser#relationExpr}.
+	 * @param ctx the parse tree
+	 */
+	void enterRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code relationExpressionRule}
+	 * labeled alternative in {@link pruebaParser#relationExpr}.
+	 * @param ctx the parse tree
+	 */
+	void exitRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code notExpressionRule}
+	 * labeled alternative in {@link pruebaParser#unaryExpr}.
 	 * @param ctx the parse tree
 	 */
 	void enterNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx);
 	/**
 	 * Exit a parse tree produced by the {@code notExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * labeled alternative in {@link pruebaParser#unaryExpr}.
 	 * @param ctx the parse tree
 	 */
 	void exitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code logicExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * Enter a parse tree produced by {@link pruebaParser#eq_op}.
 	 * @param ctx the parse tree
 	 */
-	void enterLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx);
+	void enterEq_op(pruebaParser.Eq_opContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code logicExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * Exit a parse tree produced by {@link pruebaParser#eq_op}.
 	 * @param ctx the parse tree
 	 */
-	void exitLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx);
+	void exitEq_op(pruebaParser.Eq_opContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code relationalExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * Enter a parse tree produced by {@link pruebaParser#rel_op}.
 	 * @param ctx the parse tree
 	 */
-	void enterRelationalExpressionRule(pruebaParser.RelationalExpressionRuleContext ctx);
+	void enterRel_op(pruebaParser.Rel_opContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code relationalExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * Exit a parse tree produced by {@link pruebaParser#rel_op}.
 	 * @param ctx the parse tree
 	 */
-	void exitRelationalExpressionRule(pruebaParser.RelationalExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code numExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumExpressionRule(pruebaParser.NumExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code numExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumExpressionRule(pruebaParser.NumExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code idExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdExpressionRule(pruebaParser.IdExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code idExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdExpressionRule(pruebaParser.IdExpressionRuleContext ctx);
+	void exitRel_op(pruebaParser.Rel_opContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code alterTableIdRule}
 	 * labeled alternative in {@link pruebaParser#alterTable}.

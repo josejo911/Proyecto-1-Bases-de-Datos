@@ -1,12 +1,10 @@
 package sample.Main;
 
+import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 
 import java.io.File;
@@ -21,6 +19,11 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+    public JFXTextArea consoleDialoge;
+    public CheckBox verbose;
+    private String program="";
+    private boolean select=false;
+    private boolean verboseActive=false;
 
     public Button runBtn;
     public Button chooseBtn;
@@ -32,8 +35,18 @@ public class Controller implements Initializable {
     }
 
     public void runProgram(ActionEvent actionEvent) {
-        //String program = dbTextArea.textProperty().get();
-        String program = dbTextArea.getText();
+        boolean estado = verbose.isSelected();
+        program = dbTextArea.getText();
+        if(estado ==true){
+            this.verboseActive =true;
+            String output = TheCompiler.compiling(program, verboseActive);
+            consoleDialoge.setText(output);
+        }else{
+            this.verboseActive=false;
+            String output = TheCompiler.compiling(program, verboseActive);
+            consoleDialoge.setText(output);
+        }
+
 
 
 

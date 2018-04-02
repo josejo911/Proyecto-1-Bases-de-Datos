@@ -298,40 +298,94 @@ public interface pruebaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code notExpressionRule}
+	 * Visit a parse tree produced by the {@code expRule}
+	 * labeled alternative in {@link pruebaParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpRule(pruebaParser.ExpRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code emptyExpression}
+	 * labeled alternative in {@link pruebaParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEmptyExpression(pruebaParser.EmptyExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code andExpressionRule}
 	 * labeled alternative in {@link pruebaParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code orExpressionRule}
+	 * labeled alternative in {@link pruebaParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code andExpressioRule}
+	 * labeled alternative in {@link pruebaParser#andExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code eqExpressionRule}
+	 * labeled alternative in {@link pruebaParser#andExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code relationExprRule}
+	 * labeled alternative in {@link pruebaParser#eqExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelationExprRule(pruebaParser.RelationExprRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code equalityExpressionRule}
+	 * labeled alternative in {@link pruebaParser#eqExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code unaryExpressionRule}
+	 * labeled alternative in {@link pruebaParser#relationExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code relationExpressionRule}
+	 * labeled alternative in {@link pruebaParser#relationExpr}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code notExpressionRule}
+	 * labeled alternative in {@link pruebaParser#unaryExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code logicExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * Visit a parse tree produced by {@link pruebaParser#eq_op}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx);
+	T visitEq_op(pruebaParser.Eq_opContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code relationalExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
+	 * Visit a parse tree produced by {@link pruebaParser#rel_op}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRelationalExpressionRule(pruebaParser.RelationalExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code numExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNumExpressionRule(pruebaParser.NumExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code idExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdExpressionRule(pruebaParser.IdExpressionRuleContext ctx);
+	T visitRel_op(pruebaParser.Rel_opContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code alterTableIdRule}
 	 * labeled alternative in {@link pruebaParser#alterTable}.

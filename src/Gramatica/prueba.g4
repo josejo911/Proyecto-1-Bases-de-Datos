@@ -132,7 +132,7 @@ foreignKey
         : 'FK_'ID FOREIGN KEY '(' ID (','ID)*')' REFERENCES ID '(' ID (','ID)*')'   #foreignKeyRule
         ;
 check
-        :'CH_'ID CHECK '('expression ')'    #checkRule
+        :'CH_'ID CHECK '('exp ')'    #checkRule
         ;
 logic
         : AND   #andLogicRule
@@ -153,13 +153,42 @@ orderFormat
         | DESC  #descOrderFormatRule
         ;
 //revisar
+
+exp
+    : expression #expRule
+    | #emptyExpression
+    ;
+
 expression
-        : NUM   #numExpressionRule
-        |ID     #idExpressionRule
-        |expression RELATIONAL expression #relationalExpressionRule
-        |NOT expression #notExpressionRule
-        |expression logic expression    #logicExpressionRule
-        ;
+    : andExpr #andExpressionRule
+    | expression OR andExpr  #orExpressionRule
+    ;
+
+andExpr
+    : eqExpr #eqExpressionRule
+    | andExpr AND eqExpr #andExpressioRule
+    ;
+
+eqExpr
+    : relationExpr #relationExprRule
+    | eqExpr eq_op relationExpr  #equalityExpressionRule
+    ;
+
+relationExpr
+    : unaryExpr   #unaryExpressionRule
+    | relationExpr rel_op unaryExpr #relationExpressionRule
+    ;
+
+unaryExpr
+    :  '('(NOT)? ID  ')'  #notExpressionRule
+    ;
+
+eq_op
+    : '=='|'!='  #eqOperators
+    ;
+rel_op
+    : '<' | '>' | '<=' | '>='| '=' #relationOperators
+    ;
 
 alterTable
         : ALTER TABLE ID RENAME TO ID #alterTableIdRule
@@ -186,13 +215,13 @@ insertInto
         : INSERT INTO ID '('ID(','ID)*')' VALUES '('valuesFormat (','valuesFormat)* ')' #insertIntoRule
         ;
 update
-        : UPDATE ID SET ID '='dataType(','dataType)* (WHERE expression)? #updateRule
+        : UPDATE ID SET ID '='dataType(','dataType)* (WHERE exp)? #updateRule
         ;
 deleteFrom
-        : DELETE FROM ID (WHERE expression)? #deleteFromRule
+        : DELETE FROM ID (WHERE exp)? #deleteFromRule
         ;
 select
-        : SELECT selectFormat FROM ID (WHERE expression( ORDER BY orderFormat)?)?   #selectRule
+        : SELECT selectFormat FROM ID (WHERE exp( ORDER BY orderFormat)?)?   #selectRule
         ;
 
 
