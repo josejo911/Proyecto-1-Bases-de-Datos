@@ -1218,9 +1218,7 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             }
 
         }
-        /**
-         * Se utiliza el metodo INSERT hasta arriba aca solo se agrega a una lista para mientras
-         */
+        // Se utiliza el metodo insert hasta arriba, aqui solo se appendea a una lista para mientras.
 
         if(newRowValues.size()==columns.size() || columns.isEmpty()){
             ArrayList<Pareja> lista=getColumnsFromTable(tableName);
@@ -1322,6 +1320,7 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             texto = texto + tipo.getName()+"\n";
             return tipo;
         }
+
 
     }
 
