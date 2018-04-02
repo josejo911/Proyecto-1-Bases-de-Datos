@@ -1,9 +1,12 @@
-
-
 package sample.Main;
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de comunicacrse con el manejador de cuantos caracteres es cada dato
+ * utilizando la clase tipo para asignar
+ * */
 
 public class Char extends Tipo {
-    // tamano para poder decirle al manejador de cuantos caracteres es el dato.
     private int size;
     
     public Char(String nombre) {

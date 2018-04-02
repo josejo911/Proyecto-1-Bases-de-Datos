@@ -1,4 +1,12 @@
 package sample.Main;
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de los listeners de errores
+ *
+ * Se modifico al agregar un string de error donde se guardara el error poara poder hacer
+ * un set y get.
+ * */
 
 /***
  * Excerpted from "The Definitive ANTLR 4 Reference",
@@ -11,8 +19,7 @@ package sample.Main;
 import org.antlr.v4.runtime.*;
 
 import java.util.*;
-//Se modifico al agregar un string de error donde se guardara el error poara poder hacer
-//un set y get.
+
 public class TestE_Listener extends BaseErrorListener {
         private String error;
         @Override

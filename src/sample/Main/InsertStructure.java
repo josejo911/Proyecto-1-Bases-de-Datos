@@ -1,4 +1,9 @@
 package sample.Main;
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de manejar las estructuras de tipo INSERT tomando la tabla, columnas y valores
+ * */
 
 import java.util.ArrayList;
 

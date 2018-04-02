@@ -2,57 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="DBManager">
-      <change beforePath="" afterPath="$PROJECT_DIR$/dbs/proyecto/factura.cols" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/dbs/proyecto/factura.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/dbs/proyecto/factura.rels" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/dbs/proyecto/usuario.cols" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/dbs/proyecto/usuario.json" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/dbs/proyecto/usuario.rels" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/ProyectoBaseDeDatos.iml" afterPath="$PROJECT_DIR$/ProyectoBaseDeDatos.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/prueba.g4" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/prueba.g4" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/prueba.interp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/prueba.tokens" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/prueba.tokens" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaBaseListener.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaBaseListener.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaBaseVisitor.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaBaseVisitor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaLexer.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaLexer.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaLexer.interp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaLexer.tokens" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaLexer.tokens" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaListener.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaListener.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ActionContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ActionContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$AlterDatabaseContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$AlterDatabaseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$AlterTableContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$AlterTableContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$CheckContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$CheckContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$CreateDatabaseContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$CreateDatabaseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$CreateTableContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$CreateTableContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$DeleteFromContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$DeleteFromContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$DropDatabaseContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$DropDatabaseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$DropTableContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$DropTableContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ExpressionContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ExpressionContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ForeignKeyContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ForeignKeyContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$InsertIntoContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$InsertIntoContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$PrimaryKeyContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$PrimaryKeyContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ShowColumnsContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ShowColumnsContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ShowDatabaseContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ShowDatabaseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ShowTablesContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$ShowTablesContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$UseDatabaseContext.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser$UseDatabaseContext.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaParser.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaVisitor.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/Gramatica/pruebaVisitor.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/sample/Main/TheCompiler.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/sample/Main/TheCompiler.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/sample/Main/TheVisitor.class" afterPath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/sample/Main/TheVisitor.class" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/prueba.g4" afterPath="$PROJECT_DIR$/src/Gramatica/prueba.g4" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/prueba.interp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/prueba.tokens" afterPath="$PROJECT_DIR$/src/Gramatica/prueba.tokens" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaBaseListener.java" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaBaseListener.java" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaBaseVisitor.java" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaBaseVisitor.java" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaLexer.interp" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaLexer.java" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaLexer.java" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaLexer.tokens" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaLexer.tokens" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaListener.java" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaListener.java" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaParser.java" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/Gramatica/pruebaVisitor.java" afterPath="$PROJECT_DIR$/src/Gramatica/pruebaVisitor.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main/TheCompiler.java" afterPath="$PROJECT_DIR$/src/sample/Main/TheCompiler.java" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main/TheVisitor.java" afterPath="$PROJECT_DIR$/src/sample/Main/TheVisitor.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/sample/Main/Controller.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/ProyectoBaseDeDatos/sample/Main/Main.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Gramatica/prueba.g4" afterPath="$PROJECT_DIR$/src/Gramatica/prueba.g4" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/AlertWindow.java" afterPath="$PROJECT_DIR$/src/sample/Main/AlertWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Char.java" afterPath="$PROJECT_DIR$/src/sample/Main/Char.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Date.java" afterPath="$PROJECT_DIR$/src/sample/Main/Date.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Error.java" afterPath="$PROJECT_DIR$/src/sample/Main/Error.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Flotante.java" afterPath="$PROJECT_DIR$/src/sample/Main/Flotante.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/InsertStructure.java" afterPath="$PROJECT_DIR$/src/sample/Main/InsertStructure.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Int.java" afterPath="$PROJECT_DIR$/src/sample/Main/Int.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Main.java" afterPath="$PROJECT_DIR$/src/sample/Main/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Pareja.java" afterPath="$PROJECT_DIR$/src/sample/Main/Pareja.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/TestE_Listener.java" afterPath="$PROJECT_DIR$/src/sample/Main/TestE_Listener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/TheCompiler.java" afterPath="$PROJECT_DIR$/src/sample/Main/TheCompiler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/TheVisitor.java" afterPath="$PROJECT_DIR$/src/sample/Main/TheVisitor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Tipo.java" afterPath="$PROJECT_DIR$/src/sample/Main/Tipo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/TypeWritter.java" afterPath="$PROJECT_DIR$/src/sample/Main/TypeWritter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/Valido.java" afterPath="$PROJECT_DIR$/src/sample/Main/Valido.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sample/Main/WhereStructure.java" afterPath="$PROJECT_DIR$/src/sample/Main/WhereStructure.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -110,24 +79,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="prueba.g4" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Gramatica/prueba.g4">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/Main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1036">
-              <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#4080#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="136">
+              <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/sample/Main/Main.java">
+      <file leaf-file-name="TheVisitor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sample/Main/TheVisitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="425">
+              <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,6 +112,14 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>secondary</find>
+      <find>tab</find>
+      <find>visitChildren</find>
+      <find>ID</find>
+      <find>ID()</find>
+      <find>Alter</find>
+      <find>AlterDB</find>
+      <find>rename</find>
       <find>alterDatabaseRuleContext</find>
       <find>USE</find>
       <find>useDatabase</find>
@@ -159,26 +136,7 @@
       <find>vis</find>
       <find>relationalExp</find>
       <find>LogicExpressionRule</find>
-      <find>gramaticaObjetoBase</find>
-      <find>reference</find>
-      <find>foreignKey</find>
-      <find>TreeVisitor</find>
-      <find>literalContext</find>
-      <find>updateset</find>
-      <find>updateSet</find>
-      <find>gramaticaObjeto</find>
-      <find>size</find>
-      <find>selectfrom</find>
-      <find>visitLiteral</find>
-      <find>literal</find>
-      <find>literalcontext</find>
-      <find>float</find>
     </findStrings>
-    <replaceStrings>
-      <replace>pruebaBase</replace>
-      <replace>TheVisitor</replace>
-      <replace>prueba</replace>
-    </replaceStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -203,26 +161,35 @@
         <option value="$PROJECT_DIR$/src/Gramatica/pruebaBaseListener.java" />
         <option value="$PROJECT_DIR$/src/Gramatica/pruebaLexer.java" />
         <option value="$PROJECT_DIR$/src/Gramatica/pruebaListener.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/Gramatica/pruebaParser.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/DarkTheme.css" />
+        <option value="$PROJECT_DIR$/src/sample/Main/SQLPane.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Main/VerboseListener.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/TestE_Listener.java" />
         <option value="$PROJECT_DIR$/src/sample/Main/Visitor.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/TypeWritter.java" />
         <option value="$USER_HOME$/Downloads/databaseFinal2/databaseFinal2/Base De Datos/Database/src/org/proyecto/logica/InsertStructure.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/InsertStructure.java" />
         <option value="$PROJECT_DIR$/src/sample/Main/DatabaseManager.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/Pareja.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/Tipo.java" />
-        <option value="$PROJECT_DIR$/src/sample/Main/WhereStructure.java" />
         <option value="$PROJECT_DIR$/src/sample/Main/ConfirmPane.fxml" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/TypeWritter.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Valido.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/WhereStructure.java" />
         <option value="$PROJECT_DIR$/src/sample/Main/AlertWindow.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Char.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Date.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Error.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Flotante.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/InsertStructure.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Int.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Main.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Pareja.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/TestE_Listener.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/TheCompiler.java" />
         <option value="$PROJECT_DIR$/src/sample/Main/DarkTheme.css" />
         <option value="$PROJECT_DIR$/src/sample/Main/SQLPane.fxml" />
         <option value="$PROJECT_DIR$/src/sample/Main/Controller.java" />
-        <option value="$PROJECT_DIR$/src/Gramatica/prueba.g4" />
-        <option value="$PROJECT_DIR$/src/sample/Main/TheCompiler.java" />
-        <option value="$PROJECT_DIR$/src/Gramatica/pruebaParser.java" />
         <option value="$PROJECT_DIR$/src/sample/Main/TheVisitor.java" />
+        <option value="$PROJECT_DIR$/src/sample/Main/Tipo.java" />
+        <option value="$PROJECT_DIR$/src/Gramatica/prueba.g4" />
       </list>
     </option>
   </component>
@@ -233,10 +200,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -259,6 +226,42 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Proyecto-1-Bases-de-Datos" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Proyecto-1-Bases-de-Datos" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Proyecto-1-Bases-de-Datos" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Proyecto-1-Bases-de-Datos" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos" />
+              <item name="src" type="cbb8eebc:String" user="src" />
+              <item name="sample/Main" type="cbb8eebc:String" user="sample/Main" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -271,52 +274,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-              <item name=".idea" type="cbb8eebc:String" user=".idea" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-              <item name=".idea" type="cbb8eebc:String" user=".idea" />
-              <item name="libraries" type="cbb8eebc:String" user="libraries" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-              <item name="lib" type="cbb8eebc:String" user="lib" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="Gramatica" type="cbb8eebc:String" user="Gramatica" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="Proyecto-1-Bases-de-Datos-New" type="cbb8eebc:String" user="Proyecto-1-Bases-de-Datos-New" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="sample/Main" type="cbb8eebc:String" user="sample/Main" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,9 +292,9 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4071691" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jfoenix-9.0.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jettison-1.3.3.jar!/" />
     <property name="$PROJECT_DIR$/src/Gramatica/prueba.g4::/auto-gen" value="true" />
-    <property name="$PROJECT_DIR$/src/Gramatica/prueba.g4::/output-dir" value="C:\Users\Aegis DSS\IdeaProjects\Proyecto-1-Bases-de-Datos-New\src" />
+    <property name="$PROJECT_DIR$/src/Gramatica/prueba.g4::/output-dir" value="E:\Proyectos\Base de Datos\proyecto1\Proyecto-1-Bases-de-Datos\src\Gramatica" />
     <property name="$PROJECT_DIR$/src/Gramatica/prueba.g4::/gen-listener" value="true" />
     <property name="$PROJECT_DIR$/src/Gramatica/prueba.g4::/gen-visitor" value="true" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
@@ -363,14 +320,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main (1)">
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-    </configuration>
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -411,6 +360,14 @@
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -445,6 +402,12 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -478,12 +441,6 @@
       <envs />
       <properties />
       <listeners />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
@@ -541,75 +498,52 @@
       <workItem from="1522550095974" duration="148000" />
       <workItem from="1522550279145" duration="491000" />
       <workItem from="1522557054821" duration="10260000" />
-      <workItem from="1522616188510" duration="10344000" />
-      <workItem from="1522628514868" duration="1970000" />
-      <workItem from="1522631044725" duration="2634000" />
-      <workItem from="1522633878475" duration="501000" />
+      <workItem from="1522616188510" duration="5849000" />
+      <workItem from="1522633842064" duration="4671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60111000" />
+    <option name="totallyTimeSpent" value="55182000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="886" extended-state="6" />
+    <frame x="-7" y="0" width="974" height="1057" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32818532" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33204633" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33222958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15125" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41280353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20146137" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32781458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Tool Output" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32781458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="ANTLR Preview" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41280353" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39955848" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33222958" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18020834" sideWeight="0.6703755" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +559,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="DBManager" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -633,39 +569,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/gramatica.g4" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="32" lean-forward="false" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/gramatica.g4" />
     <entry file="file://$PROJECT_DIR$/src/sample/Main/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1522637983778" expanded="true" signature="629:725" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -682,7 +592,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1522637983778" expanded="true" signature="629:725" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -699,7 +611,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1522637983778" expanded="true" signature="629:725" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -719,70 +633,173 @@
     <entry file="file://$PROJECT_DIR$/src/Gramatica/Gramatica/pruebaVisitor.java" />
     <entry file="file://$PROJECT_DIR$/src/Gramatica/Gramatica/pruebaParser.java" />
     <entry file="file://$PROJECT_DIR$/src/Gramatica/Gramatica/pruebaBaseVisitor.java" />
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/prueba.interp">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/DarkTheme.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        <state relative-caret-position="315">
+          <caret line="45" column="28" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/METADATA.txt" />
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaLexer.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Visitor.java" />
+    <entry file="file://$USER_HOME$/Downloads/databaseFinal2/databaseFinal2/Base De Datos/Database/src/org/proyecto/logica/InsertStructure.java" />
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/SQLPane.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/DatabaseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="238">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/AlertWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="33" column="41" lean-forward="true" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Char.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Error.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="66" lean-forward="false" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Flotante.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/InsertStructure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="97" lean-forward="false" selection-start-line="4" selection-start-column="97" selection-end-line="4" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Int.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="76" lean-forward="false" selection-start-line="4" selection-start-column="76" selection-end-line="4" selection-end-column="76" />
+          <folding>
+            <marker date="1522637983778" expanded="true" signature="629:725" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Pareja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main/TestE_Listener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1315#1316#0" expanded="false" />
-            <element signature="e#1351#1352#0" expanded="false" />
-            <element signature="e#1397#1398#0" expanded="false" />
-            <element signature="e#1446#1447#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Visitor.java" />
-    <entry file="file://$USER_HOME$/Downloads/databaseFinal2/databaseFinal2/Base De Datos/Database/src/org/proyecto/logica/InsertStructure.java" />
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Pareja.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/TheCompiler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
+          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaBaseVisitor.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Tipo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/TypeWritter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Valido.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main/WhereStructure.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="31" lean-forward="false" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/TheCompiler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -795,175 +812,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/ConfirmPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaBaseVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="277" lean-forward="false" selection-start-line="10" selection-start-column="277" selection-end-line="10" selection-end-column="277" />
+        <state relative-caret-position="204">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/AlertWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaLexer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        <state relative-caret-position="85">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/DatabaseManager.java">
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/TypeWritter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/DarkTheme.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="45" column="21" lean-forward="false" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="44" column="37" lean-forward="false" selection-start-line="44" selection-start-column="37" selection-end-line="44" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/InsertStructure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Tipo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/SQLPane.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/databaseFinal2/databaseFinal2/Base De Datos/Database/src/org/proyecto/logica/ListenerError.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#1403#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/databaseFinal2/databaseFinal2/Base De Datos/Database/src/org/proyecto/antlr/gramaticaObjetoParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="2575" column="41" lean-forward="false" selection-start-line="2575" selection-start-column="41" selection-end-line="2575" selection-end-column="41" />
+        <state relative-caret-position="136">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="23" column="31" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <element signature="e#65689#65690#0" expanded="false" />
-            <element signature="e#65734#65735#0" expanded="false" />
-            <element signature="e#65846#65847#0" expanded="false" />
-            <element signature="e#65899#65900#0" expanded="false" />
-            <element signature="e#65940#65941#0" expanded="false" />
-            <element signature="e#65994#65995#0" expanded="false" />
-            <element signature="e#66096#66097#0" expanded="false" />
-            <element signature="e#66146#66147#0" expanded="false" />
-            <element signature="e#66219#66220#0" expanded="false" />
-            <element signature="e#66256#66257#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/TheCompiler.java">
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="32" selection-end-line="29" selection-end-column="32" />
+        <state relative-caret-position="187">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/prueba.g4">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/prueba.interp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/prueba.tokens">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaLexer.interp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gramatica/pruebaLexer.tokens">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Main/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Main/TheVisitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1567" column="41" lean-forward="true" selection-start-line="1567" selection-start-column="41" selection-end-line="1567" selection-end-column="41" />
+        <state relative-caret-position="425">
+          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1690#1691#0" expanded="false" />
-            <element signature="e#1731#1732#0" expanded="false" />
-            <element signature="e#5984#5985#0" expanded="false" />
-            <element signature="e#6025#6026#0" expanded="false" />
-            <element signature="e#21354#21355#0" expanded="false" />
-            <element signature="e#21395#21396#0" expanded="false" />
-            <element signature="e#22885#22886#0" expanded="false" />
-            <element signature="e#22926#22927#0" expanded="false" />
-            <element signature="e#23676#23677#0" expanded="false" />
-            <element signature="e#23717#23718#0" expanded="false" />
-            <element signature="e#58360#58361#0" expanded="false" />
-            <element signature="e#58401#58402#0" expanded="false" />
-            <element signature="e#58489#58490#0" expanded="false" />
-            <element signature="e#58530#58531#0" expanded="false" />
-            <element signature="e#58620#58621#0" expanded="false" />
-            <element signature="e#58661#58662#0" expanded="false" />
-            <element signature="e#58753#58754#0" expanded="false" />
-            <element signature="e#58794#58795#0" expanded="false" />
-            <element signature="e#61443#61444#0" expanded="false" />
-            <element signature="e#61471#61472#0" expanded="false" />
-            <element signature="e#61513#61514#0" expanded="false" />
-            <element signature="e#61547#61548#0" expanded="false" />
+            <element signature="e#0#5363#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Gramatica/prueba.g4">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1036">
-          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#4080#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>

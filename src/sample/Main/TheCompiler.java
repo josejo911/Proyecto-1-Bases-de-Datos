@@ -12,7 +12,9 @@ import Gramatica.*;
 /**
  *Universidad del valle de guatemala
  * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
- * Clase encargada de la implementacion del visitor.*/
+ * Clase encargada de la implementacion del visitor.
+ *
+ * */
 public class TheCompiler {
 
     public TheCompiler(){

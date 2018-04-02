@@ -1,8 +1,10 @@
-
-
 package sample.Main;
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de manejar el almacenamiento de los valores importante para la clausula WHERE
+ * */
 
-// Clase para manejar guardado de valores importantes para la clausula WHERE
 public class WhereStructure {
     private String whereColumn;
     private String whereValue;

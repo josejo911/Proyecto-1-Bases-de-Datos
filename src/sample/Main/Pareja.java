@@ -1,7 +1,9 @@
-
 package sample.Main;
-
-// Clase que sirve para guardar un numero, una columna y un tipo de columna
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de guardar el numero, columna y un tipo de columna
+ * */
 public class Pareja {
     private int numero;
     private String columnName;
