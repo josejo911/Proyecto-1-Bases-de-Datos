@@ -1,6 +1,7 @@
-// Generated from prueba.g4 by ANTLR 4.7.1
+// Generated from C:/Users/Aegis DSS/IdeaProjects/Proyecto-1-Bases-de-Datos-New/src/Gramatica\prueba.g4 by ANTLR 4.7
 package Gramatica;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+import sample.Main.Tipo;
 
 /**
  * This class provides an empty implementation of {@link pruebaVisitor},
@@ -10,378 +11,231 @@ import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
  * @param <T> The return type of the visit operation. Use {@link Void} for
  * operations with no return type.
  */
-public class pruebaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements pruebaVisitor<T> {
+public abstract class pruebaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements pruebaVisitor<T> {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlScript(pruebaParser.SqlScriptContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLiteral(pruebaParser.LiteralContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFecha(pruebaParser.FechaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrograma(pruebaParser.ProgramaContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlDropDB(pruebaParser.SqlDropDBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDatabase(pruebaParser.DatabaseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlShowDB(pruebaParser.SqlShowDBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCreateDatabase(pruebaParser.CreateDatabaseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlUseDB(pruebaParser.SqlUseDBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAlterDatabase(pruebaParser.AlterDatabaseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlCreateTB(pruebaParser.SqlCreateTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDropDatabase(pruebaParser.DropDatabaseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlAlterTB(pruebaParser.SqlAlterTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitShowDatabase(pruebaParser.ShowDatabaseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlDropTB(pruebaParser.SqlDropTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitUseDatabase(pruebaParser.UseDatabaseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlShowTB(pruebaParser.SqlShowTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOpTable(pruebaParser.OpTableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlShowColumns(pruebaParser.SqlShowColumnsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTipo(pruebaParser.TipoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlInsertTB(pruebaParser.SqlInsertTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCreateTable(pruebaParser.CreateTableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlUpdateTB(pruebaParser.SqlUpdateTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitConstraint(pruebaParser.ConstraintContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlDeleteTB(pruebaParser.SqlDeleteTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimaryKey(pruebaParser.PrimaryKeyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSqlSelectTB(pruebaParser.SqlSelectTBContext ctx) { return visitChildren(ctx); }
+	@Override public T visitForeignKey(pruebaParser.ForeignKeyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCheck(pruebaParser.CheckContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExp(pruebaParser.ExpContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpression(pruebaParser.ExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAndExpr(pruebaParser.AndExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEqExpr(pruebaParser.EqExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCreateTableRule(pruebaParser.CreateTableRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitRelationExpr(pruebaParser.RelationExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInt(pruebaParser.IntContext ctx) { return visitChildren(ctx); }
+	@Override public T visitUnaryExpr(pruebaParser.UnaryExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFloat(pruebaParser.FloatContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAlterTable(pruebaParser.AlterTableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDate(pruebaParser.DateContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAction(pruebaParser.ActionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitChar(pruebaParser.CharContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDropTable(pruebaParser.DropTableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitShowTables(pruebaParser.ShowTablesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitForeignKeyConstraintRule(pruebaParser.ForeignKeyConstraintRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitShowColumns(pruebaParser.ShowColumnsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckConstraintRule(pruebaParser.CheckConstraintRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitInsertInto(pruebaParser.InsertIntoContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitUpdateSet(pruebaParser.UpdateSetContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDeleteFrom(pruebaParser.DeleteFromContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCheckRule(pruebaParser.CheckRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSelectFrom(pruebaParser.SelectFromContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAndLogicRule(pruebaParser.AndLogicRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitOrLogicRule(pruebaParser.OrLogicRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIdValueFormatRule(pruebaParser.IdValueFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitNumValueFormatRule(pruebaParser.NumValueFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitDateFormatRule(pruebaParser.DateFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitCharFormatRule(pruebaParser.CharFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitAllSelectFormatRule(pruebaParser.AllSelectFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIdSelectFormatRule(pruebaParser.IdSelectFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitAscOrderFormatRule(pruebaParser.AscOrderFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitExpRule(pruebaParser.ExpRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEmptyExpression(pruebaParser.EmptyExpressionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitRelationExprRule(pruebaParser.RelationExprRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEq_op(pruebaParser.Eq_opContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSep(pruebaParser.SepContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -395,89 +249,22 @@ public class pruebaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEq_op(pruebaParser.Eq_opContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAlterTableActionRule(pruebaParser.AlterTableActionRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAdd_op(pruebaParser.Add_opContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitActionAddColumnRule(pruebaParser.ActionAddColumnRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitActionAddConstraintRule(pruebaParser.ActionAddConstraintRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitActionDropColumnRule(pruebaParser.ActionDropColumnRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitActionDropConstraintRule(pruebaParser.ActionDropConstraintRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitDropTableRule(pruebaParser.DropTableRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitShowTablesRule(pruebaParser.ShowTablesRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitShowColumnsRule(pruebaParser.ShowColumnsRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitInsertIntoRule(pruebaParser.InsertIntoRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitUpdateRule(pruebaParser.UpdateRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitDeleteFromRule(pruebaParser.DeleteFromRuleContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitSelectRule(pruebaParser.SelectRuleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMult_op(pruebaParser.Mult_opContext ctx) { return visitChildren(ctx); }
+
+    // metodo para parsear un float y convertirlo a este tipo de dato.
+    public abstract Tipo visitFloatx(pruebaParser.TipoContext ctx);
 }

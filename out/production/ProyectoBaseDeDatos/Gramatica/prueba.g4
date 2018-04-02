@@ -8,191 +8,160 @@ Diego */
 grammar prueba;
 //non-tokens
 
-program
-    : (query SEMICOLON)*  #sqlScript
-    ;
+CREATE: 'create'|'CREATE'|'Create';
+DATABASE: 'database'|'DATABASE'|'Database';
+DATABASES: 'databases'|'DATABASES'|'Databases';
+ALTER: 'alter'|'ALTER'|'Alter';
+RENAME: 'rename'|'RENAME'|'Rename';
+DROP: 'drop'|'DROP'|'Drop';
+TO: 'to'|'TO'|'To';
+SHOW: 'show'|'SHOW'|'Show';
+USE: 'use'|'USE'|'Use';
+CONSTRAINT: 'constraint'|'CONSTRAINT'|'Constraint';
+PRIMARY: 'primary'|'PRIMARY'|'Primary';
+FOREIGN: 'foreign'|'FOREIGN'|'Foreign';
+KEY: 'key'|'KEY'|'Key';
+REFERENCES: 'references'|'REFERENCES'|'References';
+CHECK: 'check'|'CHECK'|'Check';
+INT: 'int'|'INT'|'Int';
+FLOAT: 'float'|'FLOAT'|'Float';
+DATE: 'date'|'DATE'|'Date';
+CHAR: 'char'|'CHAR'|'Char';
+AND: 'and'|'AND'|'And';
+OR: 'or'|'OR'|'Or';
+NOT: 'not'|'NOT'|'Not';
+TABLE: 'table'|'TABLE'|'Table';
+TABLES: 'tables'|'TABLES'|'Tables';
+ADD: 'add'|'ADD'|'Add';
+COLUMN: 'column'|'COLUMN'|'Column';
+COLUMNS: 'columns'|'COLUMNS'|'Columns';
+SHOWX: 'show'|'SHOW'|'Show';
+FROM: 'from'|'FROM'|'From';
+INSERT: 'insert'|'INSERT'|'Insert';
+SELECT: 'select'|'SELECT'|'Select';
+VALUES: 'values'|'VALUES'|'Values';
+INTO: 'into'|'INTO'|'Into';
+UPDATE: 'update'|'UPDATE'|'Update';
+SET : 'set'|'SET'|'Set';
+WHERE: 'where'|'WHERE'|'Where';
+DELETE: 'delete'|'DELETE'|'Delete';
+ORDER: 'order'|'ORDER'|'Order';
+BY: 'by'|'BY'|'By';
+ASC: 'asc'|'ASC'|'Asc';
+DESC: 'desc'|'DESC'|'Desc';
+NULL: 'null'|'NULL'|'Null';
 
-CREATE: 'CREATE'|'create';
-DATABASE: 'DATABASE'|'database';
-DATABASES: 'DATABASES'|'databases';
-ALTER: 'ALTER'|'alter';
-DROP:'DROP'|'drop';
-SHOW: 'SHOW'|'show';
-USE: 'USE'|'use';
-TABLE: 'TABLE'|'table';
-CONSTRAINT: 'CONSTRAINT'|'constraint';
-PRIMARY: 'PRIMARY'|'primary';
-FOREIGN: 'FOREIGN'|'foreign';
-KEY: 'KEY'|'key';
-REFERENCES: 'REFERENCES'|'references';
-CHECK: 'CHECK'|'check';
-INT: 'INT'|'int';
-FLOAT: 'FLOAT'| 'float';
-DATE: 'DATE'| 'date';
-CHAR: 'CHAR'|'char';
-AND: 'AND'|'and';
-OR: 'OR'|'or';
-NOT: 'NOT'|'not';
-RENAME: 'RENAME'|'rename';
-TO: 'TO'|'to';
-ADD: 'ADD'|'add';
-COLUMN: 'COLUMN'|'column';
-FROM: 'FROM' |'from';
-INSERT: 'INSERT'|'insert';
-INTO: 'INTO'|'into';
-RELATIONAL: '<'|'>'|'='|'<='|'>=';
-TABLES: 'TABLES'|'tables';
-COLUMNS: 'COLUMNS'|'columns';
-UPDATE: 'UPDATE'|'update';
-SELECT: 'SELECT'|'select';
-ORDER: 'ORDER'|'order';
-BY:'BY'|'by';
-ASC: 'ASC'|'asc';
-DESC: 'DESC'|'desc';
-NULL: 'NULL'|'null';
-ALL: '*';
-SET: 'SET'|'set';
-WHERE: 'WHERE' | 'where';
-DELETE: 'DELETE'|'delete';
-SEMICOLON: ';';
-WS :
-    [ \t\r\n]+ -> skip
-    ;
-COMMENTS:
-    ['//']*->skip
-    ;
-fragment LETTER: ('a'..'z'|'A'..'Z');
-fragment DIGIT: '0'..'9';
+fragment LETTERX: ('A'..'Z'|'a'..'z');
+fragment DIGITX: '0'..'9';
+fragment VARX: (' '..'~')| '\\' | '\t' | '\n' ;
 
-//tokens
-//ID empieza con letra y luego una letra o un digito, o solo una letra
-ID: LETTER(LETTER|DIGIT)*;
-NUM: DIGIT(DIGIT)*;
-DATEFORMAT: DIGIT DIGIT DIGIT DIGIT '-' DIGIT DIGIT '-'DIGIT DIGIT;
-CHARFORMAT: CHAR '('DIGIT')'|CHAR '('LETTER')';
-//UNIT
-/*
-*
-*/
+IDX: LETTERX (LETTERX | DIGITX|'_')*;
+NUMX: DIGITX (DIGITX)*;
+CHARX: '\''(LETTERX | DIGITX |' '| '!' | '"' | '#' | '$' | '%' | '&' | '\'' | '(' | ')' | '*'
+| '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '=' | '>' | '?' | '@' | '[' | '\\' | ']'
+| '^' | '_' | '`'| '{' | '|' | '}' | '~' '\t'| '\n' | '\"' | '\'')'\'';
+
+SPACEX: (' '|'\n'|'\t'|'\f'|'\r\n'|'\r'){skip();};
+COMMENTX: '//'(~('\r'|'\n'))*{skip();};
+
+literal : IDX| NUMX| CHARX | fecha;
+
+fecha:  DIGITX DIGITX DIGITX DIGITX '-'  DIGITX DIGITX '-'  DIGITX DIGITX ;
+
+programa: database|(database)*;
+
+database:
+	(createDatabase
+	|alterDatabase
+	|dropDatabase
+	|showDatabase
+	|useDatabase
+	|opTable);
+
+createDatabase: CREATE DATABASE IDX;
+
+alterDatabase: ALTER DATABASE IDX RENAME TO IDX;
+
+dropDatabase: DROP DATABASE IDX;
+
+showDatabase: SHOW DATABASES;
+
+useDatabase: USE DATABASE IDX;
+
+opTable:
+	(createTable
+	|alterTable
+	|dropTable
+	|showTables
+	|showColumns
+	|insertInto
+	|updateSet
+	|deleteFrom
+	|selectFrom);
+
+tipo: INT|FLOAT|DATE|CHAR '('NUMX ')' ;
+
+createTable: CREATE TABLE IDX '(' IDX tipo (',' IDX tipo)* (CONSTRAINT constraint (',' CONSTRAINT constraint)*)? ')';
+
+constraint: primaryKey | foreignKey(foreignKey)* | check(check)*;
+
+primaryKey: IDX PRIMARY KEY '(' IDX (',' IDX)* ')';
+
+foreignKey: IDX FOREIGN KEY '(' IDX (',' IDX)* ')' REFERENCES IDX '(' IDX (',' IDX)* ')' ;
+
+check: IDX CHECK (exp);
+
+// Expression
+
+exp: expression | ;
+
+expression : andExpr| expression OR andExpr  ;
+
+andExpr: eqExpr | andExpr AND eqExpr ;
+
+eqExpr: relationExpr | eqExpr eq_op relationExpr ;
+
+relationExpr: unaryExpr | relationExpr rel_op unaryExpr ;
+
+unaryExpr:  '('(NOT)? IDX  ')' ; // verificar
 
 
-query
-    :createDatabase        #sqlCreateDB
-    | alterDatabase        #sqlAlterDB
-    |dropDatabase          #sqlDropDB
-    | showDatabase         #sqlShowDB
-    | useDatabase          #sqlUseDB
-    | createTable          #sqlCreateTB
-    | alterTable           #sqlAlterTB
-    | dropTable            #sqlDropTB
-    | showTables           #sqlShowTB
-    | showColumns          #sqlShowColumns
-    | insertInto           #sqlInsertTB
-    | update               #sqlUpdateTB
-    | deleteFrom           #sqlDeleteTB
-    | select               #sqlSelectTB
-    ;
+alterTable: ALTER TABLE IDX RENAME TO IDX | ALTER TABLE IDX action (',' action)* ;
 
-//reglas
-createDatabase
-    : CREATE DATABASE ID    #createDatabaseRule
-    ;
-alterDatabase
-    : ALTER DATABASE ID RENAME TO ID    #alterDatabaseRule
-    ;
-dropDatabase
-    : DROP DATABASE ID  #dropDatabaseRule
-    ;
-showDatabase
-    : SHOW DATABASES    #showDatabaseRule
-    ;
-useDatabase
-    : USE DATABASE ID    #useDatabaseRule
-    ;
-createTable
-    : CREATE TABLE ID '('ID dataType (',' ID dataType)* (CONSTRAINT cConstraint ) ')'  #createTableRule
-    ;
+action:
+		 ADD COLUMN IDX tipo (CONSTRAINT constraint (',' constraint)*)?
+	   | ADD CONSTRAINT constraint
+	   | DROP COLUMN IDX
+	   | DROP CONSTRAINT IDX ;
 
-//subreglas, no las principales pero utilizadas en las de arriba.
-dataType
-        : INT      #int
-        |FLOAT     #float
-        |DATE       #date
-        |CHAR '('NUM ')'    #char
-        ;
-cConstraint
-        : primaryKey    #primaryKeyConstraintRule
-        |foreignKey(foreignKey)*    #foreignKeyConstraintRule
-        |check(check)*  #checkConstraintRule
-        ;
-primaryKey
-        : 'PK_'ID PRIMARY KEY '('ID(','ID)*')'  #primaryKeyRule
-        ;
-foreignKey
-        : 'FK_'ID FOREIGN KEY '(' ID (','ID)*')' REFERENCES ID '(' ID (','ID)*')'   #foreignKeyRule
-        ;
-check
-        :'CH_'ID CHECK '('expression ')'    #checkRule
-        ;
-logic
-        : AND   #andLogicRule
-        |OR     #orLogicRule
-        ;
-valuesFormat
-        : ID    #idValueFormatRule
-        |NUM    #numValueFormatRule
-        |DATEFORMAT #dateFormatRule
-        |CHARFORMAT #charFormatRule
-        ;
-selectFormat
-        : ALL   #allSelectFormatRule
-        | ID (',' ID)*  #idSelectFormatRule
-        ;
-orderFormat
-        : ASC   #ascOrderFormatRule
-        | DESC  #descOrderFormatRule
-        ;
-//revisar
-expression
-        : NUM   #numExpressionRule
-        |ID     #idExpressionRule
-        |expression RELATIONAL expression #relationalExpressionRule
-        |NOT expression #notExpressionRule
-        |expression logic expression    #logicExpressionRule
-        ;
+dropTable: DROP TABLE IDX;
 
-alterTable
-        : ALTER TABLE ID RENAME TO ID #alterTableIdRule
-        |ALTER TABLE ID action (',' action)* #alterTableActionRule
-        ;
-action
-        : ADD COLUMN ID dataType CONSTRAINT cConstraint #actionAddColumnRule
-        |ADD CONSTRAINT cConstraint #actionAddConstraintRule
-        |DROP COLUMN ID #actionDropColumnRule
-        |DROP CONSTRAINT ID #actionDropConstraintRule
-        ;
+showTables: SHOW TABLES;
 
-dropTable
-        : DROP TABLE ID #dropTableRule
-        ;
-showTables
-        : SHOW TABLES   #showTablesRule
-        ;
-showColumns
-        : SHOW COLUMNS FROM ID  #showColumnsRule
-        ;
-//parte dos
-insertInto
-        : INSERT INTO ID '('ID(','ID)*')' VALUES '('valuesFormat (','valuesFormat)* ')' #insertIntoRule
-        ;
-update
-        : UPDATE ID SET ID '='dataType(','dataType)* (WHERE expression)? #updateRule
-        ;
-deleteFrom
-        : DELETE FROM ID (WHERE expression)? #deleteFromRule
-        ;
-select
-        : SELECT selectFormat FROM ID (WHERE expression( ORDER BY orderFormat)?)?   #selectRule
-        ;
+showColumns: SHOW COLUMNS FROM IDX ;
+
+
+// Gramatica para parte 2
+
+insertInto: INSERT INTO IDX '(' IDX (',' IDX)* ')' VALUES '(' literal (',' literal)* ')';
+
+updateSet: UPDATE IDX SET IDX '=' tipo (',' tipo)* (WHERE exp)? ; // verificar
+
+deleteFrom: DELETE FROM IDX (WHERE exp)? ;
+
+selectFrom: SELECT sep FROM IDX (WHERE exp (ORDER BY  exp ASC|DESC (',' exp ASC|DESC)*)? )? ;// verificar
+
+sep: '*' | IDX(',' IDX)*;
+
+
+// Operadores rel y eq
+
+rel_op: '<' | '>' | '<=' | '>='| '=';
+
+eq_op : '==' | '!=' ;
+
+add_op: '+'| '-';
+
+mult_op: '*' | '/' | '%' ;
 
 

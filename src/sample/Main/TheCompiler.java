@@ -27,7 +27,7 @@ public class TheCompiler {
         parser.removeErrorListeners();
         TestE_Listener listener=new TestE_Listener();
         parser.addErrorListener(listener);
-        ParseTree tree = parser.program();
+        ParseTree tree = parser.programa();
         TheVisitor visitor = new TheVisitor(verbose);
         visitor.visit(tree);
         String t = visitor.getTexto();

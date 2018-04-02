@@ -1,4 +1,4 @@
-// Generated from prueba.g4 by ANTLR 4.7.1
+// Generated from C:/Users/Aegis DSS/IdeaProjects/Proyecto-1-Bases-de-Datos-New/src/Gramatica\prueba.g4 by ANTLR 4.7
 package Gramatica;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -11,375 +11,197 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface pruebaVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by the {@code sqlScript}
-	 * labeled alternative in {@link pruebaParser#program}.
+	 * Visit a parse tree produced by {@link pruebaParser#literal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlScript(pruebaParser.SqlScriptContext ctx);
+	T visitLiteral(pruebaParser.LiteralContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlCreateDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#fecha}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx);
+	T visitFecha(pruebaParser.FechaContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlAlterDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#programa}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx);
+	T visitPrograma(pruebaParser.ProgramaContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlDropDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#database}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlDropDB(pruebaParser.SqlDropDBContext ctx);
+	T visitDatabase(pruebaParser.DatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlShowDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#createDatabase}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlShowDB(pruebaParser.SqlShowDBContext ctx);
+	T visitCreateDatabase(pruebaParser.CreateDatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlUseDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#alterDatabase}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlUseDB(pruebaParser.SqlUseDBContext ctx);
+	T visitAlterDatabase(pruebaParser.AlterDatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlCreateTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#dropDatabase}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlCreateTB(pruebaParser.SqlCreateTBContext ctx);
+	T visitDropDatabase(pruebaParser.DropDatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlAlterTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#showDatabase}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlAlterTB(pruebaParser.SqlAlterTBContext ctx);
+	T visitShowDatabase(pruebaParser.ShowDatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlDropTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#useDatabase}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlDropTB(pruebaParser.SqlDropTBContext ctx);
+	T visitUseDatabase(pruebaParser.UseDatabaseContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlShowTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#opTable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlShowTB(pruebaParser.SqlShowTBContext ctx);
+	T visitOpTable(pruebaParser.OpTableContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlShowColumns}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#tipo}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlShowColumns(pruebaParser.SqlShowColumnsContext ctx);
+	T visitTipo(pruebaParser.TipoContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlInsertTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#createTable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlInsertTB(pruebaParser.SqlInsertTBContext ctx);
+	T visitCreateTable(pruebaParser.CreateTableContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlUpdateTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#constraint}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlUpdateTB(pruebaParser.SqlUpdateTBContext ctx);
+	T visitConstraint(pruebaParser.ConstraintContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlDeleteTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#primaryKey}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlDeleteTB(pruebaParser.SqlDeleteTBContext ctx);
+	T visitPrimaryKey(pruebaParser.PrimaryKeyContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code sqlSelectTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Visit a parse tree produced by {@link pruebaParser#foreignKey}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSqlSelectTB(pruebaParser.SqlSelectTBContext ctx);
+	T visitForeignKey(pruebaParser.ForeignKeyContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code createDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#createDatabase}.
+	 * Visit a parse tree produced by {@link pruebaParser#check}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx);
+	T visitCheck(pruebaParser.CheckContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code alterDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#alterDatabase}.
+	 * Visit a parse tree produced by {@link pruebaParser#exp}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx);
+	T visitExp(pruebaParser.ExpContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code dropDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#dropDatabase}.
+	 * Visit a parse tree produced by {@link pruebaParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx);
+	T visitExpression(pruebaParser.ExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code showDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#showDatabase}.
+	 * Visit a parse tree produced by {@link pruebaParser#andExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx);
+	T visitAndExpr(pruebaParser.AndExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code useDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#useDatabase}.
+	 * Visit a parse tree produced by {@link pruebaParser#eqExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx);
+	T visitEqExpr(pruebaParser.EqExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code createTableRule}
-	 * labeled alternative in {@link pruebaParser#createTable}.
+	 * Visit a parse tree produced by {@link pruebaParser#relationExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCreateTableRule(pruebaParser.CreateTableRuleContext ctx);
+	T visitRelationExpr(pruebaParser.RelationExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code int}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Visit a parse tree produced by {@link pruebaParser#unaryExpr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInt(pruebaParser.IntContext ctx);
+	T visitUnaryExpr(pruebaParser.UnaryExprContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code float}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Visit a parse tree produced by {@link pruebaParser#alterTable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFloat(pruebaParser.FloatContext ctx);
+	T visitAlterTable(pruebaParser.AlterTableContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code date}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Visit a parse tree produced by {@link pruebaParser#action}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDate(pruebaParser.DateContext ctx);
+	T visitAction(pruebaParser.ActionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code char}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Visit a parse tree produced by {@link pruebaParser#dropTable}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitChar(pruebaParser.CharContext ctx);
+	T visitDropTable(pruebaParser.DropTableContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code primaryKeyConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Visit a parse tree produced by {@link pruebaParser#showTables}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx);
+	T visitShowTables(pruebaParser.ShowTablesContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code foreignKeyConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Visit a parse tree produced by {@link pruebaParser#showColumns}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForeignKeyConstraintRule(pruebaParser.ForeignKeyConstraintRuleContext ctx);
+	T visitShowColumns(pruebaParser.ShowColumnsContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code checkConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Visit a parse tree produced by {@link pruebaParser#insertInto}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCheckConstraintRule(pruebaParser.CheckConstraintRuleContext ctx);
+	T visitInsertInto(pruebaParser.InsertIntoContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code primaryKeyRule}
-	 * labeled alternative in {@link pruebaParser#primaryKey}.
+	 * Visit a parse tree produced by {@link pruebaParser#updateSet}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx);
+	T visitUpdateSet(pruebaParser.UpdateSetContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code foreignKeyRule}
-	 * labeled alternative in {@link pruebaParser#foreignKey}.
+	 * Visit a parse tree produced by {@link pruebaParser#deleteFrom}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx);
+	T visitDeleteFrom(pruebaParser.DeleteFromContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code checkRule}
-	 * labeled alternative in {@link pruebaParser#check}.
+	 * Visit a parse tree produced by {@link pruebaParser#selectFrom}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCheckRule(pruebaParser.CheckRuleContext ctx);
+	T visitSelectFrom(pruebaParser.SelectFromContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code andLogicRule}
-	 * labeled alternative in {@link pruebaParser#logic}.
+	 * Visit a parse tree produced by {@link pruebaParser#sep}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAndLogicRule(pruebaParser.AndLogicRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code orLogicRule}
-	 * labeled alternative in {@link pruebaParser#logic}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOrLogicRule(pruebaParser.OrLogicRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code idValueFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdValueFormatRule(pruebaParser.IdValueFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code numValueFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNumValueFormatRule(pruebaParser.NumValueFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code dateFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDateFormatRule(pruebaParser.DateFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code charFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCharFormatRule(pruebaParser.CharFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code allSelectFormatRule}
-	 * labeled alternative in {@link pruebaParser#selectFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAllSelectFormatRule(pruebaParser.AllSelectFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code idSelectFormatRule}
-	 * labeled alternative in {@link pruebaParser#selectFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdSelectFormatRule(pruebaParser.IdSelectFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code ascOrderFormatRule}
-	 * labeled alternative in {@link pruebaParser#orderFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAscOrderFormatRule(pruebaParser.AscOrderFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code descOrderFormatRule}
-	 * labeled alternative in {@link pruebaParser#orderFormat}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code expRule}
-	 * labeled alternative in {@link pruebaParser#exp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitExpRule(pruebaParser.ExpRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code emptyExpression}
-	 * labeled alternative in {@link pruebaParser#exp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEmptyExpression(pruebaParser.EmptyExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code andExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code orExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code andExpressioRule}
-	 * labeled alternative in {@link pruebaParser#andExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code eqExpressionRule}
-	 * labeled alternative in {@link pruebaParser#andExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code relationExprRule}
-	 * labeled alternative in {@link pruebaParser#eqExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRelationExprRule(pruebaParser.RelationExprRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code equalityExpressionRule}
-	 * labeled alternative in {@link pruebaParser#eqExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code unaryExpressionRule}
-	 * labeled alternative in {@link pruebaParser#relationExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code relationExpressionRule}
-	 * labeled alternative in {@link pruebaParser#relationExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code notExpressionRule}
-	 * labeled alternative in {@link pruebaParser#unaryExpr}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link pruebaParser#eq_op}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEq_op(pruebaParser.Eq_opContext ctx);
+	T visitSep(pruebaParser.SepContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link pruebaParser#rel_op}.
 	 * @param ctx the parse tree
@@ -387,94 +209,21 @@ public interface pruebaVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRel_op(pruebaParser.Rel_opContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code alterTableIdRule}
-	 * labeled alternative in {@link pruebaParser#alterTable}.
+	 * Visit a parse tree produced by {@link pruebaParser#eq_op}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx);
+	T visitEq_op(pruebaParser.Eq_opContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code alterTableActionRule}
-	 * labeled alternative in {@link pruebaParser#alterTable}.
+	 * Visit a parse tree produced by {@link pruebaParser#add_op}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAlterTableActionRule(pruebaParser.AlterTableActionRuleContext ctx);
+	T visitAdd_op(pruebaParser.Add_opContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code actionAddColumnRule}
-	 * labeled alternative in {@link pruebaParser#action}.
+	 * Visit a parse tree produced by {@link pruebaParser#mult_op}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitActionAddColumnRule(pruebaParser.ActionAddColumnRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code actionAddConstraintRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitActionAddConstraintRule(pruebaParser.ActionAddConstraintRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code actionDropColumnRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitActionDropColumnRule(pruebaParser.ActionDropColumnRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code actionDropConstraintRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitActionDropConstraintRule(pruebaParser.ActionDropConstraintRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code dropTableRule}
-	 * labeled alternative in {@link pruebaParser#dropTable}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDropTableRule(pruebaParser.DropTableRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code showTablesRule}
-	 * labeled alternative in {@link pruebaParser#showTables}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitShowTablesRule(pruebaParser.ShowTablesRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code showColumnsRule}
-	 * labeled alternative in {@link pruebaParser#showColumns}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitShowColumnsRule(pruebaParser.ShowColumnsRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code insertIntoRule}
-	 * labeled alternative in {@link pruebaParser#insertInto}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInsertIntoRule(pruebaParser.InsertIntoRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code updateRule}
-	 * labeled alternative in {@link pruebaParser#update}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUpdateRule(pruebaParser.UpdateRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code deleteFromRule}
-	 * labeled alternative in {@link pruebaParser#deleteFrom}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDeleteFromRule(pruebaParser.DeleteFromRuleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code selectRule}
-	 * labeled alternative in {@link pruebaParser#select}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSelectRule(pruebaParser.SelectRuleContext ctx);
+	T visitMult_op(pruebaParser.Mult_opContext ctx);
 }

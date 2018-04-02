@@ -1,4 +1,4 @@
-// Generated from prueba.g4 by ANTLR 4.7.1
+// Generated from C:/Users/Aegis DSS/IdeaProjects/Proyecto-1-Bases-de-Datos-New/src/Gramatica\prueba.g4 by ANTLR 4.7
 package Gramatica;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -8,639 +8,325 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface pruebaListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by the {@code sqlScript}
-	 * labeled alternative in {@link pruebaParser#program}.
+	 * Enter a parse tree produced by {@link pruebaParser#literal}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlScript(pruebaParser.SqlScriptContext ctx);
+	void enterLiteral(pruebaParser.LiteralContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlScript}
-	 * labeled alternative in {@link pruebaParser#program}.
+	 * Exit a parse tree produced by {@link pruebaParser#literal}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlScript(pruebaParser.SqlScriptContext ctx);
+	void exitLiteral(pruebaParser.LiteralContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlCreateDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#fecha}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlCreateDB(pruebaParser.SqlCreateDBContext ctx);
+	void enterFecha(pruebaParser.FechaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlCreateDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#fecha}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx);
+	void exitFecha(pruebaParser.FechaContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlAlterDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#programa}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlAlterDB(pruebaParser.SqlAlterDBContext ctx);
+	void enterPrograma(pruebaParser.ProgramaContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlAlterDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#programa}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx);
+	void exitPrograma(pruebaParser.ProgramaContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlDropDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#database}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlDropDB(pruebaParser.SqlDropDBContext ctx);
+	void enterDatabase(pruebaParser.DatabaseContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlDropDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#database}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlDropDB(pruebaParser.SqlDropDBContext ctx);
+	void exitDatabase(pruebaParser.DatabaseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlShowDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#createDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlShowDB(pruebaParser.SqlShowDBContext ctx);
+	void enterCreateDatabase(pruebaParser.CreateDatabaseContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlShowDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#createDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlShowDB(pruebaParser.SqlShowDBContext ctx);
+	void exitCreateDatabase(pruebaParser.CreateDatabaseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlUseDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#alterDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlUseDB(pruebaParser.SqlUseDBContext ctx);
+	void enterAlterDatabase(pruebaParser.AlterDatabaseContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlUseDB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#alterDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlUseDB(pruebaParser.SqlUseDBContext ctx);
+	void exitAlterDatabase(pruebaParser.AlterDatabaseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlCreateTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#dropDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlCreateTB(pruebaParser.SqlCreateTBContext ctx);
+	void enterDropDatabase(pruebaParser.DropDatabaseContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlCreateTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#dropDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlCreateTB(pruebaParser.SqlCreateTBContext ctx);
+	void exitDropDatabase(pruebaParser.DropDatabaseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlAlterTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#showDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlAlterTB(pruebaParser.SqlAlterTBContext ctx);
+	void enterShowDatabase(pruebaParser.ShowDatabaseContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlAlterTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#showDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlAlterTB(pruebaParser.SqlAlterTBContext ctx);
+	void exitShowDatabase(pruebaParser.ShowDatabaseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlDropTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#useDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlDropTB(pruebaParser.SqlDropTBContext ctx);
+	void enterUseDatabase(pruebaParser.UseDatabaseContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlDropTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#useDatabase}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlDropTB(pruebaParser.SqlDropTBContext ctx);
+	void exitUseDatabase(pruebaParser.UseDatabaseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlShowTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#opTable}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlShowTB(pruebaParser.SqlShowTBContext ctx);
+	void enterOpTable(pruebaParser.OpTableContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlShowTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#opTable}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlShowTB(pruebaParser.SqlShowTBContext ctx);
+	void exitOpTable(pruebaParser.OpTableContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlShowColumns}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#tipo}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlShowColumns(pruebaParser.SqlShowColumnsContext ctx);
+	void enterTipo(pruebaParser.TipoContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlShowColumns}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#tipo}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlShowColumns(pruebaParser.SqlShowColumnsContext ctx);
+	void exitTipo(pruebaParser.TipoContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlInsertTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#createTable}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlInsertTB(pruebaParser.SqlInsertTBContext ctx);
+	void enterCreateTable(pruebaParser.CreateTableContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlInsertTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#createTable}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlInsertTB(pruebaParser.SqlInsertTBContext ctx);
+	void exitCreateTable(pruebaParser.CreateTableContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlUpdateTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#constraint}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlUpdateTB(pruebaParser.SqlUpdateTBContext ctx);
+	void enterConstraint(pruebaParser.ConstraintContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlUpdateTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#constraint}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlUpdateTB(pruebaParser.SqlUpdateTBContext ctx);
+	void exitConstraint(pruebaParser.ConstraintContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlDeleteTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#primaryKey}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlDeleteTB(pruebaParser.SqlDeleteTBContext ctx);
+	void enterPrimaryKey(pruebaParser.PrimaryKeyContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlDeleteTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#primaryKey}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlDeleteTB(pruebaParser.SqlDeleteTBContext ctx);
+	void exitPrimaryKey(pruebaParser.PrimaryKeyContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code sqlSelectTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Enter a parse tree produced by {@link pruebaParser#foreignKey}.
 	 * @param ctx the parse tree
 	 */
-	void enterSqlSelectTB(pruebaParser.SqlSelectTBContext ctx);
+	void enterForeignKey(pruebaParser.ForeignKeyContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code sqlSelectTB}
-	 * labeled alternative in {@link pruebaParser#query}.
+	 * Exit a parse tree produced by {@link pruebaParser#foreignKey}.
 	 * @param ctx the parse tree
 	 */
-	void exitSqlSelectTB(pruebaParser.SqlSelectTBContext ctx);
+	void exitForeignKey(pruebaParser.ForeignKeyContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code createDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#createDatabase}.
+	 * Enter a parse tree produced by {@link pruebaParser#check}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx);
+	void enterCheck(pruebaParser.CheckContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code createDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#createDatabase}.
+	 * Exit a parse tree produced by {@link pruebaParser#check}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx);
+	void exitCheck(pruebaParser.CheckContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code alterDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#alterDatabase}.
+	 * Enter a parse tree produced by {@link pruebaParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void enterAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx);
+	void enterExp(pruebaParser.ExpContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code alterDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#alterDatabase}.
+	 * Exit a parse tree produced by {@link pruebaParser#exp}.
 	 * @param ctx the parse tree
 	 */
-	void exitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx);
+	void exitExp(pruebaParser.ExpContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code dropDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#dropDatabase}.
+	 * Enter a parse tree produced by {@link pruebaParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void enterDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx);
+	void enterExpression(pruebaParser.ExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code dropDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#dropDatabase}.
+	 * Exit a parse tree produced by {@link pruebaParser#expression}.
 	 * @param ctx the parse tree
 	 */
-	void exitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx);
+	void exitExpression(pruebaParser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code showDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#showDatabase}.
+	 * Enter a parse tree produced by {@link pruebaParser#andExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx);
+	void enterAndExpr(pruebaParser.AndExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code showDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#showDatabase}.
+	 * Exit a parse tree produced by {@link pruebaParser#andExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx);
+	void exitAndExpr(pruebaParser.AndExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code useDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#useDatabase}.
+	 * Enter a parse tree produced by {@link pruebaParser#eqExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx);
+	void enterEqExpr(pruebaParser.EqExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code useDatabaseRule}
-	 * labeled alternative in {@link pruebaParser#useDatabase}.
+	 * Exit a parse tree produced by {@link pruebaParser#eqExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx);
+	void exitEqExpr(pruebaParser.EqExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code createTableRule}
-	 * labeled alternative in {@link pruebaParser#createTable}.
+	 * Enter a parse tree produced by {@link pruebaParser#relationExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterCreateTableRule(pruebaParser.CreateTableRuleContext ctx);
+	void enterRelationExpr(pruebaParser.RelationExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code createTableRule}
-	 * labeled alternative in {@link pruebaParser#createTable}.
+	 * Exit a parse tree produced by {@link pruebaParser#relationExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitCreateTableRule(pruebaParser.CreateTableRuleContext ctx);
+	void exitRelationExpr(pruebaParser.RelationExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code int}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Enter a parse tree produced by {@link pruebaParser#unaryExpr}.
 	 * @param ctx the parse tree
 	 */
-	void enterInt(pruebaParser.IntContext ctx);
+	void enterUnaryExpr(pruebaParser.UnaryExprContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code int}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Exit a parse tree produced by {@link pruebaParser#unaryExpr}.
 	 * @param ctx the parse tree
 	 */
-	void exitInt(pruebaParser.IntContext ctx);
+	void exitUnaryExpr(pruebaParser.UnaryExprContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code float}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Enter a parse tree produced by {@link pruebaParser#alterTable}.
 	 * @param ctx the parse tree
 	 */
-	void enterFloat(pruebaParser.FloatContext ctx);
+	void enterAlterTable(pruebaParser.AlterTableContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code float}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Exit a parse tree produced by {@link pruebaParser#alterTable}.
 	 * @param ctx the parse tree
 	 */
-	void exitFloat(pruebaParser.FloatContext ctx);
+	void exitAlterTable(pruebaParser.AlterTableContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code date}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Enter a parse tree produced by {@link pruebaParser#action}.
 	 * @param ctx the parse tree
 	 */
-	void enterDate(pruebaParser.DateContext ctx);
+	void enterAction(pruebaParser.ActionContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code date}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Exit a parse tree produced by {@link pruebaParser#action}.
 	 * @param ctx the parse tree
 	 */
-	void exitDate(pruebaParser.DateContext ctx);
+	void exitAction(pruebaParser.ActionContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code char}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Enter a parse tree produced by {@link pruebaParser#dropTable}.
 	 * @param ctx the parse tree
 	 */
-	void enterChar(pruebaParser.CharContext ctx);
+	void enterDropTable(pruebaParser.DropTableContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code char}
-	 * labeled alternative in {@link pruebaParser#dataType}.
+	 * Exit a parse tree produced by {@link pruebaParser#dropTable}.
 	 * @param ctx the parse tree
 	 */
-	void exitChar(pruebaParser.CharContext ctx);
+	void exitDropTable(pruebaParser.DropTableContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code primaryKeyConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Enter a parse tree produced by {@link pruebaParser#showTables}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx);
+	void enterShowTables(pruebaParser.ShowTablesContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code primaryKeyConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Exit a parse tree produced by {@link pruebaParser#showTables}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx);
+	void exitShowTables(pruebaParser.ShowTablesContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code foreignKeyConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Enter a parse tree produced by {@link pruebaParser#showColumns}.
 	 * @param ctx the parse tree
 	 */
-	void enterForeignKeyConstraintRule(pruebaParser.ForeignKeyConstraintRuleContext ctx);
+	void enterShowColumns(pruebaParser.ShowColumnsContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code foreignKeyConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Exit a parse tree produced by {@link pruebaParser#showColumns}.
 	 * @param ctx the parse tree
 	 */
-	void exitForeignKeyConstraintRule(pruebaParser.ForeignKeyConstraintRuleContext ctx);
+	void exitShowColumns(pruebaParser.ShowColumnsContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code checkConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Enter a parse tree produced by {@link pruebaParser#insertInto}.
 	 * @param ctx the parse tree
 	 */
-	void enterCheckConstraintRule(pruebaParser.CheckConstraintRuleContext ctx);
+	void enterInsertInto(pruebaParser.InsertIntoContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code checkConstraintRule}
-	 * labeled alternative in {@link pruebaParser#cConstraint}.
+	 * Exit a parse tree produced by {@link pruebaParser#insertInto}.
 	 * @param ctx the parse tree
 	 */
-	void exitCheckConstraintRule(pruebaParser.CheckConstraintRuleContext ctx);
+	void exitInsertInto(pruebaParser.InsertIntoContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code primaryKeyRule}
-	 * labeled alternative in {@link pruebaParser#primaryKey}.
+	 * Enter a parse tree produced by {@link pruebaParser#updateSet}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx);
+	void enterUpdateSet(pruebaParser.UpdateSetContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code primaryKeyRule}
-	 * labeled alternative in {@link pruebaParser#primaryKey}.
+	 * Exit a parse tree produced by {@link pruebaParser#updateSet}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx);
+	void exitUpdateSet(pruebaParser.UpdateSetContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code foreignKeyRule}
-	 * labeled alternative in {@link pruebaParser#foreignKey}.
+	 * Enter a parse tree produced by {@link pruebaParser#deleteFrom}.
 	 * @param ctx the parse tree
 	 */
-	void enterForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx);
+	void enterDeleteFrom(pruebaParser.DeleteFromContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code foreignKeyRule}
-	 * labeled alternative in {@link pruebaParser#foreignKey}.
+	 * Exit a parse tree produced by {@link pruebaParser#deleteFrom}.
 	 * @param ctx the parse tree
 	 */
-	void exitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx);
+	void exitDeleteFrom(pruebaParser.DeleteFromContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code checkRule}
-	 * labeled alternative in {@link pruebaParser#check}.
+	 * Enter a parse tree produced by {@link pruebaParser#selectFrom}.
 	 * @param ctx the parse tree
 	 */
-	void enterCheckRule(pruebaParser.CheckRuleContext ctx);
+	void enterSelectFrom(pruebaParser.SelectFromContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code checkRule}
-	 * labeled alternative in {@link pruebaParser#check}.
+	 * Exit a parse tree produced by {@link pruebaParser#selectFrom}.
 	 * @param ctx the parse tree
 	 */
-	void exitCheckRule(pruebaParser.CheckRuleContext ctx);
+	void exitSelectFrom(pruebaParser.SelectFromContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code andLogicRule}
-	 * labeled alternative in {@link pruebaParser#logic}.
+	 * Enter a parse tree produced by {@link pruebaParser#sep}.
 	 * @param ctx the parse tree
 	 */
-	void enterAndLogicRule(pruebaParser.AndLogicRuleContext ctx);
+	void enterSep(pruebaParser.SepContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code andLogicRule}
-	 * labeled alternative in {@link pruebaParser#logic}.
+	 * Exit a parse tree produced by {@link pruebaParser#sep}.
 	 * @param ctx the parse tree
 	 */
-	void exitAndLogicRule(pruebaParser.AndLogicRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code orLogicRule}
-	 * labeled alternative in {@link pruebaParser#logic}.
-	 * @param ctx the parse tree
-	 */
-	void enterOrLogicRule(pruebaParser.OrLogicRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code orLogicRule}
-	 * labeled alternative in {@link pruebaParser#logic}.
-	 * @param ctx the parse tree
-	 */
-	void exitOrLogicRule(pruebaParser.OrLogicRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code idValueFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdValueFormatRule(pruebaParser.IdValueFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code idValueFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdValueFormatRule(pruebaParser.IdValueFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code numValueFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterNumValueFormatRule(pruebaParser.NumValueFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code numValueFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitNumValueFormatRule(pruebaParser.NumValueFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code dateFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterDateFormatRule(pruebaParser.DateFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code dateFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitDateFormatRule(pruebaParser.DateFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code charFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterCharFormatRule(pruebaParser.CharFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code charFormatRule}
-	 * labeled alternative in {@link pruebaParser#valuesFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitCharFormatRule(pruebaParser.CharFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code allSelectFormatRule}
-	 * labeled alternative in {@link pruebaParser#selectFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterAllSelectFormatRule(pruebaParser.AllSelectFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code allSelectFormatRule}
-	 * labeled alternative in {@link pruebaParser#selectFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitAllSelectFormatRule(pruebaParser.AllSelectFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code idSelectFormatRule}
-	 * labeled alternative in {@link pruebaParser#selectFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdSelectFormatRule(pruebaParser.IdSelectFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code idSelectFormatRule}
-	 * labeled alternative in {@link pruebaParser#selectFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdSelectFormatRule(pruebaParser.IdSelectFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code ascOrderFormatRule}
-	 * labeled alternative in {@link pruebaParser#orderFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterAscOrderFormatRule(pruebaParser.AscOrderFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ascOrderFormatRule}
-	 * labeled alternative in {@link pruebaParser#orderFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitAscOrderFormatRule(pruebaParser.AscOrderFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code descOrderFormatRule}
-	 * labeled alternative in {@link pruebaParser#orderFormat}.
-	 * @param ctx the parse tree
-	 */
-	void enterDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code descOrderFormatRule}
-	 * labeled alternative in {@link pruebaParser#orderFormat}.
-	 * @param ctx the parse tree
-	 */
-	void exitDescOrderFormatRule(pruebaParser.DescOrderFormatRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code expRule}
-	 * labeled alternative in {@link pruebaParser#exp}.
-	 * @param ctx the parse tree
-	 */
-	void enterExpRule(pruebaParser.ExpRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code expRule}
-	 * labeled alternative in {@link pruebaParser#exp}.
-	 * @param ctx the parse tree
-	 */
-	void exitExpRule(pruebaParser.ExpRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code emptyExpression}
-	 * labeled alternative in {@link pruebaParser#exp}.
-	 * @param ctx the parse tree
-	 */
-	void enterEmptyExpression(pruebaParser.EmptyExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code emptyExpression}
-	 * labeled alternative in {@link pruebaParser#exp}.
-	 * @param ctx the parse tree
-	 */
-	void exitEmptyExpression(pruebaParser.EmptyExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code andExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code andExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAndExpressionRule(pruebaParser.AndExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code orExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void enterOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code orExpressionRule}
-	 * labeled alternative in {@link pruebaParser#expression}.
-	 * @param ctx the parse tree
-	 */
-	void exitOrExpressionRule(pruebaParser.OrExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code andExpressioRule}
-	 * labeled alternative in {@link pruebaParser#andExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code andExpressioRule}
-	 * labeled alternative in {@link pruebaParser#andExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitAndExpressioRule(pruebaParser.AndExpressioRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code eqExpressionRule}
-	 * labeled alternative in {@link pruebaParser#andExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code eqExpressionRule}
-	 * labeled alternative in {@link pruebaParser#andExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitEqExpressionRule(pruebaParser.EqExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code relationExprRule}
-	 * labeled alternative in {@link pruebaParser#eqExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterRelationExprRule(pruebaParser.RelationExprRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code relationExprRule}
-	 * labeled alternative in {@link pruebaParser#eqExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitRelationExprRule(pruebaParser.RelationExprRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code equalityExpressionRule}
-	 * labeled alternative in {@link pruebaParser#eqExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code equalityExpressionRule}
-	 * labeled alternative in {@link pruebaParser#eqExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitEqualityExpressionRule(pruebaParser.EqualityExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code unaryExpressionRule}
-	 * labeled alternative in {@link pruebaParser#relationExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code unaryExpressionRule}
-	 * labeled alternative in {@link pruebaParser#relationExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitUnaryExpressionRule(pruebaParser.UnaryExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code relationExpressionRule}
-	 * labeled alternative in {@link pruebaParser#relationExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code relationExpressionRule}
-	 * labeled alternative in {@link pruebaParser#relationExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitRelationExpressionRule(pruebaParser.RelationExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code notExpressionRule}
-	 * labeled alternative in {@link pruebaParser#unaryExpr}.
-	 * @param ctx the parse tree
-	 */
-	void enterNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code notExpressionRule}
-	 * labeled alternative in {@link pruebaParser#unaryExpr}.
-	 * @param ctx the parse tree
-	 */
-	void exitNotExpressionRule(pruebaParser.NotExpressionRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link pruebaParser#eq_op}.
-	 * @param ctx the parse tree
-	 */
-	void enterEq_op(pruebaParser.Eq_opContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link pruebaParser#eq_op}.
-	 * @param ctx the parse tree
-	 */
-	void exitEq_op(pruebaParser.Eq_opContext ctx);
+	void exitSep(pruebaParser.SepContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link pruebaParser#rel_op}.
 	 * @param ctx the parse tree
@@ -652,159 +338,33 @@ public interface pruebaListener extends ParseTreeListener {
 	 */
 	void exitRel_op(pruebaParser.Rel_opContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code alterTableIdRule}
-	 * labeled alternative in {@link pruebaParser#alterTable}.
+	 * Enter a parse tree produced by {@link pruebaParser#eq_op}.
 	 * @param ctx the parse tree
 	 */
-	void enterAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx);
+	void enterEq_op(pruebaParser.Eq_opContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code alterTableIdRule}
-	 * labeled alternative in {@link pruebaParser#alterTable}.
+	 * Exit a parse tree produced by {@link pruebaParser#eq_op}.
 	 * @param ctx the parse tree
 	 */
-	void exitAlterTableIdRule(pruebaParser.AlterTableIdRuleContext ctx);
+	void exitEq_op(pruebaParser.Eq_opContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code alterTableActionRule}
-	 * labeled alternative in {@link pruebaParser#alterTable}.
+	 * Enter a parse tree produced by {@link pruebaParser#add_op}.
 	 * @param ctx the parse tree
 	 */
-	void enterAlterTableActionRule(pruebaParser.AlterTableActionRuleContext ctx);
+	void enterAdd_op(pruebaParser.Add_opContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code alterTableActionRule}
-	 * labeled alternative in {@link pruebaParser#alterTable}.
+	 * Exit a parse tree produced by {@link pruebaParser#add_op}.
 	 * @param ctx the parse tree
 	 */
-	void exitAlterTableActionRule(pruebaParser.AlterTableActionRuleContext ctx);
+	void exitAdd_op(pruebaParser.Add_opContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code actionAddColumnRule}
-	 * labeled alternative in {@link pruebaParser#action}.
+	 * Enter a parse tree produced by {@link pruebaParser#mult_op}.
 	 * @param ctx the parse tree
 	 */
-	void enterActionAddColumnRule(pruebaParser.ActionAddColumnRuleContext ctx);
+	void enterMult_op(pruebaParser.Mult_opContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code actionAddColumnRule}
-	 * labeled alternative in {@link pruebaParser#action}.
+	 * Exit a parse tree produced by {@link pruebaParser#mult_op}.
 	 * @param ctx the parse tree
 	 */
-	void exitActionAddColumnRule(pruebaParser.ActionAddColumnRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code actionAddConstraintRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void enterActionAddConstraintRule(pruebaParser.ActionAddConstraintRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code actionAddConstraintRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void exitActionAddConstraintRule(pruebaParser.ActionAddConstraintRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code actionDropColumnRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void enterActionDropColumnRule(pruebaParser.ActionDropColumnRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code actionDropColumnRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void exitActionDropColumnRule(pruebaParser.ActionDropColumnRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code actionDropConstraintRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void enterActionDropConstraintRule(pruebaParser.ActionDropConstraintRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code actionDropConstraintRule}
-	 * labeled alternative in {@link pruebaParser#action}.
-	 * @param ctx the parse tree
-	 */
-	void exitActionDropConstraintRule(pruebaParser.ActionDropConstraintRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code dropTableRule}
-	 * labeled alternative in {@link pruebaParser#dropTable}.
-	 * @param ctx the parse tree
-	 */
-	void enterDropTableRule(pruebaParser.DropTableRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code dropTableRule}
-	 * labeled alternative in {@link pruebaParser#dropTable}.
-	 * @param ctx the parse tree
-	 */
-	void exitDropTableRule(pruebaParser.DropTableRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code showTablesRule}
-	 * labeled alternative in {@link pruebaParser#showTables}.
-	 * @param ctx the parse tree
-	 */
-	void enterShowTablesRule(pruebaParser.ShowTablesRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code showTablesRule}
-	 * labeled alternative in {@link pruebaParser#showTables}.
-	 * @param ctx the parse tree
-	 */
-	void exitShowTablesRule(pruebaParser.ShowTablesRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code showColumnsRule}
-	 * labeled alternative in {@link pruebaParser#showColumns}.
-	 * @param ctx the parse tree
-	 */
-	void enterShowColumnsRule(pruebaParser.ShowColumnsRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code showColumnsRule}
-	 * labeled alternative in {@link pruebaParser#showColumns}.
-	 * @param ctx the parse tree
-	 */
-	void exitShowColumnsRule(pruebaParser.ShowColumnsRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code insertIntoRule}
-	 * labeled alternative in {@link pruebaParser#insertInto}.
-	 * @param ctx the parse tree
-	 */
-	void enterInsertIntoRule(pruebaParser.InsertIntoRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code insertIntoRule}
-	 * labeled alternative in {@link pruebaParser#insertInto}.
-	 * @param ctx the parse tree
-	 */
-	void exitInsertIntoRule(pruebaParser.InsertIntoRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code updateRule}
-	 * labeled alternative in {@link pruebaParser#update}.
-	 * @param ctx the parse tree
-	 */
-	void enterUpdateRule(pruebaParser.UpdateRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code updateRule}
-	 * labeled alternative in {@link pruebaParser#update}.
-	 * @param ctx the parse tree
-	 */
-	void exitUpdateRule(pruebaParser.UpdateRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code deleteFromRule}
-	 * labeled alternative in {@link pruebaParser#deleteFrom}.
-	 * @param ctx the parse tree
-	 */
-	void enterDeleteFromRule(pruebaParser.DeleteFromRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code deleteFromRule}
-	 * labeled alternative in {@link pruebaParser#deleteFrom}.
-	 * @param ctx the parse tree
-	 */
-	void exitDeleteFromRule(pruebaParser.DeleteFromRuleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code selectRule}
-	 * labeled alternative in {@link pruebaParser#select}.
-	 * @param ctx the parse tree
-	 */
-	void enterSelectRule(pruebaParser.SelectRuleContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code selectRule}
-	 * labeled alternative in {@link pruebaParser#select}.
-	 * @param ctx the parse tree
-	 */
-	void exitSelectRule(pruebaParser.SelectRuleContext ctx);
+	void exitMult_op(pruebaParser.Mult_opContext ctx);
 }
