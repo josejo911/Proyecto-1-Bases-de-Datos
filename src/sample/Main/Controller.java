@@ -37,7 +37,9 @@ public class Controller implements Initializable {
     public void runProgram(ActionEvent actionEvent) {
         boolean estado = verbose.isSelected();
         program = dbTextArea.getText();
+        consoleDialoge.setText("");
         if(estado ==true){
+
             this.verboseActive =true;
             String output = TheCompiler.compiling(program, verboseActive);
             consoleDialoge.setText(output);

@@ -3,7 +3,7 @@ Universidad del Vale de Guatemala
 Gramtica para el proyecto.
 Marlon Fuentes
 Jose Jo
-Diego */
+Diego Alvarez*/
 
 grammar prueba;
 //non-tokens
