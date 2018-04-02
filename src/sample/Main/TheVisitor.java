@@ -1,5 +1,13 @@
 package sample.Main;
 
+/**
+ * Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de la definicion del visitor.
+ *
+ * */
+
+
 import Gramatica.pruebaBaseVisitor;
 import Gramatica.pruebaParser;
 import javafx.scene.control.Alert;
@@ -8,17 +16,22 @@ import org.antlr.runtime.tree.ParseTree;
 import org.antlr.runtime.tree.TreeVisitor;
 import org.antlr.v4.runtime.tree.TerminalNode;
 import org.codehaus.jettison.json.JSONException;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
-    private String texto; // Variable para almacenar texto de errores y resultados.
-    private DatabaseManager dbManager; // Objeto para acceder a metodos de manejo de la BD
+    /**
+     * Definicion de Variables:
+     * texto: Variable tipo String que almacenara texto de cada uno de los errores y resultados
+     * dbManager: tipo Database Manager siendo un objeto para acceder a metodos del manejador de la base de datos
+     */
+    private String texto;
+    private DatabaseManager dbManager;
 
     public TheVisitor(boolean verbose) {
         this.dbManager = new DatabaseManager(verbose);
@@ -28,11 +41,21 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override public Tipo visitSqlScript(pruebaParser.SqlScriptContext ctx) {
 
+        /**
+         * Uso de metodo:
+         *      Encargado de devolver la ejecucion del visitor
+         *      con este metodo se hace un llamado al INSERT
+         */
+
         Tipo tipo = visitChildren(ctx);
         if (tipo != null) {
             if (!dbManager.getInserts().isEmpty()) {
                 try {
-                    dbManager.insert(dbManager.getInserts()); // Se llama al metodo de los inserts
+                    dbManager.insert(dbManager.getInserts());
+                    /**
+                     *  Se llama al metodo de los inserts para mayor eficiencia
+                     *  y se muestra un exception mostrando un error si no esta ingresazdo correctamente
+                     */
                 } catch (JSONException ex) {
                     Tipo error = new Error("Error en Insert");
                     texto = texto + error.getName() + "\n";
@@ -117,6 +140,16 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitCreateDatabaseRule(pruebaParser.CreateDatabaseRuleContext ctx) {
+
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para crear una base de datos obteniendo el nombre de la base de datos
+         *          definida en la instruccion ingresada.
+         *
+         * Definicion de errores:
+         *          Si la base de datos ingresada coincide con alguna se genera exitosazmente
+         *          si no se da un exception dando a conocer que la base de datos no pudo ser creada exitosamente.
+         */
         String databaseName= ctx.getText();
 
         if(dbManager.createDatabase(databaseName)){
@@ -133,8 +166,23 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitAlterDatabaseRule(pruebaParser.AlterDatabaseRuleContext ctx) {
-        String databaseName =ctx.ID(0).getText();//obtenes el nombre viejo
-        String databaseNameNew = ctx.ID(1).getText();//obtenemos el nombre nuevo
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para realizar un alter a una base de datos, puede utilizar el nombre
+         *          de una base de datos para cambiarlo.
+         * Definicion de errores:
+         *          Si la base de datos ingresada coincide con alguna se modifica exitosazmente
+         *          si no se da un exception dando a conocer que la base de datos no pudo ser modificada exitosamente.
+         *
+         * Definicion de variables:
+         *
+         *          El valor string databaseName obtiene el nombre viejo de la base de datos
+         *          El valor String databaseNameNew obtiene el nuevo nombre que tendra la base de datos
+         *
+         */
+
+        String databaseName =ctx.ID(0).getText();
+        String databaseNameNew = ctx.ID(1).getText();
         if(dbManager.alterDatabase(databaseName, databaseNameNew)){
             Tipo tipo = new Valido("Nombre de Base de datos: " + databaseName + " modificada a:"+databaseNameNew); //llamamos a validar
             texto = texto + tipo.getName() + "\n";//alamacenamos el tipo de funcion exitosa
@@ -149,8 +197,18 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitDropDatabaseRule(pruebaParser.DropDatabaseRuleContext ctx) {
+
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para hacer un drop en una base de datos y por seguridad se
+         *          requiere de bastantes verificaciones para realizarlo
+         * Definicion de errores:
+         *          Se despliega una ventana de alerta que dice si se esta seguro de realizar la eliminacion de la base de datos
+         *          si es una si, se eliminara si no no se realiza nada
+         *
+         */
+
         String databaseName = ctx.ID().getText();
-        //crear el alert box
         Alert al = new Alert(Alert.AlertType.CONFIRMATION);
         al.setTitle("Confirme Accion");
         al.setContentText("¿Seguro que desea borrar la base de datos"+databaseName+"?");
@@ -183,6 +241,14 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitShowDatabaseRule(pruebaParser.ShowDatabaseRuleContext ctx) {
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para mostrar la informacion de una bases de datos existente
+         *          si la base de datos que se quiere ver no existe se muestra un error.
+         * Definicion de errores:
+         *          Si el nombre ingresado no se encuentra se muestra un error ya que no se encontro  la base dedatos
+         *          que se requiere.
+         */
         String total="";
         ArrayList<String> lista = dbManager.showAllDatabases();
         if(lista!=null){
@@ -203,6 +269,16 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitUseDatabaseRule(pruebaParser.UseDatabaseRuleContext ctx) {
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para la ejecucion siendo un metodo esencial para el funcionamiento ya que
+         *          sirve para saber cual base de datos usar en el directorio de las bases de datos
+         *
+         * Definicion de errores:
+         *          Si el nombre indicado de la base de datos se encuentra en el directorio se muestra la base de datos utilizado
+         *          si no se encuetra se muestra que no existe la bsse de datos.
+         *
+         */
         String basedeDatosName =ctx.ID().getText();
         if(dbManager.useDatabase(basedeDatosName)){
             Tipo tipo =new Valido("Usando base de datos"+basedeDatosName);
@@ -219,6 +295,22 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitCreateTableRule(pruebaParser.CreateTableRuleContext ctx) {
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para crear una tabla en una base de datos, y se puede utilizar de diferentes maneras con varios
+         *          parametros.
+         *
+         * Definicion de errores:
+         *          Si la base de datos ingresada coincide con alguna se modifica exitosazmente
+         *          si no se da un exception dando a conocer que la base de datos no pudo ser modificada exitosamente.
+         *
+         * Definicion de variables:
+         *
+         *          El arrayList listaTipos almacena la lista de los tipos de nombre de cada columna
+         *          El arraylist listaDeIds almacena la lista de los nombre de cada columna
+         *          El arrayList parejas almacena las parejas de tipos de datos que se utilizaran para las operaciones
+         *
+         */
         ArrayList<Tipo> listaTipos = new ArrayList(); // Lista de tipos de los nombres de columnas
         ArrayList<String> listaDeIds= new ArrayList();// Lista de nombres de columna
         int contador=0;
@@ -227,7 +319,7 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         ArrayList<Pareja> parejas= new ArrayList();
         int counter=0;
         ArrayList<Tipo> listaCons = new ArrayList();
-        Tipo envio=new Tipo("");
+        Tipo envio = new Tipo("");
         // Se obtienen los nombres de las constraints.
          pruebaParser.CConstraintContext constraint = ctx.cConstraint();
          String con = constraint.getText();
@@ -245,7 +337,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 return error;
             }
         }
-        // obtencion de la lista de ids.
+        /**
+         * Con el siguiente ciclo for se obtiene el listado de ids
+         */
         for(TerminalNode i :ctx.ID()){
             if(contador!=0){
                 String id= i.getText();
@@ -258,11 +352,16 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             parejas.add(new Pareja(i,listaDeIds.get(i),listaTipos.get(i)));
         }
         String tableName= ctx.ID(0).getText();
-        // valores para primary
+        /**
+         * En el siguiente array se almacenan los valores de las primary keys
+         */
         ArrayList<String> columnName=new ArrayList<>();
         String constraintName="";
 
-        // valores para check
+        /**
+         * Los siguientes valores string son utilizados para los checks correspondientes
+         *
+         */
         String nameVariableCheck="";
         String operador= "";
         String numeroCheck="";
@@ -278,7 +377,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             for(Tipo cons: listaCons){
                 switch(cons.getName()){
                     case "primary":
-                        // En caso de que sea una primary key, se ingresa en este case para realizar una accion
+                        /**
+                         * Si el caso observado es una llave primaria se ingresa en este case
+                         * para poder realizar las acciones
+                         */
                         ArrayList a= (ArrayList)cons.getObjeto();
                         for(int c=0;c<a.size();c++){
                             String m = a.get(c).getClass().toString();
@@ -313,6 +415,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                                 dbManager.createPrimaryKey(tableName, columna, constraintName);
                             }
                         }
+                        /**
+                         * Si el nombre de la llave primaria no existe se muestra un error y por consecuencia
+                         * no se crea la nueva tabla
+                         */
                         else{
                             Tipo tipo= new Error("Error: El nombre de columna de la PK no existe en las columnas de la tabla. \n"
                                     +"No se creó la tabla.");
@@ -322,6 +428,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                         break;
                     // en caso de que la restriccion sea de tipo check
                     case "check":
+                        /**
+                         * Si el caso de la restriccion es check se genera la accion
+                         *
+                         */
                         ArrayList<String> b= (ArrayList)cons.getObjeto();
                         nameVariableCheck= b.get(0);
                         operador=b.get(1);
@@ -338,6 +448,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
                             dbManager.createCheck(tableName,nameVariableCheck,operador,numeroCheck,constraintName);
                         }
+                        /**
+                         * Si no se encuetrra la columna de check se muestra uyn error y por consecuencia no se crea la tabla
+                         */
                         else{
                             Tipo tipo= new Error("Error: columna del check no existe o tiene error. \n"
                                     +"No se creó la tabla.");
@@ -346,7 +459,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                         }
                         break;
                     case "foreign":
-                        // caso en que la restriccion vaya a se de tipo foreign key
+                        /**
+                         * Si el caso de restriccion es una llave foranea se genera las acciones correspondientes
+                         */
                         ArrayList<Object> o=(ArrayList)cons.getObjeto();
                         nombreConstraint= o.get(0).toString();
                         nombreColumna= o.get(1).toString();
@@ -367,7 +482,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 }
             }
         }
-        // caso para cuando una primary key se encuentra en el create.
+        /**
+         * Si una llave primaria se encuentra en el create se hace un caso aparte
+         */
+
         else if(envio.getName().equals("primary")){
             bandera=true;
             ArrayList a= (ArrayList)envio.getObjeto();
@@ -413,6 +531,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             columnReferencia=pre.get(1);
             tablaReferencia=listado.get(0).toString();
         }
+
+        /**
+         * se Revisa con una bandera si la llave es primaria, foranea o un check
+         * si alguna de las tres no se encuentra en las columnas de la tabla
+         * se muestra un error diciendo que no se creo la tabla nueva.
+         */
 
         if(bandera){
             switch(envio.getName()){
@@ -767,6 +891,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     public boolean validarColumnasPrimary(ArrayList<Pareja> columnasTabla,ArrayList<String> columnasPrimary ){
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para validar si alguna de las columnas de la tabla y saber si se puede aplicar
+         *          alguna llave primaria
+         */
         ArrayList<String> listaTemp= new ArrayList<>();
         for(Pareja par: columnasTabla){
             listaTemp.add(par.getColumnName());
@@ -777,6 +906,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
     // metodo para revisar las columnas en la tabla para poder usar una llave de tipo CHECK
     public boolean validarColumnasCheck(ArrayList<Pareja> columnasTabla,String columnasPrimary ){
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para revisar si alguna de las columnas que se encuentran en la tabla
+         *          puede usar una llave de tipo CHECK.
+         */
         ArrayList<String> listaTemp= new ArrayList<>();
         for(Pareja par: columnasTabla){
             listaTemp.add(par.getColumnName());
@@ -788,6 +922,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     // metodo para verificaion de columnas para una foreign key
     public boolean validarColumnasForeign(ArrayList<Pareja> columnasTabla,String columnasPrimary ){
+        /**
+         * Definicion de metodo:
+         *          Se utiliza para verificar si las columnas de la tabla aplica para una llave
+         *          foranea.
+         */
         ArrayList<String> listaTemp= new ArrayList<>();
         for(Pareja par: columnasTabla){
             listaTemp.add(par.getColumnName());

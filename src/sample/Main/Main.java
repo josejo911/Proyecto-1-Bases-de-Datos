@@ -1,10 +1,9 @@
 package sample.Main;
-/*
-* Universidad del Valle de Guatemala
-* Nombres:
-* Marlon Fuentes
-* Jose Jo
-* Diego */
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de inicializar la interfaz del manejador de base de datos
+ * */
 import com.jfoenix.controls.JFXTabPane;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

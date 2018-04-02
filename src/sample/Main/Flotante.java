@@ -1,14 +1,8 @@
-/*
-|---------------------------------------------------------|
-|Universidad del Valle de Guatemala                       |
-|Proyecto 1: DBMS					  |
-|José Fernando Flores, 12029                              |
-|Hsing Li Chang, 11087                                    |
-|José Pablo Rodríguez, 12364                              |                                                 
-|Archivo: Flotante.java                         	  |
-|_________________________________________________________|
-*/
-
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada del manejo flotantes
+ * */
 package sample.Main;
 
 public class Flotante extends Tipo {

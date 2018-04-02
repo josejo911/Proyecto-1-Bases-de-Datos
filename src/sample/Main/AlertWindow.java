@@ -1,5 +1,18 @@
 package sample.Main;
-
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada del manejo de archivos y creacion de directorios con el uso de la METADATA
+ * Clase encargada de mostrar las ventanas de alerta de acciones por ejemplo el bloqueo de inreacciones con otras ventanas
+         * nombre de la ventana
+         * ancho menor de la ventana
+         * Etiqueta del msnsaje con el mensaje
+         * Boton de salida
+         * funcionalidad del boton de salir
+         * definicion del layout
+         * Agregar elementos y centrarlos
+         * Generacion de la escena
+ * */
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;

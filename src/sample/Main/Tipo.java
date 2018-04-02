@@ -1,7 +1,10 @@
-
 package sample.Main;
 
-// Clase tipo para saber el tipo de dato de una propiedad.
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de definir el tipo de dato de una propiedad.
+ * */
 public class Tipo {
      private String name;
      private Object objeto;
