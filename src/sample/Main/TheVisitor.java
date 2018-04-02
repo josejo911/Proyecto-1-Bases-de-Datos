@@ -1,6 +1,9 @@
 package sample.Main;
-
-
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada de la definicion del visitor del manejador de bases de datos
+ * */
 
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -14,9 +17,13 @@ import Gramatica.*;
 
 
 public class TheVisitor extends pruebaBaseVisitor<Tipo> {
+    /**
+     * String texto: Variable utilizada para almacenar texto de errores y resultados obtenidos
+     * DatabaseManager dbManager: Objeto definido para acceder a metodos de manejo de bases de datos
+     */
 
-    private String texto; // Variable para almacenar texto de errores y resultados.
-    private DatabaseManager dbManager; // Objeto para acceder a metodos de manejo de la BD
+    private String texto;
+    private DatabaseManager dbManager;
 
     public TheVisitor(boolean verbose) {
         this.dbManager= new DatabaseManager(verbose);
@@ -24,13 +31,19 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Metodo en donde se devuelve la ejecucion del visitor, se lllama al insert
+    /**
+     * Metodo que devuelve la ejecucion del visitor llamando al metodo INSERT
+     */
     public Tipo visitPrograma(pruebaParser.ProgramaContext ctx) {
         Tipo tipo =visitChildren(ctx);
         if(tipo!=null){
             if(!dbManager.getInserts().isEmpty()){
                 try {
-                    dbManager.insert(dbManager.getInserts()); // Se llama al metodo de los inserts para mas efectividad.
+                    dbManager.insert(dbManager.getInserts());
+                    /**
+                     * Se llama al metodo de los INSERTS
+                     * si no se hace el insert despliega un mensaje de error
+                     */
                 } catch (JSONException ex) {
                     Tipo error = new Error("Error: Insert no se realizo correctamente");
                     texto = texto + error.getName()+"\n";
@@ -54,6 +67,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     // Metodo para crear una BD. Se usa obteniendo el nombre de la BD que se indico en la instruccion
     @Override
     public Tipo visitCreateDatabase(pruebaParser.CreateDatabaseContext ctx) {
+        /**
+         * Metodo encargado de crear una base de datos nueva
+         * para ello utiliza el nombre de la base de datos que se indico en la instruccion
+         * Si el nombre no se encuentra despliega un mensaje de error
+         *
+         */
 
         String databaseName= ctx.IDX().getText();
 
@@ -71,8 +90,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Metodo para realizar un alter a una BD, se puede cambiar el nombre de una BD con este metodo.
     public Tipo visitAlterDatabase(pruebaParser.AlterDatabaseContext ctx) {
+        /**
+         * Metodo encargado de realizar un alrter en una Bse de datos
+         * puede camviar el nombre de la base de datos con este metodo
+         */
 
         String dbNameOriginal= ctx.IDX(0).getText();
         String dbNameNuevo= ctx.IDX(1).getText();
@@ -90,27 +112,40 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Metodo para hacerle drop a una BD. Requiere varias verificaciones
     public Tipo visitDropDatabase(pruebaParser.DropDatabaseContext ctx) {
+        /**
+         * Metodo encargado de hacer un drop o eliminacion de una bases de datos
+         * para hacer eso requiere verificaciondes del usuario
+         */
         String dbName= ctx.IDX().getText();
-        // Se realiza una verificacion extra para asegurarse que se quiera borrar la base.
+        /**
+         * Primero se hace una verificacion extra para asegurarse que quiere borrar la base de datos
+         */
         int result= JOptionPane.showConfirmDialog(null, "Esta seguro que desea borrar la BD:"+
                 " "+dbName+" ?", "Confirm",JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
         if(result==JOptionPane.YES_OPTION){
             if(dbManager.deleteDatabase(dbName)){
-                // Si el usuario indico que si, se procede a eliminarla.
+                /**
+                 * Si el usuario indica que si quiere eliminarla se procede a eliminarla
+                 */
                 Tipo tipo = new Valido("Se elimino la base de datos: "+ dbName);
                 texto = texto + tipo.getName()+"\n";
                 return tipo;
             }
             else{
+                /**
+                 * Si la base de datos no existe de despliega un error
+                 */
                 Tipo tipo= new Error("Error al eliminar la base de datos: " + dbName + " ,No existe.");
                 texto = texto + tipo.getName()+"\n";
                 return tipo;
             }
         }
         else{
+            /**
+             * Si la base de datos existe se elimina del directorio
+             */
             Tipo tipo = new Valido("No se elimino la base de datos: "+ dbName);
             texto = texto + tipo.getName()+"\n";
             return tipo;
@@ -118,8 +153,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    //Metodo para mostrar una base de datos existente. si no existe se muestra un error
     public Tipo visitShowDatabase(pruebaParser.ShowDatabaseContext ctx) {
+        /**
+         * Metodo encargado de mostrar una base de datos existente en el directorio
+         * si no existe se muestra un error
+         */
         String total="";
 
         ArrayList<String> lista= dbManager.showAllDatabases();
@@ -131,7 +169,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             texto = texto + tipo.getName()+ total + "\n";
             return tipo;
         }
-        // Si no existe la base de datos, muestra error.
+        /**
+         * Si no existe la base de datos se muestra un error
+         */
         else{
             Tipo tipo= new Error("No existen bases de datos");
             texto = texto + tipo.getName()+"\n";
@@ -140,11 +180,16 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Metodo indispensable para la ejecucion, sirve para saber cual BD usar en el directorio de BD's.
     public Tipo visitUseDatabase(pruebaParser.UseDatabaseContext ctx) {
+        /**
+         * Metodo para ejecucion ( idispensable )
+         * sirve para saber cual base de datos usar en el directorio de bases de datos
+         */
 
         String dbName= ctx.IDX().getText();
-        // Se indica el nombre de la BD con el que se realizaran todas las acciones
+        /**
+         * Se indica el nombre de la base de datos con el que se va a trabajar
+         */
         if(dbManager.useDatabase(dbName)){
 
             Tipo tipo = new Valido("Usando base de datos: " + dbName);
@@ -165,8 +210,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Metodo de la gramatica para identificar los diferentes tipos de datos.
     public Tipo visitTipo(pruebaParser.TipoContext ctx) {
+        /**
+         * Metodo para identificar los diferentes tipos de datos de la gramatica
+         */
 
         if(ctx.INT()!=null){
             Tipo tipo = new Int("Int");
@@ -194,12 +241,20 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
     }
 
-    // metodo para crear una tabla en una BD. Se puede usar de diferentes maneras con varios parametros
     @Override
     public Tipo visitCreateTable(pruebaParser.CreateTableContext ctx) {
+        /**
+         * Metodo para crear una tabla en una base de datos
+         * Se puede usar de varias maneras con diferentes parametros
+         */
 
-        ArrayList<Tipo> listaTipos = new ArrayList(); // Lista de tipos de los nombres de columnas
-        ArrayList<String> listaDeIds= new ArrayList();// Lista de nombres de columna
+        ArrayList<Tipo> listaTipos = new ArrayList();
+        ArrayList<String> listaDeIds= new ArrayList();
+        /**
+         * Se crearon dos tipos de listas
+         * una copntiene los tipos de los nombres de columnas
+         * y la otra la lista de los nombres de columnas
+         */
         int contador=0;
         boolean bandera=false;
         boolean bandera2=true;
@@ -207,7 +262,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         int counter=0;
         ArrayList<Tipo> listaCons = new ArrayList();
         Tipo envio=new Tipo("");
-        // Se obtienen los nombres de las constraints.
+        /**
+         * Obtenemos los nombres de los constraints
+         */
         for(pruebaParser.ConstraintContext constraint: ctx.constraint()){
             String con = constraint.getText();
             Tipo result=visit(constraint);
@@ -215,7 +272,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             listaCons.add(result);
             counter++;
         }
-        // Se obtienen los tipos de datos de las columnas
+        /**
+         * Se obtienen los tipos de datos de las columnas
+         */
         for(pruebaParser.TipoContext tc: ctx.tipo()){
             Tipo tipo =visit(tc);
             listaTipos.add(tipo);
@@ -225,7 +284,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 return error;
             }
         }
-        // obtencion de la lista de ids.
+        /**
+         * en este ciclo obtenemos la lista de los ids
+         */
         for(TerminalNode i :ctx.IDX()){
             if(contador!=0){
                 String id= i.getText();
@@ -238,11 +299,22 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             parejas.add(new Pareja(i,listaDeIds.get(i),listaTipos.get(i)));
         }
         String tableName= ctx.IDX(0).getText();
-        // valores para primary
+        /**
+         * Valores para los primary keys
+         */
         ArrayList<String> columnName=new ArrayList<>();
         String constraintName="";
 
         // valores para check
+        /**
+         * Valores para los checks
+         * verificamos el nombre de la variable check
+         * operador
+         * numero check
+         * nombre de la constraint
+         * tabla de referencia
+         * columna de referencia
+         */
         String nameVariableCheck="";
         String operador= "";
         String numeroCheck="";
@@ -258,7 +330,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             for(Tipo cons: listaCons){
                 switch(cons.getName()){
                     case "primary":
-                        // En caso de que sea una primary key, se ingresa en este case para realizar una accion
+                        /**
+                         * Si es una llave primaria se ingresa en este caso para realizar una accion
+                         */
                         ArrayList a= (ArrayList)cons.getObjeto();
                         for(int c=0;c<a.size();c++){
                             String m = a.get(c).getClass().toString();
@@ -300,8 +374,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                             return tipo;
                         }
                         break;
-                    // en caso de que la restriccion sea de tipo check
                     case "check":
+                        /**
+                         * Si la restriccion es de tipo check se realiza la siguiente accion
+                         * sino se muestra un erroor y posteriormente no se crea la tabla
+                         */
                         ArrayList<String> b= (ArrayList)cons.getObjeto();
                         nameVariableCheck= b.get(0);
                         operador=b.get(1);
@@ -326,7 +403,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                         }
                         break;
                     case "foreign":
-                        // caso en que la restriccion vaya a se de tipo foreign key
+                        /**
+                         * En caso de que la restriccion sea una llave foranea se realiza esta accion
+                         */
                         ArrayList<Object> o=(ArrayList)cons.getObjeto();
                         nombreConstraint= o.get(0).toString();
                         nombreColumna= o.get(1).toString();
@@ -347,8 +426,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 }
             }
         }
-        // caso para cuando una primary key se encuentra en el create.        
         else if(envio.getName().equals("primary")){
+            /**
+             * En el caso de que una llave primaria se encuentre en el create
+             */
             bandera=true;
             ArrayList a= (ArrayList)envio.getObjeto();
             for(int c=0;c<a.size();c++){
@@ -375,6 +456,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
 
         else if(envio.getName().equals("check")){
+            /**
+             * Si es un check se hace esta accion
+             */
             bandera=true;
             ArrayList<String> a= (ArrayList)envio.getObjeto();
             nameVariableCheck= a.get(0);
@@ -384,6 +468,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
         }
         else if(envio.getName().equals("foreign")){
+            /**
+             *
+             * Si es una llave foranea se hace esta accion
+             */
             bandera=true;
             ArrayList<Object> o=(ArrayList<Object>)envio.getObjeto();
             nombreConstraint= o.get(0).toString();
@@ -396,6 +484,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
         if(bandera){
             switch(envio.getName()){
+                /**
+                 * Caso de validacion de columna de la llave primaria
+                 */
                 case "primary":
                     if(validarColumnasPrimary(parejas,columnName)){
                         result= dbManager.createTable(tableName,parejas);
@@ -412,6 +503,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                     break;
 
                 case "check":
+                    /**
+                     * Caso de validacion de columna de check
+                     */
                     if(validarColumnasCheck(parejas,nameVariableCheck)){
                         result= dbManager.createTable(tableName,parejas);
                         dbManager.createCheck(tableName,nameVariableCheck,operador,numeroCheck,constraintName);
@@ -425,6 +519,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                     break;
 
                 case "foreign":
+                    /**
+                     * Caso de validacion de una llave foranea
+                     */
 
                     dbManager.createTable(tableName,parejas);
                     dbManager.createForeignKey(tableName,nombreColumna, nombreConstraint,columnReferencia,tablaReferencia);
@@ -468,8 +565,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     }
 
-    // metodo que sirve para validar las columnas de una tabla para despues saber si se puede aplicar una PK
     public boolean validarColumnasPrimary(ArrayList<Pareja> columnasTabla,ArrayList<String> columnasPrimary ){
+        /**
+         * Metodo utilizado para validar las columnas de una tabla para que despues podamos saber si puede aplicar a
+         * una llave primaria
+         */
         ArrayList<String> listaTemp= new ArrayList<>();
         for(Pareja par: columnasTabla){
             listaTemp.add(par.getColumnName());
@@ -478,8 +578,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return listaTemp.containsAll(columnasPrimary);
 
     }
-    // metodo para revisar las columnas en la tabla para poder usar una llave de tipo CHECK
     public boolean validarColumnasCheck(ArrayList<Pareja> columnasTabla,String columnasPrimary ){
+        /**
+         * Metodo utilizado para validar las columnas de una tabla para que despues podamos saber si puede aplicar a
+         * una llave de tipo check
+         */
         ArrayList<String> listaTemp= new ArrayList<>();
         for(Pareja par: columnasTabla){
             listaTemp.add(par.getColumnName());
@@ -489,8 +592,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     }
 
-    // metodo para verificaion de columnas para una foreign key
     public boolean validarColumnasForeign(ArrayList<Pareja> columnasTabla,String columnasPrimary ){
+        /**
+         * Metodo encargado de verificar las columnas para una llave foranea
+         */
         ArrayList<String> listaTemp= new ArrayList<>();
         for(Pareja par: columnasTabla){
             listaTemp.add(par.getColumnName());
@@ -502,17 +607,24 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitConstraint(pruebaParser.ConstraintContext ctx) {
-        // asi se queda este metodo, no se modifica
+        /**
+         * No se modifica este metodo asi queda
+         */
         return visitChildren(ctx);
     }
 
-    // metodo del visitor para obtener valores importantes para la declaracion de una primary KEY
     @Override
     public Tipo visitPrimaryKey(pruebaParser.PrimaryKeyContext ctx) {
+        /**
+         * Metodo utilizado especialmente por el visitor para obtener los valores imporatnes
+         * para la declaracion de una llave primaria
+         */
         ArrayList<String> listaDeIds= new ArrayList();
         String nombreConstraint= ctx.IDX(0).getText();
         ArrayList<Object> obs = new ArrayList();
-        // Se recorren los ids de los nombres de las llaves.
+        /**
+         * Se recorren los ids de los nombres de las llaves
+         */
         int contador=0;
         for(TerminalNode i :ctx.IDX()){
             if(contador!=0){
@@ -530,8 +642,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Metodo para obtener valores importantes para crear posteriormente una foreign key
     public Tipo visitForeignKey(pruebaParser.ForeignKeyContext ctx) {
+        /**
+         * Metodo encargado de obtener los valores imporatnes para crear posteriormente una llave foranea
+         */
 
         String primerId= ctx.IDX(0).getText();
         String id = ctx.IDX(1).getText();
@@ -550,9 +664,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
 
     @Override
-    // metodo para obetner el nombre de la constraint check y valores importantes.
     public Tipo visitCheck(pruebaParser.CheckContext ctx) {
-        // se obtiene el nombre de la constraint
+        /**
+         * Metodo encargado de obtener el nombre de la constraint check y los valores imporatnes
+         *         // se obtiene el nombre de la constraint
+         */
         String nombreConstraint = ctx.IDX().getText();
         Tipo tipo=visit(ctx.exp());
         tipo.setName("check");
@@ -569,7 +685,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitExpression(pruebaParser.ExpressionContext ctx) {
-        // metodo para obtener una expresion de tipo relation que tiene expresiones con AND
+        /**
+         * Metodo encargado de obtener una expresion de tipo relacion para poder utilizar expresiones con OR
+         */
         if(ctx.children.size()>1){
             ArrayList<String> total= new ArrayList<>();
             Tipo t1= visit(ctx.expression());
@@ -587,7 +705,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitAndExpr(pruebaParser.AndExprContext ctx) {
-        // metodo para obtener una expresion de tipo relation que tiene expresiones con AND
+        /**
+         * Metodo encargado de obtener una expresion de tipo relacion para poder utilizar expresiones con AND
+         */
         if(ctx.children.size()>1){
             ArrayList<String> total= new ArrayList<>();
             Tipo t1= visit(ctx.andExpr());
@@ -608,9 +728,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return visitChildren(ctx);
     }
 
-    // metodo para obtener valores de una RELATION EXPRESION
     @Override
     public Tipo visitRelationExpr(pruebaParser.RelationExprContext ctx) {
+        /**
+         * Metodo encargado de obtener valores de una relacion expresion
+         */
         String te="";
         String alf="";
         try{
@@ -640,9 +762,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return visitChildren(ctx);
     }
 
-    // metodo para hacer un alter table ya sea con constraints o no, o solo rename y ya
     @Override
     public Tipo visitAlterTable(pruebaParser.AlterTableContext ctx) {
+        /**
+         * Metodo encargado para hacer un alter table con constraints o no
+         * o tambien solo rename y ya
+         */
 
         if(ctx.children.get(3).getText().equals("RENAME")){
             // aca se usa cuando solamente se quiere renombrar una TABLA, y nada mas
@@ -661,7 +786,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             }
         }
         else{
-            // esta parte se ejecuta cuando se va a hace un drop column, en el alter table.
+            /**
+             * Esta parte se ejecuta siemmpre y cuando se vaya a hacer un drop column en el alter table
+             */
             String tablaOriginal= ctx.IDX(0).getText();
             Tipo accion =visit(ctx.action(0));
 
@@ -680,7 +807,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 }
             }
             else if(accion.getObjeto().toString().equals("dropconstraint")){
-                // esta parte sirve para cuando se realizara un drop constraint en el ALTER.
+                /**
+                 * Esta parte sirve para cuando realizamos un drop constraints en el alter
+                 */
                 boolean w=dbManager.dropConstraint(tablaOriginal,accion.getName());
                 if(w){
                     Tipo tipo= new Valido("Se modifico la tabla: "+ tablaOriginal + "\n"
@@ -698,7 +827,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
             else if(accion.getObjeto().getClass().toString().equals("class java.util.ArrayList")){
                 ArrayList lista =(ArrayList)accion.getObjeto();
-                // si existen llaves ya sea primaria foranea o check ,se ejecuta esta parte.
+                /**
+                 * En esta parte si existen llaves ya sean primarias, foraneas o check, se ejecuta esta parte
+                 */
                 switch (accion.getName()){
                     case "primary":
                         ArrayList<String> lista2=(ArrayList)lista.get(1);
@@ -876,9 +1007,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return null;
     }
 
-    // metodo para retornar info. que sirva para añadir constraints, hace drop a columnas y constraints.
     @Override
     public Tipo visitAction(pruebaParser.ActionContext ctx) {
+        /**
+         * Metodo encargado de retornar informacion que sirve para anadir constraints
+         * hace un drop a las columnas y constraints
+         */
         ArrayList<Tipo> constraints = new ArrayList();
 
         if(ctx.tipo()!=null){
@@ -887,13 +1021,18 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             tipo.setObjeto(columnName);
             return tipo;
         }
-        // esto sirve para devolver el nombre de la constraint cuando es add.
+        /**
+         * Esta parte sirve para devolver el nombre de la constraints cuando es un ADD
+         */
         else if(ctx.children.get(0).getText().equals("ADD")&&
                 ctx.children.get(1).getText().equals("CONSTRAINT")){
 
             Tipo tipo = visit(ctx.constraint().get(0));
             return tipo;
         }
+        /**
+         * Esta parte sirve para devolver el nombre de la columna cuando es un DROP
+         */
 
         else if(ctx.children.get(0).getText().equals("DROP")&&
                 ctx.children.get(1).getText().equals("COLUMN")){
@@ -903,6 +1042,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             tipo.setObjeto("dropcolumn");
             return tipo;
         }
+        /**
+         * Esta parte sirve para devolver el nombre de la constraints cuando es un DROP
+         */
         else if(ctx.children.get(0).getText().equals("DROP")&&
                 ctx.children.get(1).getText().equals("CONSTRAINT")){
 
@@ -920,12 +1062,16 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Falta verificar que no tenga foreign keys al dropear una table
     public Tipo visitDropTable(pruebaParser.DropTableContext ctx) {
+        /**
+         * Aun falta verificar que no haya una llave foranea al hacer el drop de una tabla
+         */
 
         try {
             String tableName= ctx.IDX().getText();
-            // si se desea borrar la tabla solo se le pasa el nombre y se hace drop.
+            /**
+             * Si se quiere borar una tabla solo se le pasa el nombre y se hace el DROP
+             */
             if(dbManager.checkForeignTable(tableName)){
 
                 if(dbManager.dropTable(tableName)){
@@ -955,9 +1101,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
     }
 
-    // metodo para mostrar las tablas existentes en una base de datos
     @Override
     public Tipo visitShowTables(pruebaParser.ShowTablesContext ctx) {
+        /**
+         * Metodo encargado de mostrar las tablas existentes en una base de datos
+         */
         ArrayList<String> total=new ArrayList<>();
         String sum= "";
         ArrayList<String> lista= dbManager.showAllTables();
@@ -977,11 +1125,16 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
     }
 
-    // metodo para mostrar las columnas existentes en una tabla de una BD, se muestran llaves tambien
     @Override
     public Tipo visitShowColumns(pruebaParser.ShowColumnsContext ctx) {
+        /**
+         * Metodo encargado de mostra las columnas existentes en una tabla de una base de datos
+         * se muestra las llaves tambien
+         */
 
-        // show columns aca 
+        /**
+         * Mostramos las columnnas
+         */
         String tabla=ctx.IDX().getText();
         String result="";
 
@@ -1012,7 +1165,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 Logger.getLogger(TheVisitor.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        // se retorna un tipo valido si no existen errores para indicar que se realizo la instruccion
+        /**
+         * Se devuelve el tipo valido si no existen errores para indicar que se realizo una instruccion
+         */
         Tipo valido = new Tipo("Columnas existentes para tabla "+ tabla + ": \n");
         texto=texto+ valido.getName()+ result;
 
@@ -1020,8 +1175,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // metodo para hace el insert, en donde se requiere mandar las columnas y los nuevos valores.
     public Tipo visitInsertInto(pruebaParser.InsertIntoContext ctx) {
+        /**
+         * Metodo encargado para el INSERT en donde se quiere mandar las columnas y los nuevos valores
+         */
         ArrayList<String> listaDeIds= new ArrayList();
         ArrayList<String> newRowValues= new ArrayList();
         ArrayList<String> dataTypes= new ArrayList();
@@ -1061,7 +1218,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
             }
 
         }
-        // Se utiliza el metodo insert hasta arriba, aqui solo se appendea a una lista para mientras.
+        /**
+         * Se utiliza el metodo INSERT hasta arriba aca solo se agrega a una lista para mientras
+         */
 
         if(newRowValues.size()==columns.size() || columns.isEmpty()){
             ArrayList<Pareja> lista=getColumnsFromTable(tableName);
@@ -1167,9 +1326,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
 
-    // metodo para realizar el update de data en una tabla de la BD, se deben hacer varias validaciones.
     @Override
     public Tipo visitUpdateSet(pruebaParser.UpdateSetContext ctx) {
+        /**
+         * Metodo encargado de realizar el update de data en una tabla de la base de datos
+         * se edeben hacer vasrias validaciones
+         */
 
         String tableName= ctx.IDX(0).getText();
         ArrayList<Tipo> list1= new ArrayList<>();
@@ -1196,7 +1358,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
         }
 
-        // LLamada a metodo updateSet
+        /**
+         * Llamada a metodo updateSET
+         */
         ArrayList<String> columnsTable= new ArrayList<>();
         ArrayList<Pareja> colFromTable=getColumnsFromTable(tableName);
         for(int k=0;k<colFromTable.size();k++){
@@ -1217,7 +1381,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
                 return error;
             }
         }
-        // quitar las comillas de los inputs
+        /**
+         * Se quitan las comillas de los inputs
+         */
         list2=quitarComillas(list2);
 
         if(columnsTable.containsAll(nombreColumnasSet)){
@@ -1258,9 +1424,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return visitChildren(ctx);
     }
 
-    // metodo para realizar un delete de la BD, se obienten las tablas existentes de DBMAnager.
     @Override
     public Tipo visitDeleteFrom(pruebaParser.DeleteFromContext ctx) {
+        /**
+         * Metodo para realizar un DELETE de la Base de datos
+         * obtenemos las tablas existentes del DBManager
+         */
 
         ArrayList<String> temp = new ArrayList<>();
         String tableName= ctx.IDX().getText();
@@ -1269,7 +1438,10 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         String columnName =lista.get(0);
         String operador= lista.get(1);
         String valor= lista.get(2);
-        // show all tables muestra todas los archivos de las tablas, pero sin haber sido parseadas.
+        /**
+         * Mostramos todas las tablas de los archivos de las tablas
+         * pero sin haber sido parseadas
+         */
         ArrayList<String> total=dbManager.showAllTables();
         ArrayList<String> tablasExistentes= new ArrayList<>();
 
@@ -1324,9 +1496,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
     }
 
-    // metodo para realizar un select de informacion de una tabla de una Base de datos.
     @Override
     public Tipo visitSelectFrom(pruebaParser.SelectFromContext ctx) {
+        /**
+         * Metodo encargado de realizar un SELECT de informacion de una tabla de una base de datos
+         */
         Tipo tipo= visit(ctx.sep());
         ArrayList<String> columnas=new ArrayList<>();
         ArrayList<String> nombreTablas= new ArrayList();
@@ -1455,9 +1629,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // Este metodo solo sirve para ver cuando se mandan parametros en el select, 
-    // o solo se manda "*" que representa todos los campos de la tabla.
+
     public Tipo visitSep(pruebaParser.SepContext ctx) {
+        /**
+         * Metodo encargado para ver cuando se mandan parametros en el select
+         * o solo manda un asterisco que representa todos los campos de la tabla
+         */
 
         ArrayList<String> listaDeIds= new ArrayList();
         if(ctx.IDX().size()>0){
@@ -1500,23 +1677,31 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    // este metodo sirve para parsear una fecha y verificar que este en formato correcto.
     public Tipo visitFecha(pruebaParser.FechaContext ctx) {
+        /**
+         * Metodo encargado de parsear una fecha y verificar que este en formato correcto
+         */
         String year=ctx.children.get(1).getText();
         String total= ctx.children.get(3).getText();
         int mes= Integer.parseInt(total);
         String total2=ctx.children.get(5).getText();
         int dias= Integer.parseInt(total2);
-        // se verifica que el mes sea menos a 12, en los meses
+        /**
+         * SE verifica que el mes sea menos de 12
+         */
         if(mes<=12){
-            // y que sea menos a 31 en los dias, si no es asi, existe error.
+            /**
+             * y que sea menos a 31 en los dias si no es asi existe un error
+             */
             if(dias<=31){
                 Tipo tipo = new Date("Date");
                 String value= year + "-" + total + "-" + total2;
                 tipo.setObjeto(value);
                 return tipo;
             }
-            // se regresa un error si la fecha no esta bien
+            /**
+             *  Se muestra un error si la fecha no esta bien escriuta
+             */
             else{
                 Tipo error = new Error("Error: Fecha incorrecta. Revise la sentencia");
                 texto = texto + error.getName()+"\n";
@@ -1530,9 +1715,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
     }
 
-    // este metodo sirve para diferenciar los tipos de dato y mandar el valor del tipo de dato.
     @Override
     public Tipo visitLiteral(pruebaParser.LiteralContext ctx) {
+        /**
+         * Este metodo se encarga de diferencias los tipos de datos y mandar el valor del tipo de dato
+         */
 
         if(ctx.NUMX()!=null){
             Tipo tipo = visit(ctx.NUMX());
@@ -1560,9 +1747,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         }
     }
 
-    // metodo para parsear un float y convertirlo a este tipo de dato.
     @Override
     public Tipo visitFloatx(pruebaParser.TipoContext ctx){
+        /**
+         * Este metodo sirve para parsear un float y convertirloa este tipo de dato
+         */
         String part1=ctx.children.get(0).getText();
         String part2=ctx.children.get(2).getText();
         Tipo tipo= new Flotante("Float");
@@ -1571,7 +1760,11 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return tipo;
     }
 
-    // getters y setters para mostrar el texto de los errores o informacion al usuario
+    /**
+     * Getters y setters para mostrar el texto de los errores o informacion al usuario
+     * @return texto
+     */
+
 
     public String getTexto() {
         return texto;
@@ -1580,6 +1773,12 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     public void setTexto(String texto) {
         this.texto = texto;
     }
+
+    /**
+     * Este metodo sirve para obtener las columnas con sus tipos de una tabla en la base de datos
+     * @param tabla
+     * @return lista
+     */
 
     // metodo para obtener las columnas con sus respectivos tipos de una tabla de la BD.
     public ArrayList<Pareja> getColumnsFromTable(String tabla){
@@ -1598,10 +1797,13 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
         return lista;
     }
 
-    // metodo que revisa si los tipos de datos concuerdan entre dos listas
-    // si no concuerdan se muestra error
-    // y se trata de CASTEAR los valores para tratar de corregir el dato.
+
     public ArrayList<String> revisarTiposDato(ArrayList<String> lista1, ArrayList<Pareja> lista2,ArrayList<String> newRowValues){
+        /**
+         * Este metodo se encarga de revisar si los tipos de datos concuerdan entre dos listas
+         * si no concuerdan se muestran errores
+         * y se trata de CASTEAR los valores para tratar de corregir el dato
+         */
         ArrayList<String> error= new ArrayList<>();
         for(int j=0;j<lista1.size();j++){
             if(!(lista2.get(j).getTipo().getName().equals(lista1.get(j)))){
@@ -1693,6 +1895,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     public ArrayList<String> getColumnsSelect(ArrayList<Pareja> lista){
+        /**
+         * Lista de las columnas del SELECT
+         */
         ArrayList<String> list= new ArrayList<>();
         for(Pareja p: lista){
             list.add(p.getColumnName());
@@ -1744,6 +1949,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     public ArrayList<String> ordenarDatos(ArrayList<String> listaDeIds,ArrayList<Pareja> lista,ArrayList<String> resValues){
         ArrayList<String> newres= new ArrayList();
+        /**
+         * Metodo encargado de ordenar los datos en una lista
+         */
 
         if(!listaDeIds.isEmpty()){
             if(!resValues.get(0).equals("error")){
@@ -1765,6 +1973,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     public boolean compararTiposDatos(ArrayList<String> original, ArrayList<String> nuevo){
+        /**
+         * Metodo encargado de tomar los tipos de datos y compararlos
+         */
         boolean ban=true;
         for(int i=0;i<original.size();i++){
             try{

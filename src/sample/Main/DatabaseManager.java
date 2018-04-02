@@ -1,9 +1,14 @@
 package sample.Main;
+/**
+ *Universidad del valle de guatemala
+ * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
+ * Clase encargada del manejo de parte logica del manejador de base de datos,
+ * en ella se realizan las acciones de memoria.
+ * */
 
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -11,13 +16,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-// Clase para manejo de parte logica, realizacion de acciones en memoria.
 public class DatabaseManager {
+    /**
+     * Se genera un objeto FileManager para poder utilizar los metodos de creacion de archivos y directorios
+     * El arrayList inserts almacena la estrucura de todos los inserts que se generen
+     */
 
-        // objeto Filemanager para usar metodos de creacion de archivos y directorios
 	TypeWritter TW = new TypeWritter();
 	String dbName;
-        ArrayList<InsertStructure> inserts; // estructura para almacenar todos los inserts si hay
+        ArrayList<InsertStructure> inserts;
         private boolean verboseActivated;
         
          public DatabaseManager(String dbName) {
@@ -30,25 +37,54 @@ public class DatabaseManager {
         }
        
 	public boolean createDatabase(String dbName){
-                if(verboseActivated) System.out.println("Verbose: Creando Base de Datos");
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de la generacion de bases de datos
+         *
+         */
+        if(verboseActivated) System.out.println("Verbose: Creando Base de Datos");
 		return TW.crearCarpeta(dbName);
 	}
 	
 	public boolean alterDatabase(String oldDbName, String newDbName){
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de la modificacion de la base sde datos
+         *
+         */
                 if(verboseActivated) System.out.println("Verbose: Modificando Base de Datos");
 		return TW.renombrarCarpeta(oldDbName, newDbName);
 	}
 	
 	public boolean deleteDatabase(String dbName){
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de la eliminacion de la base de datos
+         *
+         */
                 if(verboseActivated) System.out.println("Verbose: Eliminando Base de Datos");
 		return TW.borrarCarpeta(dbName);
 	}
 	
 	public ArrayList<String> showAllDatabases(){
-		return TW.getAllFolders();
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de mostrar todas las bases de datos almacenadas en el arraylist
+         *
+         */
+	    return TW.getAllFolders();
 	}
 	
 	public boolean useDatabase(String dbName){
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de utilizar las bases de datos utilizadas con el directorio
+         *
+         */
             
                 ArrayList<String> lista= showAllDatabases();
                 if(lista.indexOf(dbName)<0){
@@ -74,6 +110,12 @@ public class DatabaseManager {
 	}
         
 	public boolean checkForeignTable(String checkTable) throws JSONException{
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de mostrar si la tabla tiene una llave primaria
+         *
+         */
             ArrayList<String> tables = showAllTables();
             for (String table : tables) {
                 String tableName = table + ".rels";
@@ -105,8 +147,13 @@ public class DatabaseManager {
                 return exists;
         }
   
-        //Método que revisa que la tabla ya tenga una llave primaria
         public boolean hasPrimaryKey(String table){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de revisar si la tabla tiene una llave primaria asignada
+             *
+             */
             boolean exists = false;             
             try {
                 JSONArray jsonArray = getAllConstraints(table);
@@ -121,8 +168,13 @@ public class DatabaseManager {
             return exists;
         }
         
-	// verificar column exist
         public boolean columnExist(String table, String column){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de revisar si la columna existe en la tabla
+             *
+             */
             boolean exists = false;             
             try {
                 JSONArray jsonArray = getAllColumns(table);
@@ -137,6 +189,12 @@ public class DatabaseManager {
         }
          
         public Pareja getSingleColumn(String table, String column){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de mostrar las parejas de las columnas
+             *
+             */
             boolean exists = false;     
             JSONObject jsonObject = null;
             Pareja pareja = null;
@@ -158,6 +216,12 @@ public class DatabaseManager {
         }
         
         public JSONArray getAllColumns(String table){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de mostrar todas las columnas de la tabla
+             *
+             */
             
             String fileContent = TW.leerArchivo(table + ".cols", dbName);
             JSONArray jsonArray=null;
@@ -183,6 +247,18 @@ public class DatabaseManager {
         
         public boolean createCheck(String table, String column, String conditionType,
                                    String conditionValue,String constraintName){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de ver los checks  agregando los objetos
+             *          utiliza los atributos
+             *          tabla
+             *          columna
+             *          tipo de condicion
+             *          valor de la condicion
+             *          nombre
+             *
+             */
             boolean success = false;
             String tableName = table + ".rels";
             String fileContent = TW.leerArchivo(tableName, dbName);
@@ -208,6 +284,18 @@ public class DatabaseManager {
         
         public boolean createForeignKey(String table, String column, String constraint, 
                 String referenceColumn, String referenceTable){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de generar una llave foranea
+             *          utiliza los atributos de
+             *              tabla
+             *              columna
+             *              constraint
+             *              columna a referenciar
+             *              referencia de tabla
+             *
+             */
             boolean success = false;
             
             String tableName = table + ".rels";
@@ -237,6 +325,16 @@ public class DatabaseManager {
         
         
         public boolean createPrimaryKey(String table, String column, String constraint){
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de crear una llave primaria
+             *          utiliza los atributos
+             *                  tabla
+             *                  columna
+             *                  constraint
+             *
+             */
             boolean success = false;
             String tableName = table + ".rels";
             String fileContent = TW.leerArchivo(tableName, dbName);
@@ -259,6 +357,16 @@ public class DatabaseManager {
         }
         
 	public int createTable(String s, ArrayList<Pareja> columns){
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de crear una tabla utilizando el arraylist de las parejas
+         *          crea 3 archivos
+         *              .json
+         *              .cols
+         *              .rels
+         *
+         */
             if(verboseActivated) System.out.println("Verbose: Creando tabla...");
             if(this.dbName!=null){
 		try{
@@ -305,6 +413,12 @@ public class DatabaseManager {
 	}
 	
 	public boolean dropTable(String tableName){
+
+        /**
+         * Descripcion de metodo:
+         *          Verifica las llaves foraneas de la tabla
+         *
+         */
                 if(verboseActivated) System.out.println("Verbose: Eliminando tabla...");
 		//Verificar las llaves foráneas
 		TW.borrarArchivo(tableName + ".json", dbName);
@@ -313,6 +427,12 @@ public class DatabaseManager {
 	}
 	
 	public boolean addColumn(String table, Pareja column){
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de agregar columnas a la tabla agregando el numero, nombre y tipo
+         *
+         */
             boolean success = false;
             try {
                 JSONArray array = getAllColumns(table);
@@ -355,6 +475,12 @@ public class DatabaseManager {
 	}
 	
 	public boolean dropColumn(String table, String columnName){
+
+        /**
+         * Descripcion de metodo:
+         *          Metodo encargado de la eliminacion de una columna en la tabla
+         *
+         */
             //Falta Validación de Constraints
             boolean success = false;
             try {
@@ -410,6 +536,15 @@ public class DatabaseManager {
 	}
 
         public boolean insert(ArrayList<InsertStructure> structure) throws JSONException{
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de hacer la instruccion INSERT
+             *          En el primer FOR se obtiene todas las columnas ya que siempre son de utlilidad
+             *          despues revisamos que se encuentran todas las columnas y se genera un JSON
+             *          donde se genera el archivo
+             *
+             */
             String tableName = structure.get(0).getTable() + ".json";
             String fileContent = TW.leerArchivo(tableName, dbName);
             JSONArray allInserts = new JSONArray(fileContent);
@@ -418,9 +553,10 @@ public class DatabaseManager {
                 ArrayList<String> allColumns = jsonArrayToArrayList(getAllColumns(item.getTable()));
                 
                 item.setColumns(allColumns);
-               
-                //Ya revisamos que estén todas las columnas
-                //Tenemos que crear el JSON que se guardará en el archivo
+                /**
+                 * Aca se revisan las columnas
+                 * y se crea el JSON que se guarda en el archivo
+                 */
                 JSONObject newRow = new JSONObject();
                 for(int i = 0; i<item.getColumns().size(); i++){
                     String thisColumn = item.getColumns().get(i);
@@ -430,7 +566,9 @@ public class DatabaseManager {
                     }catch(Exception e){
                         thisValue = "NULL";
                     }
-                    //Se agregan todos los elementos al JSON
+                    /**
+                     * Se agregan todos los elementos al JSON
+                     */
                     newRow.put(thisColumn, thisValue);
                 }
                 
@@ -442,12 +580,22 @@ public class DatabaseManager {
         }
         
        public JSONArray select(String table, ArrayList<String> columns, WhereStructure where1, WhereStructure where2, String whereOperator) throws JSONException{
-            //Hacemos el select de la tabla completa
+
+           /**
+            * Descripcion de metodo:
+            *          Metodo encargado de hacer el SELECT
+            *          se hace el select de la tabla completa
+            *
+            */
             String fileContent = TW.leerArchivo(table + ".json", dbName);
             JSONArray currentSelect = new JSONArray(fileContent);
             
             if(columns != null){
-                //Hay que filtrar columnas
+
+                /**
+                 *
+                 * Aca se filtran las columnas
+                 */
                 JSONObject currentRow;
                 JSONArray tempSelect = new JSONArray();
                 for(int i  = 0; i < currentSelect.length(); i++){
@@ -472,7 +620,9 @@ public class DatabaseManager {
                 currentSelect = tempSelect;
                 
             }else{
-                //Están los 2 wheres
+                /**
+                 * Aca se encuentran los 2 WHERES
+                 */
                 if(whereOperator.equals("AND")){
                     JSONArray tempSelect = new JSONArray();
                     for(int i  = 0; i < currentSelect.length(); i++){
@@ -516,10 +666,15 @@ public class DatabaseManager {
         }
         
         public boolean delete(String table, WhereStructure where) throws JSONException{
+
+            /**
+             * Descripcion de metodo:
+             *          Metodo encargado de eliminar todo del json
+             *
+             */
             String tableName = table + ".json";
             JSONArray result = new JSONArray();
             if(where == null){
-                //Borramos todo
                 TW.escribirArchivo(tableName, dbName, result.toString());
                 return true;
             }else{
@@ -536,7 +691,12 @@ public class DatabaseManager {
                                     return false;
                                 }
                             }else{
-                                //No cumple con el where, entonces lo ponemos
+
+                                /**
+                                 * Si no cumple con la instruccion del  WHERE
+                                 * lo agregamos al JSON
+                                 *
+                                 */
                                 result.put(actual.getJSONObject(i));
                             }
                         }
@@ -583,6 +743,9 @@ public class DatabaseManager {
         }
         
         public boolean checkForeignRow(String checkTable, JSONObject checkValue, String origenTable) throws JSONException{
+            /**
+             * Aca se revisa la row que tiene la llave foranea
+             */
             String tableName = checkTable + ".rels";
             String fileContent = TW.leerArchivo(tableName, dbName);
             JSONArray currentForeigns = new JSONArray(fileContent);
@@ -650,11 +813,15 @@ public class DatabaseManager {
 //        }
         
         public boolean update(String table, String updateColumn, String updateValue, WhereStructure where) throws JSONException{
+            /**
+             * Aca actualizamos todos los valores de la tabla tando como columnas, valores
+             * y los agregamos al json
+             *
+             */
             String tableName = table + ".json";
             JSONArray result = new JSONArray();
             boolean resultado = true;
             if(where == null){
-                //Actualizamos todo
                 String fileContent = TW.leerArchivo(tableName, dbName);
                 JSONArray actual = new JSONArray(fileContent);
                 
@@ -676,12 +843,18 @@ public class DatabaseManager {
                     
                         
                         if(actual.getJSONObject(i).getString(where.getWhereColumn()).equals(where.getWhereValue())){
+                            /**
+                             * Si cumple con el WHERE
+                             * hay una llave foranea que depende del valor que queremos camviar
+                             */
                             //Cumple con el WHERE
                             if(!(checkForeignRow2(table, actual.getJSONObject(i), table) && checkForeignRow("empleado", actual.getJSONObject(i), table))){
                                 //Hay una llave FK que depende del valor que queremos cambiar
                                 resultado = false;
                             }else{
-                                //Podemos cambiar el valor
+                                /**
+                                 * Aca cambiamos el valor
+                                 */
                                 if(!yaModifico){
                                     JSONObject newObject = actual.getJSONObject(i);
                                     newObject.remove(updateColumn);
@@ -691,7 +864,10 @@ public class DatabaseManager {
                                 yaModifico = true;
                             }
                         }else{
-                            //No cumple con el where, entonces lo ponemos sin ningún cambio
+                            /**
+                             * Si no cumple con el WHERE
+                             * entonces se agrega sin ningun cambio
+                             */
                             if(!yaModifico){
                                 result.put(actual.getJSONObject(i));
                             }

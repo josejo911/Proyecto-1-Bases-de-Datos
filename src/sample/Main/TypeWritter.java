@@ -3,7 +3,7 @@ package sample.Main;
 import java.io.*;
 import java.util.ArrayList;
 /**
- *Universidad del valle de guatemala
+ * Universidad del valle de guatemala
  * Nombre: Marlon Fuentes, Jose Jo, Diego Alvarez
  * Clase encargada del manejo de archivos y creacion de directorios con el uso de la METADATA
  * */

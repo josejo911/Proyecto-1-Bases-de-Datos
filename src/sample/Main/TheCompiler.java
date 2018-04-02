@@ -1,6 +1,5 @@
 package sample.Main;
 
-
 import jdk.nashorn.api.tree.TreeVisitor;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
