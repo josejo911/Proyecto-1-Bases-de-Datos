@@ -6,6 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import org.antlr.runtime.tree.ParseTree;
 import org.antlr.runtime.tree.TreeVisitor;
+import org.antlr.v4.runtime.tree.TerminalNode;
 import org.codehaus.jettison.json.JSONException;
 
 import java.lang.reflect.Array;
@@ -47,7 +48,9 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
     }
 
     @Override
-    public Tipo visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {return super.visitSqlCreateDB(ctx);}
+    public Tipo visitSqlCreateDB(pruebaParser.SqlCreateDBContext ctx) {
+        return super.visitSqlCreateDB(ctx);
+    }
 
     @Override
     public Tipo visitSqlAlterDB(pruebaParser.SqlAlterDBContext ctx) { return super.visitSqlAlterDB(ctx);   }
@@ -216,32 +219,302 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitCreateTableRule(pruebaParser.CreateTableRuleContext ctx) {
-        return super.visitCreateTableRule(ctx);
+        ArrayList<Tipo> listaTipos = new ArrayList(); // Lista de tipos de los nombres de columnas
+        ArrayList<String> listaDeIds= new ArrayList();// Lista de nombres de columna
+        int contador=0;
+        boolean bandera=false;
+        boolean bandera2=true;
+        ArrayList<Pareja> parejas= new ArrayList();
+        int counter=0;
+        ArrayList<Tipo> listaCons = new ArrayList();
+        Tipo envio=new Tipo("");
+        // Se obtienen los nombres de las constraints.
+         pruebaParser.CConstraintContext constraint = ctx.cConstraint();
+         String con = constraint.getText();
+         Tipo resultado=visit(constraint);
+         envio= resultado;
+         listaCons.add(resultado);
+         counter++;
+        // Se obtienen los tipos de datos de las columnas
+        for(pruebaParser.DataTypeContext tc: ctx.dataType()){
+            Tipo tipo =visit(tc);
+            listaTipos.add(tipo);
+            if(tipo instanceof Error){
+                Tipo error= new Error("Error: Tipo de columna inválido");
+                texto = texto + error.getName()+"\n";
+                return error;
+            }
+        }
+        // obtencion de la lista de ids.
+        for(TerminalNode i :ctx.ID()){
+            if(contador!=0){
+                String id= i.getText();
+                listaDeIds.add(id);
+            }
+            contador+=1;
+
+        }
+        for(int i =0;i<listaTipos.size();i++){
+            parejas.add(new Pareja(i,listaDeIds.get(i),listaTipos.get(i)));
+        }
+        String tableName= ctx.ID(0).getText();
+        // valores para primary
+        ArrayList<String> columnName=new ArrayList<>();
+        String constraintName="";
+
+        // valores para check
+        String nameVariableCheck="";
+        String operador= "";
+        String numeroCheck="";
+        String nombreConstraint="";
+        String nombreColumna="";
+        String tablaReferencia="";
+        String columnReferencia="";
+        int result;
+
+        if(counter>1){
+            bandera2=false;
+            int countersillo=0;
+            for(Tipo cons: listaCons){
+                switch(cons.getName()){
+                    case "primary":
+                        // En caso de que sea una primary key, se ingresa en este case para realizar una accion
+                        ArrayList a= (ArrayList)cons.getObjeto();
+                        for(int c=0;c<a.size();c++){
+                            String m = a.get(c).getClass().toString();
+                            if(a.get(c).getClass().toString().equals("class java.lang.String")){
+                                String value =a.get(c).toString();
+                                constraintName+=value;
+                            }
+                            else{
+                                ArrayList aro= (ArrayList)a.get(c);
+                                for(Object o :aro){
+                                    String vg=o.toString();
+                                    if(columnName.equals("")){
+                                        columnName.add(vg);
+                                    }
+                                    else{
+                                        String bla= vg;
+                                        columnName.add(bla);
+                                    }
+                                }
+                            }
+                        }
+
+
+                        if(countersillo==0){
+                            dbManager.createTable(tableName,parejas);
+                            countersillo++;
+                        }
+
+                        if(validarColumnasPrimary(parejas,columnName)){
+
+                            for(String columna: columnName){
+                                dbManager.createPrimaryKey(tableName, columna, constraintName);
+                            }
+                        }
+                        else{
+                            Tipo tipo= new Error("Error: El nombre de columna de la PK no existe en las columnas de la tabla. \n"
+                                    +"No se creó la tabla.");
+                            texto = texto + tipo.getName()+"\n";
+                            return tipo;
+                        }
+                        break;
+                    // en caso de que la restriccion sea de tipo check
+                    case "check":
+                        ArrayList<String> b= (ArrayList)cons.getObjeto();
+                        nameVariableCheck= b.get(0);
+                        operador=b.get(1);
+                        numeroCheck= b.get(2);
+                        constraintName= b.get(3);
+
+
+                        if(countersillo==0){
+                            dbManager.createTable(tableName,parejas);
+                            countersillo++;
+                        }
+
+                        if(validarColumnasCheck(parejas,nameVariableCheck)){
+
+                            dbManager.createCheck(tableName,nameVariableCheck,operador,numeroCheck,constraintName);
+                        }
+                        else{
+                            Tipo tipo= new Error("Error: columna del check no existe o tiene error. \n"
+                                    +"No se creó la tabla.");
+                            texto = texto + tipo.getName()+"\n";
+                            return tipo;
+                        }
+                        break;
+                    case "foreign":
+                        // caso en que la restriccion vaya a se de tipo foreign key
+                        ArrayList<Object> o=(ArrayList)cons.getObjeto();
+                        nombreConstraint= o.get(0).toString();
+                        nombreColumna= o.get(1).toString();
+                        ArrayList<Object> listado= (ArrayList)o.get(2);
+                        tablaReferencia= listado.get(0).toString();
+                        ArrayList<String> ar=(ArrayList)listado.get(1);
+                        columnReferencia=ar.get(0);
+                        if(countersillo==0){
+                            dbManager.createTable(tableName,parejas);
+                            countersillo++;
+                        }
+
+                        dbManager.createForeignKey(tableName,nombreColumna, nombreConstraint,columnReferencia,tablaReferencia);
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+        }
+        // caso para cuando una primary key se encuentra en el create.
+        else if(envio.getName().equals("primary")){
+            bandera=true;
+            ArrayList a= (ArrayList)envio.getObjeto();
+            for(int c=0;c<a.size();c++){
+                String m = a.get(c).getClass().toString();
+                if(a.get(c).getClass().toString().equals("class java.lang.String")){
+                    String value =a.get(c).toString();
+                    constraintName+=value;
+                }
+                else{
+                    ArrayList aro= (ArrayList)a.get(c);
+                    for(Object o :aro){
+                        String vg=o.toString();
+                        if(columnName.equals("")){
+                            columnName.add(vg);
+                        }
+                        else{
+                            String bla= vg;
+                            columnName.add(bla);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        else if(envio.getName().equals("check")){
+            bandera=true;
+            ArrayList<String> a= (ArrayList)envio.getObjeto();
+            nameVariableCheck= a.get(0);
+            operador=a.get(1);
+            numeroCheck= a.get(2);
+            constraintName= a.get(3);
+
+        }
+        else if(envio.getName().equals("foreign")){
+            bandera=true;
+            ArrayList<Object> o=(ArrayList<Object>)envio.getObjeto();
+            nombreConstraint= o.get(0).toString();
+            nombreColumna= o.get(1).toString();
+            ArrayList<Object> listado= (ArrayList)o.get(2);
+            ArrayList<String> pre= (ArrayList)listado;
+            columnReferencia=pre.get(1);
+            tablaReferencia=listado.get(0).toString();
+        }
+
+        if(bandera){
+            switch(envio.getName()){
+                case "primary":
+                    if(validarColumnasPrimary(parejas,columnName)){
+                        result= dbManager.createTable(tableName,parejas);
+                        for(String columna: columnName){
+                            dbManager.createPrimaryKey(tableName, columna, constraintName);
+                        }
+                    }
+                    else{
+                        Tipo tipo= new Error("El nombre de columna de la PK no existe en las columnas de la tabla. \n"
+                                +"No se creó la tabla.");
+                        texto = texto + tipo.getName()+"\n";
+                        return tipo;
+                    }
+                    break;
+
+                case "check":
+                    if(validarColumnasCheck(parejas,nameVariableCheck)){
+                        result= dbManager.createTable(tableName,parejas);
+                        dbManager.createCheck(tableName,nameVariableCheck,operador,numeroCheck,constraintName);
+                    }
+                    else{
+                        Tipo tipo= new Error("Error: columna del check no existe o tiene error. \n"
+                                +"No se creó la tabla.");
+                        texto = texto + tipo.getName()+"\n";
+                        return tipo;
+                    }
+                    break;
+
+                case "foreign":
+
+                    dbManager.createTable(tableName,parejas);
+                    dbManager.createForeignKey(tableName,nombreColumna, nombreConstraint,columnReferencia,tablaReferencia);
+
+                default:
+                    result=1;
+            }
+
+        }
+        else if(bandera2){
+            result= dbManager.createTable(tableName,parejas);
+        }
+        else{
+            result=1;
+        }
+
+        switch (result) {
+            case 1:
+            {
+                Tipo tipo= new Valido("Se creo la tabla: " + tableName + " correctamente");
+                texto = texto + tipo.getName()+"\n";
+                return tipo;
+            }
+            case 0:
+            {
+                Tipo tipo= new Error("Error: No se pudo crear la tabla: " + tableName);
+                texto = texto + tipo.getName()+"\n";
+                return tipo;
+            }
+            case 2:
+            {
+                Tipo tipo= new Error("Error: No se esta utilizando ninguna DB: ");
+                texto = texto + tipo.getName()+"\n";
+                return tipo;
+            }
+            default:
+                Tipo error= new Error("Error: Creacion de la tabla");
+                texto = texto + error.getName()+"\n";
+                return error;
+        }
+
     }
 
     @Override
     public Tipo visitInt(pruebaParser.IntContext ctx) {
-        return super.visitInt(ctx);
+        Tipo tipo = new Int("Int");
+        return tipo;
     }
 
     @Override
     public Tipo visitFloat(pruebaParser.FloatContext ctx) {
-        return super.visitFloat(ctx);
+        Tipo tipo = new Flotante("Float");
+        return tipo;
     }
 
     @Override
     public Tipo visitDate(pruebaParser.DateContext ctx) {
-        return super.visitDate(ctx);
+        Tipo tipo = new Date("Date");
+        return tipo;
     }
 
     @Override
     public Tipo visitChar(pruebaParser.CharContext ctx) {
-        return super.visitChar(ctx);
-    }
+        Tipo tipo = new Char("Char");
+        return tipo;
+        }
 
     @Override
     public Tipo visitPrimaryKeyConstraintRule(pruebaParser.PrimaryKeyConstraintRuleContext ctx) {
-        return super.visitPrimaryKeyConstraintRule(ctx);
+            return super.visitPrimaryKeyConstraintRule(ctx);
     }
 
     @Override
@@ -256,17 +529,51 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitPrimaryKeyRule(pruebaParser.PrimaryKeyRuleContext ctx) {
-        return super.visitPrimaryKeyRule(ctx);
+        ArrayList<String> listaDeIds= new ArrayList();
+        String nombreConstraint= ctx.ID(0).getText();
+        ArrayList<Object> obs = new ArrayList();
+        // Se recorren los ids de los nombres de las llaves.
+        int contador=0;
+        for(TerminalNode i :ctx.ID()){
+            if(contador!=0){
+                String id= i.getText();
+                listaDeIds.add(id);
+            }
+            contador+=1;
+        }
+        obs.add(nombreConstraint);
+        obs.add(listaDeIds);
+
+        Tipo tipo= new Tipo(obs);
+        tipo.setName("primary");
+        return tipo;
     }
 
     @Override
     public Tipo visitForeignKeyRule(pruebaParser.ForeignKeyRuleContext ctx) {
-        return super.visitForeignKeyRule(ctx);
+        String primerId= ctx.ID(0).getText();
+        String id = ctx.ID(1).getText();
+        ArrayList<Object> obs = new ArrayList();
+        Tipo foreignKeyReference = visit(ctx.REFERENCES());
+        ArrayList<String> listaDeIdsReferences = (ArrayList<String>)foreignKeyReference.getObjeto();
+        obs.add(primerId);
+        obs.add(id);
+        obs.add(listaDeIdsReferences);
+        Tipo tipo = new Tipo("foreign");
+        tipo.setObjeto(obs);
+        return tipo;
     }
 
     @Override
     public Tipo visitCheckRule(pruebaParser.CheckRuleContext ctx) {
-        return super.visitCheckRule(ctx);
+        // se obtiene el nombre de la constraint
+        String nombreConstraint = ctx.ID().getText();
+        Tipo tipo=visit(ctx.expression());
+        tipo.setName("check");
+        ArrayList<String> lista = (ArrayList)tipo.getObjeto();
+        lista.add(nombreConstraint);
+        tipo.setObjeto(lista);
+        return tipo;
     }
 
     @Override
@@ -326,7 +633,19 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     @Override
     public Tipo visitLogicExpressionRule(pruebaParser.LogicExpressionRuleContext ctx) {
-        return super.visitLogicExpressionRule(ctx);
+        if(ctx.children.size()>1){
+            ArrayList<String> total= new ArrayList<>();
+            Tipo t1= visit(ctx.getChild(0));
+            Tipo t2= visit(ctx.getChild(1));
+            Tipo nuevo = new Tipo("relation");
+            ArrayList<String> parte1=(ArrayList)t1.getObjeto();
+            parte1.add("OR");
+            ArrayList<String> parte2=(ArrayList)t2.getObjeto();
+            parte1.addAll(parte2);
+            nuevo.setObjeto(parte1);
+            return nuevo;
+        }
+        return visitChildren(ctx);
     }
 
     @Override
@@ -414,6 +733,37 @@ public class TheVisitor extends pruebaBaseVisitor<Tipo> {
 
     public void setTexto(String texto) {
         this.texto = texto;
+    }
+
+    public boolean validarColumnasPrimary(ArrayList<Pareja> columnasTabla,ArrayList<String> columnasPrimary ){
+        ArrayList<String> listaTemp= new ArrayList<>();
+        for(Pareja par: columnasTabla){
+            listaTemp.add(par.getColumnName());
+        }
+
+        return listaTemp.containsAll(columnasPrimary);
+
+    }
+    // metodo para revisar las columnas en la tabla para poder usar una llave de tipo CHECK
+    public boolean validarColumnasCheck(ArrayList<Pareja> columnasTabla,String columnasPrimary ){
+        ArrayList<String> listaTemp= new ArrayList<>();
+        for(Pareja par: columnasTabla){
+            listaTemp.add(par.getColumnName());
+        }
+
+        return listaTemp.contains(columnasPrimary);
+
+    }
+
+    // metodo para verificaion de columnas para una foreign key
+    public boolean validarColumnasForeign(ArrayList<Pareja> columnasTabla,String columnasPrimary ){
+        ArrayList<String> listaTemp= new ArrayList<>();
+        for(Pareja par: columnasTabla){
+            listaTemp.add(par.getColumnName());
+        }
+
+        return listaTemp.contains(columnasPrimary);
+
     }
 
 }
